@@ -58,26 +58,28 @@
             // TEmail
             // 
             TEmail.Font = new Font("Microsoft Sans Serif", 12F);
-            TEmail.Location = new Point(93, 141);
+            TEmail.Location = new Point(106, 188);
+            TEmail.Margin = new Padding(3, 4, 3, 4);
             TEmail.Name = "TEmail";
-            TEmail.Size = new Size(156, 26);
+            TEmail.Size = new Size(178, 30);
             TEmail.TabIndex = 34;
             // 
             // TNombre
             // 
             TNombre.Font = new Font("Microsoft Sans Serif", 12F);
-            TNombre.Location = new Point(93, 71);
+            TNombre.Location = new Point(106, 95);
+            TNombre.Margin = new Padding(3, 4, 3, 4);
             TNombre.Name = "TNombre";
-            TNombre.Size = new Size(156, 26);
+            TNombre.Size = new Size(178, 30);
             TNombre.TabIndex = 33;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F);
-            label4.Location = new Point(30, 144);
+            label4.Location = new Point(34, 192);
             label4.Name = "label4";
-            label4.Size = new Size(57, 20);
+            label4.Size = new Size(73, 25);
             label4.TabIndex = 30;
             label4.Text = "E-mail:";
             // 
@@ -85,9 +87,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F);
-            label3.Location = new Point(18, 111);
+            label3.Location = new Point(21, 148);
             label3.Name = "label3";
-            label3.Size = new Size(69, 20);
+            label3.Size = new Size(88, 25);
             label3.TabIndex = 29;
             label3.Text = "Apellido:";
             // 
@@ -95,9 +97,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F);
-            label2.Location = new Point(18, 74);
+            label2.Location = new Point(21, 99);
             label2.Name = "label2";
-            label2.Size = new Size(69, 20);
+            label2.Size = new Size(87, 25);
             label2.TabIndex = 28;
             label2.Text = "Nombre:";
             // 
@@ -105,35 +107,37 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(18, 21);
+            label1.Location = new Point(21, 28);
             label1.Name = "label1";
-            label1.Size = new Size(85, 24);
+            label1.Size = new Size(109, 29);
             label1.TabIndex = 27;
             label1.Text = "Clientes";
             // 
             // TApellido
             // 
             TApellido.Font = new Font("Microsoft Sans Serif", 12F);
-            TApellido.Location = new Point(93, 106);
+            TApellido.Location = new Point(106, 141);
+            TApellido.Margin = new Padding(3, 4, 3, 4);
             TApellido.Name = "TApellido";
-            TApellido.Size = new Size(156, 26);
+            TApellido.Size = new Size(178, 30);
             TApellido.TabIndex = 39;
             // 
             // TTelefono
             // 
             TTelefono.Font = new Font("Microsoft Sans Serif", 12F);
-            TTelefono.Location = new Point(409, 71);
+            TTelefono.Location = new Point(467, 95);
+            TTelefono.Margin = new Padding(3, 4, 3, 4);
             TTelefono.Name = "TTelefono";
-            TTelefono.Size = new Size(156, 26);
+            TTelefono.Size = new Size(178, 30);
             TTelefono.TabIndex = 41;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 12F);
-            label5.Location = new Point(328, 74);
+            label5.Location = new Point(375, 99);
             label5.Name = "label5";
-            label5.Size = new Size(75, 20);
+            label5.Size = new Size(95, 25);
             label5.TabIndex = 40;
             label5.Text = "Teléfono:";
             // 
@@ -142,9 +146,10 @@
             RBFemenino.AutoSize = true;
             RBFemenino.Checked = true;
             RBFemenino.Font = new Font("Microsoft Sans Serif", 12F);
-            RBFemenino.Location = new Point(93, 186);
+            RBFemenino.Location = new Point(106, 248);
+            RBFemenino.Margin = new Padding(3, 4, 3, 4);
             RBFemenino.Name = "RBFemenino";
-            RBFemenino.Size = new Size(98, 24);
+            RBFemenino.Size = new Size(120, 29);
             RBFemenino.TabIndex = 42;
             RBFemenino.TabStop = true;
             RBFemenino.Text = "Femenino";
@@ -154,9 +159,10 @@
             // 
             RBMasculino.AutoSize = true;
             RBMasculino.Font = new Font("Microsoft Sans Serif", 12F);
-            RBMasculino.Location = new Point(197, 186);
+            RBMasculino.Location = new Point(225, 248);
+            RBMasculino.Margin = new Padding(3, 4, 3, 4);
             RBMasculino.Name = "RBMasculino";
-            RBMasculino.Size = new Size(98, 24);
+            RBMasculino.Size = new Size(122, 29);
             RBMasculino.TabIndex = 43;
             RBMasculino.Text = "Masculino";
             RBMasculino.UseVisualStyleBackColor = true;
@@ -165,28 +171,29 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F);
-            label6.Location = new Point(38, 188);
+            label6.Location = new Point(43, 251);
             label6.Name = "label6";
             label6.RightToLeft = RightToLeft.No;
-            label6.Size = new Size(49, 20);
+            label6.Size = new Size(64, 25);
             label6.TabIndex = 44;
             label6.Text = "Sexo:";
             // 
             // TDNI
             // 
             TDNI.Font = new Font("Microsoft Sans Serif", 12F);
-            TDNI.Location = new Point(409, 141);
+            TDNI.Location = new Point(467, 188);
+            TDNI.Margin = new Padding(3, 4, 3, 4);
             TDNI.Name = "TDNI";
-            TDNI.Size = new Size(156, 26);
+            TDNI.Size = new Size(178, 30);
             TDNI.TabIndex = 46;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F);
-            label7.Location = new Point(362, 144);
+            label7.Location = new Point(414, 192);
             label7.Name = "label7";
-            label7.Size = new Size(41, 20);
+            label7.Size = new Size(51, 25);
             label7.TabIndex = 45;
             label7.Text = "DNI:";
             // 
@@ -194,26 +201,28 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 12F);
-            label8.Location = new Point(301, 111);
+            label8.Location = new Point(344, 148);
             label8.Name = "label8";
-            label8.Size = new Size(102, 20);
+            label8.Size = new Size(129, 25);
             label8.TabIndex = 47;
             label8.Text = "Cumpleaños:";
             // 
             // DTPCumple
             // 
             DTPCumple.Font = new Font("Microsoft Sans Serif", 12F);
-            DTPCumple.Location = new Point(409, 106);
+            DTPCumple.Location = new Point(467, 141);
+            DTPCumple.Margin = new Padding(3, 4, 3, 4);
             DTPCumple.Name = "DTPCumple";
-            DTPCumple.Size = new Size(158, 26);
+            DTPCumple.Size = new Size(180, 30);
             DTPCumple.TabIndex = 48;
             // 
             // BEliminar
             // 
             BEliminar.Font = new Font("Microsoft Sans Serif", 12F);
-            BEliminar.Location = new Point(732, 110);
+            BEliminar.Location = new Point(837, 147);
+            BEliminar.Margin = new Padding(3, 4, 3, 4);
             BEliminar.Name = "BEliminar";
-            BEliminar.Size = new Size(133, 61);
+            BEliminar.Size = new Size(152, 81);
             BEliminar.TabIndex = 54;
             BEliminar.Text = "Limpiar";
             BEliminar.UseVisualStyleBackColor = true;
@@ -222,9 +231,10 @@
             // BAgregar
             // 
             BAgregar.Font = new Font("Microsoft Sans Serif", 12F);
-            BAgregar.Location = new Point(732, 34);
+            BAgregar.Location = new Point(837, 45);
+            BAgregar.Margin = new Padding(3, 4, 3, 4);
             BAgregar.Name = "BAgregar";
-            BAgregar.Size = new Size(133, 58);
+            BAgregar.Size = new Size(152, 77);
             BAgregar.TabIndex = 53;
             BAgregar.Text = "Agregar";
             BAgregar.UseVisualStyleBackColor = true;
@@ -233,9 +243,10 @@
             // BInactivos
             // 
             BInactivos.Font = new Font("Microsoft Sans Serif", 12F);
-            BInactivos.Location = new Point(242, 235);
+            BInactivos.Location = new Point(277, 313);
+            BInactivos.Margin = new Padding(3, 4, 3, 4);
             BInactivos.Name = "BInactivos";
-            BInactivos.Size = new Size(106, 35);
+            BInactivos.Size = new Size(121, 47);
             BInactivos.TabIndex = 57;
             BInactivos.Text = "Inactivos";
             BInactivos.UseVisualStyleBackColor = true;
@@ -244,9 +255,10 @@
             // BActivos
             // 
             BActivos.Font = new Font("Microsoft Sans Serif", 12F);
-            BActivos.Location = new Point(130, 235);
+            BActivos.Location = new Point(149, 313);
+            BActivos.Margin = new Padding(3, 4, 3, 4);
             BActivos.Name = "BActivos";
-            BActivos.Size = new Size(106, 35);
+            BActivos.Size = new Size(121, 47);
             BActivos.TabIndex = 56;
             BActivos.Text = "Activos";
             BActivos.UseVisualStyleBackColor = true;
@@ -257,11 +269,12 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { btnChangeStatus });
-            dataGridView1.Location = new Point(18, 276);
+            dataGridView1.Location = new Point(21, 368);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(847, 416);
+            dataGridView1.Size = new Size(968, 555);
             dataGridView1.TabIndex = 55;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
@@ -269,9 +282,10 @@
             // BTodos
             // 
             BTodos.Font = new Font("Microsoft Sans Serif", 12F);
-            BTodos.Location = new Point(18, 235);
+            BTodos.Location = new Point(21, 313);
+            BTodos.Margin = new Padding(3, 4, 3, 4);
             BTodos.Name = "BTodos";
-            BTodos.Size = new Size(106, 35);
+            BTodos.Size = new Size(121, 47);
             BTodos.TabIndex = 58;
             BTodos.Text = "Todos";
             BTodos.UseVisualStyleBackColor = true;
@@ -280,9 +294,10 @@
             // BAceptar
             // 
             BAceptar.Font = new Font("Microsoft Sans Serif", 12F);
-            BAceptar.Location = new Point(732, 188);
+            BAceptar.Location = new Point(837, 251);
+            BAceptar.Margin = new Padding(3, 4, 3, 4);
             BAceptar.Name = "BAceptar";
-            BAceptar.Size = new Size(133, 61);
+            BAceptar.Size = new Size(152, 81);
             BAceptar.TabIndex = 59;
             BAceptar.Text = "Guardar Cambios";
             BAceptar.UseVisualStyleBackColor = true;
@@ -290,17 +305,21 @@
             // 
             // btnChangeStatus
             // 
+            btnChangeStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             btnChangeStatus.HeaderText = "Acción";
+            btnChangeStatus.Image = Properties.Resources.Altas_y_bajas;
+            btnChangeStatus.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            btnChangeStatus.MinimumWidth = 6;
             btnChangeStatus.Name = "btnChangeStatus";
             btnChangeStatus.ReadOnly = true;
-            btnChangeStatus.Width = 50;
+            btnChangeStatus.Width = 60;
             // 
             // Cliente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
-            ClientSize = new Size(884, 704);
+            ClientSize = new Size(1010, 939);
             Controls.Add(BAceptar);
             Controls.Add(BTodos);
             Controls.Add(BInactivos);
@@ -324,6 +343,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Cliente";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Clientes";
