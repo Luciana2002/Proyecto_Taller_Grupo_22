@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            btnChangeStatus = new DataGridViewImageColumn();
             BEliminar = new Button();
             BAgregar = new Button();
             DTPCumple = new DateTimePicker();
@@ -64,12 +65,22 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { btnChangeStatus });
             dataGridView1.Location = new Point(12, 319);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(860, 371);
             dataGridView1.TabIndex = 76;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            //dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
+            // 
+            // btnChangeStatus
+            // 
+            btnChangeStatus.HeaderText = "Acción";
+            btnChangeStatus.Name = "btnChangeStatus";
+            btnChangeStatus.ReadOnly = true;
+            btnChangeStatus.Width = 50;
             // 
             // BEliminar
             // 
@@ -418,5 +429,7 @@
         private Label label10;
         private ComboBox CBPerfil;
         private Label label11;
+        private DataGridViewImageColumn btnChangeStatusI;
+        private DataGridViewImageColumn btnChangeStatus;
     }
 }
