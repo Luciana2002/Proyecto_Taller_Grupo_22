@@ -39,7 +39,7 @@ namespace Proyecto_Taller_Grupo_22
                          WHERE p.estado = @estado";
 
                 // Usamos SqlConnection para conectarnos a la base de datos
-                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                 {
                     // Usamos SqlDataAdapter para ejecutar la consulta y llenar el DataTable
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conexion);
@@ -67,7 +67,7 @@ namespace Proyecto_Taller_Grupo_22
                          FROM Persona p
                          INNER JOIN Cliente c ON p.id_persona = c.id_cliente"; // No hay filtro
 
-                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conexion);
                     DataTable dataTable = new DataTable();
@@ -312,7 +312,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private bool GuardarDatosEnBaseDeDatos(int? idPersona, string nombre, string apellido, string email, string telefono, DateTime cumple, int dni, string sexo)
         {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 using (SqlTransaction transaction = conexion.BeginTransaction())
@@ -471,7 +471,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private void UpdateStatusInDatabase(int idPersona, string newState)
         {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 using (SqlTransaction transaction = conexion.BeginTransaction())
