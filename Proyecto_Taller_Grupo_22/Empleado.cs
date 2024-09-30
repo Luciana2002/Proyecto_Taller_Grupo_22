@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Proyecto_Taller_Grupo_22
@@ -541,6 +543,77 @@ namespace Proyecto_Taller_Grupo_22
             return null;
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica si el clic fue en la columna del botón
+            if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
+            {
+                // Obtén el ID o cualquier identificador único de la persona desde la fila seleccionada
+                int idPersona = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value);
+                string currentState = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+
+                // Cambiar el estado de "Activo" a "Inactivo" o viceversa
+                string newState = currentState == "A" ? "I" : "A";
+
+                // Actualiza el estado en la interfaz (DataGridView)
+                dataGridView1.Rows[e.RowIndex].Cells["estado"].Value = newState;
+
+                // Actualiza el estado en la base de datos
+                UpdateStatusInDatabase(idPersona, newState);
+            }
+        }
+
+        private void UpdateStatusInDatabase(int idPersona, string newState)
+        {
+            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            {
+                conexion.Open();
+                using (SqlTransaction transaction = conexion.BeginTransaction())
+                {
+                    try
+                    {
+                        string query = "UPDATE Persona SET estado = @estado WHERE id_persona = @id_persona";
+
+                        using (SqlCommand cmdUpdatePersona = new SqlCommand(query, conexion, transaction))
+                        {
+
+                            cmdUpdatePersona.Parameters.AddWithValue("@id_persona", idPersona);
+                            cmdUpdatePersona.Parameters.AddWithValue("@estado", newState);
+                            cmdUpdatePersona.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+
+                        MessageBox.Show("El estado ha sido actualizado correctamente.");
+                        CargarDatos("A");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al actualizar el estado: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        //private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        //{
+            // Asegúrate de que estás en la columna correcta y de que la fila es válida
+            //if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
+            //{
+                // Obtén el valor de la columna 'estado' para la fila actual
+                //string estado = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+
+                // Dependiendo del estado, cambia la imagen del botón
+                //if (estado == "A")
+                //{
+                //    e.Value = Properties.Resources.imagen_activo; // Imagen para estado "Activo"
+                //}
+                //else
+                //{
+                //    e.Value = Properties.Resources.imagen_inactivo; // Imagen para estado "Inactivo"
+                //}
+            //}
+        //}
 
     }
 }
