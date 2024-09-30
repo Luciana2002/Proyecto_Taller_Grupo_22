@@ -38,7 +38,7 @@ namespace Proyecto_Taller_Grupo_22
         private void CargarDatos()
         {
             int idVendedor = UsuarioInfo.IDUsuario;
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 string query = "SELECT v.id_venta, v.fecha_venta, v.total_venta, uv.descripcion AS tipo_venta, p.nombre AS cliente_nombre, p.apellido AS cliente_apellido " +
                     "FROM Venta v " +
@@ -110,7 +110,7 @@ namespace Proyecto_Taller_Grupo_22
             }
 
             int idVendedor = UsuarioInfo.IDUsuario;
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 // Definir la consulta con las mismas columnas y uniones que en CargarDatos
                 string query = $@"SELECT v.id_venta, v.fecha_venta, v.total_venta, uv.descripcion AS tipo_venta, p.nombre AS cliente_nombre, p.apellido AS cliente_apellido
