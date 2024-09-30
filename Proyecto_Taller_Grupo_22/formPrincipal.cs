@@ -27,29 +27,20 @@ namespace Proyecto_Taller_Grupo_22
             {
                 case "Administrador":
                     DeshabilitarBoton(BClientes, PBCliente);
-                    DeshabilitarPB(PBCliente);
                     DeshabilitarBoton(BVentas, PBVenta);
-                    DeshabilitarPB(PBVenta);
                     DeshabilitarBoton(BProductos, PBProducto);
-                    DeshabilitarPB(PBProducto);
                     break;
 
                 case "Gerente":
                     DeshabilitarBoton(BVentas, PBVenta);
-                    DeshabilitarPB(PBVenta);
                     DeshabilitarBoton(BEmpleados, PBEmpleado);
-                    DeshabilitarPB(PBEmpleado);
                     DeshabilitarBoton(BBackUp, PBBackUp);
-                    DeshabilitarPB(PBBackUp);
                     break;
 
                 case "Empleado":
                     DeshabilitarBoton(BEmpleados, PBEmpleado);
-                    DeshabilitarPB(PBEmpleado);
                     DeshabilitarBoton(BProductos, PBProducto);
-                    DeshabilitarPB(PBProducto);
                     DeshabilitarBoton(BBackUp, PBBackUp);
-                    DeshabilitarPB(PBBackUp);
                     break;
 
                 default:
@@ -64,10 +55,8 @@ namespace Proyecto_Taller_Grupo_22
             btn.Enabled = false;
             btn.Paint += new PaintEventHandler(DrawDisabledButton);
             pictureBox.Image = ConvertToGrayscale(pictureBox.Image);
-        }
-        private void DeshabilitarPB(PictureBox pictureBox)
-        {
             pictureBox.Enabled = false;
+
         }
 
         // Evento para cambiar el color del botón cuando está deshabilitado
@@ -140,9 +129,6 @@ namespace Proyecto_Taller_Grupo_22
 
         private void BUsuario_Click(object sender, EventArgs e)
         {
-            //var Usuario = new Usuario();
-            //Usuario.Show();
-            //pictureBox8.Visible = false; // Ocultar PictureBox
             AbrirFormularioEnPanel(new Usuario());
         }
 
