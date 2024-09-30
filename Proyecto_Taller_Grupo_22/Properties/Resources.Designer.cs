@@ -143,6 +143,16 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Altas_y_bajas {
+            get {
+                object obj = ResourceManager.GetObject("Altas_y_bajas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap default_profile_account_unknown_icon_black_silhouette_free_vector {
             get {
                 object obj = ResourceManager.GetObject("default-profile-account-unknown-icon-black-silhouette-free-vector", resourceCulture);
