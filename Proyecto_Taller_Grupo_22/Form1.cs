@@ -21,83 +21,76 @@ namespace Proyecto_Taller_Grupo_22
             string usuario = TUsuario.Text;
             string contrasena = TContrasena.Text;
 
-            if (VerificarUsuario(usuario, contrasena))
+            string estadoUsuario = VerificarUsuario(usuario, contrasena);
+
+            if (estadoUsuario == "A") // Usuario activo
             {
                 CargarInformacionUsuario(usuario); // Carga la información del usuario
-
-                //MessageBox.Show("Login exitoso!");
-                //  abrir el formulario principal o página principal de tu aplicación.
-                this.Hide(); // Para ocultar el formulario de login actual.
+                this.Hide(); // Oculta el formulario de login actual.
                 var formPrincipal = new formPrincipal();
                 formPrincipal.Show();
             }
-            else
+            else if (estadoUsuario == "I") // Usuario inactivo o dado de baja
+            {
+                MessageBox.Show("Este usuario ha sido dado de baja.");
+            }
+            else if (estadoUsuario == "NO_EXISTE") // Usuario o contraseña incorrectos
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.");
             }
-
-        }
-
-
-        // Método que verifica si el usuario existe en la base de datos
-        //private bool VerificarUsuario(string usuario, string contrasena)
-        //{
-        // string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        // using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
-        //{
-        //  try
-        //{
-        //  conexion.Open();
-        //string query = "SELECT COUNT(1) FROM Usuario WHERE nombre_usuario = @nombre_usuario AND contraseña = @contraseña";
-        //  SqlCommand cmd = new SqlCommand(query, conexion);
-        //  cmd.Parameters.AddWithValue("@nombre_usuario", usuario);
-        //  cmd.Parameters.AddWithValue("@contraseña", contrasena);
-
-        //  int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-        //   return count == 1;
-        //  }
-        //catch (Exception ex)
-        //  {
-        //    MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
-        //  return false;
-        //   }
-        //   }
-        // }
-
-        private bool VerificarUsuario(string usuario, string contrasena)
-        {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            else
             {
-                try
-                {
-                    conexion.Open();
-                    string query = "SELECT COUNT(1) FROM Usuario WHERE nombre_usuario = @nombre_usuario AND contraseña = @contraseña";
-
-                    SqlCommand cmd = new SqlCommand(query, conexion);
-
-                    // Parámetro para nombre de usuario
-                    cmd.Parameters.Add(new SqlParameter("@nombre_usuario", System.Data.SqlDbType.VarChar, 50));
-                    cmd.Parameters["@nombre_usuario"].Value = usuario;
-
-                    // Parámetro para contraseña
-                    cmd.Parameters.Add(new SqlParameter("@contraseña", System.Data.SqlDbType.VarChar, 50));
-                    cmd.Parameters["@contraseña"].Value = contrasena;
-
-                    // Ejecutar la consulta
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    return count == 1;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
-                    return false;
-                }
+                MessageBox.Show("Error al verificar el estado del usuario.");
             }
         }
 
-        private void CargarInformacionUsuario(string nombreUsuario)
+        private string VerificarUsuario(string usuario, string contrasena)
+    {
+        using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+        {
+            try
+            {
+                conexion.Open();
+                // Modificar la consulta para obtener el estado del usuario
+                string query = @"
+                SELECT p.estado
+                FROM Usuario u 
+                INNER JOIN Persona p ON u.id_usuario = p.id_persona
+                WHERE u.nombre_usuario = @nombre_usuario 
+                AND u.contraseña = @contraseña";
+
+                SqlCommand cmd = new SqlCommand(query, conexion);
+
+                // Parámetro para nombre de usuario
+                cmd.Parameters.Add(new SqlParameter("@nombre_usuario", System.Data.SqlDbType.VarChar, 50));
+                cmd.Parameters["@nombre_usuario"].Value = usuario;
+
+                // Parámetro para contraseña
+                cmd.Parameters.Add(new SqlParameter("@contraseña", System.Data.SqlDbType.VarChar, 50));
+                cmd.Parameters["@contraseña"].Value = contrasena;
+
+                // Ejecutar la consulta y obtener el estado del usuario
+                var estado = cmd.ExecuteScalar();
+
+                // Si estado no es nulo, significa que encontró al usuario
+                if (estado != null)
+                {
+                    return estado.ToString();
+                }
+                else
+                {
+                    return "NO_EXISTE"; // Si no encontró al usuario
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
+                return null; // Error en la conexión o ejecución
+            }
+        }
+    }
+
+    private void CargarInformacionUsuario(string nombreUsuario)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
