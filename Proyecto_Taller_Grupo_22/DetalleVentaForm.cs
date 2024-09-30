@@ -29,7 +29,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private void CargarDetallesVenta()
         {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 // Consulta para obtener los detalles de la venta
                 string query = @"SELECT dv.cantidad, p.nombre_producto, p.precio_venta , dv.subtotal
