@@ -28,7 +28,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private void CargarProductos()
         {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 string query = "SELECT p.id_producto, p.nombre_producto, p.precio_venta, p.precio_costo, p.eliminado, p.stock, c.descripcion AS categoria " +
                     "FROM Producto p " +
@@ -62,7 +62,7 @@ namespace Proyecto_Taller_Grupo_22
                 return;
             }
 
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 // Definir la consulta
                 string query;
