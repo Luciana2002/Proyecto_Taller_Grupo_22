@@ -51,6 +51,7 @@
             dataGridView1 = new DataGridView();
             BTodos = new Button();
             BAceptar = new Button();
+            btnChangeStatus = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -255,12 +256,14 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { btnChangeStatus });
             dataGridView1.Location = new Point(18, 276);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(847, 416);
             dataGridView1.TabIndex = 55;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // BTodos
@@ -284,6 +287,13 @@
             BAceptar.Text = "Guardar Cambios";
             BAceptar.UseVisualStyleBackColor = true;
             BAceptar.Click += BAceptar_Click;
+            // 
+            // btnChangeStatus
+            // 
+            btnChangeStatus.HeaderText = "Acción";
+            btnChangeStatus.Name = "btnChangeStatus";
+            btnChangeStatus.ReadOnly = true;
+            btnChangeStatus.Width = 50;
             // 
             // Cliente
             // 
@@ -347,5 +357,6 @@
         private DataGridView dataGridView1;
         private Button BTodos;
         private Button BAceptar;
+        private DataGridViewImageColumn btnChangeStatus;
     }
 }
