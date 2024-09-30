@@ -42,7 +42,7 @@ namespace Proyecto_Taller_Grupo_22
                 string query = "SELECT * FROM Producto";
 
                 // Usamos SqlConnection para conectarnos a la base de datos
-                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                 {
                     // Usamos SqlDataAdapter para ejecutar la consulta y llenar el DataTable
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conexion);
@@ -91,7 +91,7 @@ namespace Proyecto_Taller_Grupo_22
             {
                 string query = "DELETE FROM Producto WHERE id_producto = @id_producto"; // Ajusta el nombre del campo ID según tu base de datos
 
-                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                 {
                     using (SqlCommand command = new SqlCommand(query, conexion))
                     {
