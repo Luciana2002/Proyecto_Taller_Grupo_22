@@ -59,7 +59,7 @@ namespace Proyecto_Taller_Grupo_22
             CBTipoV.ValueMember = "id_tipo";        // Asociar el valor con id_tipo
 
             string query = "SELECT id_tipo, descripcion FROM Tipo_Venta";
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 SqlDataAdapter da = new SqlDataAdapter(query, conexion);
@@ -223,7 +223,7 @@ namespace Proyecto_Taller_Grupo_22
             int idCliente = Convert.ToInt32(TClienteID.Text);
 
             // Iniciar la conexión con la base de datos
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 SqlTransaction transaction = conexion.BeginTransaction();
