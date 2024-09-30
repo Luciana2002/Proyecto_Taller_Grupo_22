@@ -11,7 +11,7 @@ CREATE TABLE Persona
   email VARCHAR(50) NOT NULL,
   sexo VARCHAR(11) NOT NULL,
   telefono VARCHAR(30) NOT NULL,
-  cumpleaÒos DATE NOT NULL,
+  cumplea√±os DATE NOT NULL,
   dni INT NOT NULL,
   CONSTRAINT PK_Persona_id PRIMARY KEY (id_persona),
   CONSTRAINT UQ_Persona_email UNIQUE (email),
@@ -36,7 +36,7 @@ CREATE TABLE Perfil
 CREATE TABLE Usuario
 (
   nombre_usuario VARCHAR(50) NOT NULL,
-  contraseÒa VARCHAR(50) NOT NULL,
+  contrase√±a VARCHAR(50) NOT NULL,
   id_usuario INT NOT NULL,
   id_perfil INT NOT NULL,
   CONSTRAINT PK_Usuario_id PRIMARY KEY (id_usuario),
@@ -109,12 +109,8 @@ ALTER TABLE Persona ADD CONSTRAINT DF_estado DEFAULT 'A' for estado;
 
 ALTER TABLE Producto ADD CONSTRAINT CK_eliminado CHECK (eliminado IN ('N', 'S'));
 ALTER TABLE Venta ADD CONSTRAINT DF_fecha_venta DEFAULT getdate() for fecha_venta;
-ALTER TABLE Usuario ADD CONSTRAINT CK_contraseÒa CHECK (LEN(contraseÒa) >= 8);
+ALTER TABLE Usuario ADD CONSTRAINT CK_contrase√±a CHECK (LEN(contrase√±a) >= 8);
 ALTER TABLE Usuario ADD CONSTRAINT CK_nombre_usuario CHECK (nombre_usuario NOT LIKE '%[^A-Za-z ]%');
-
-
-ALTER TABLE Usuario
-DROP CONSTRAINT CK_contraseÒa;
 
 -- LOTE DE DATOS --
 INSERT INTO Categoria (id_categoria, descripcion) VALUES 
@@ -124,32 +120,32 @@ INSERT INTO Perfil (id_perfil, descripcion) VALUES
 (1, 'Administrador'), (2, 'Gerente'), (3, 'Empleado');
 
 INSERT INTO Tipo_Venta (id_tipo, descripcion) VALUES 
-(1, 'Contado'), (2, 'CrÈdito'), (3, 'DÈbito');
+(1, 'Contado'), (2, 'Cr√©dito'), (3, 'D√©bito');
 
-INSERT INTO Persona (nombre, apellido, estado, email, sexo, telefono, cumpleaÒos, dni) VALUES 
+INSERT INTO Persona (nombre, apellido, estado, email, sexo, telefono, cumplea√±os, dni) VALUES 
 ('Juan', 'Perez', 'A', 'juancitop12@gmail.com', 'M', '3794284911', '1989-12-09', 27288012), 
 ('Marta', 'Torres', 'A', 'martatorres0@gmail.com', 'F', '3795104298', '1994-04-17', 38583412), 
 ('Luciana', 'Fernandez', 'A', 'lucifernadnez@gmail.com', 'F', '3794228310', '2002-06-03', 44176144),
-('Ana', 'GÛmez', 'A', 'ana.gomez@example.com', 'F', '9876-543210', '1985-03-22', 23456789),
-('Carlos', 'RodrÌguez', 'I', 'carlos.rodriguez@example.com', 'M', '3794234505', '1980-01-15', 34567890),
-('MarÌa', 'LÛpez', 'A', 'maria.lopez@example.com', 'F', '3784876615', '1992-09-01', 45678901),
-('Luis', 'MartÌnez', 'A', 'luis.martinez@example.com', 'M', '5544332211', '1988-11-30', 56789012),
-('SofÌa', 'Ruiz', 'A', 'sofia.ruiz@example.com', 'F', '6655443322', '1994-04-10', 67890123),
-('Miguel', 'S·nchez', 'I', 'miguel.sanchez@example.com', 'M', '7432-655443', '1991-02-17', 78901234),
+('Ana', 'G√≥mez', 'A', 'ana.gomez@example.com', 'F', '9876-543210', '1985-03-22', 23456789),
+('Carlos', 'Rodr√≠guez', 'I', 'carlos.rodriguez@example.com', 'M', '3794234505', '1980-01-15', 34567890),
+('Mar√≠a', 'L√≥pez', 'A', 'maria.lopez@example.com', 'F', '3784876615', '1992-09-01', 45678901),
+('Luis', 'Mart√≠nez', 'A', 'luis.martinez@example.com', 'M', '5544332211', '1988-11-30', 56789012),
+('Sof√≠a', 'Ruiz', 'A', 'sofia.ruiz@example.com', 'F', '6655443322', '1994-04-10', 67890123),
+('Miguel', 'S√°nchez', 'I', 'miguel.sanchez@example.com', 'M', '7432-655443', '1991-02-17', 78901234),
 ('Laura', 'Torres', 'A', 'laura.torres@example.com', 'F', '+ 8776-765544', '1995-05-22', 89012345),
-('Ricardo', 'GarcÌa', 'A', 'ricardo.garcia@example.com', 'M', '9988776655', '1982-12-15', 90123456),
-('Patricia', 'Fern·ndez', 'A', 'patricia.fernandez@example.com', 'F', '3795334155', '1991-07-10', 10123456);
+('Ricardo', 'Garc√≠a', 'A', 'ricardo.garcia@example.com', 'M', '9988776655', '1982-12-15', 90123456),
+('Patricia', 'Fern√°ndez', 'A', 'patricia.fernandez@example.com', 'F', '3795334155', '1991-07-10', 10123456);
 
-INSERT INTO Usuario (nombre_usuario, contraseÒa, id_usuario, id_perfil)
+INSERT INTO Usuario (nombre_usuario, contrase√±a, id_usuario, id_perfil)
 VALUES ('Luci', '12345678', 3, 1), ('Juan', '12345678', 1, 2), ('MartaT', '12345678', 2, 3);
 
 INSERT INTO Producto (nombre_producto, precio_venta, precio_costo, eliminado, stock, id_categoria) VALUES 
 ('Funda de silicona para iPhone 12', 12.99, 7.00, 'N', 100, 1),
 ('Funda de cuero para Samsung Galaxy S21', 24.99, 15.50, 'N', 50, 1),
-('Pop Socket diseÒo floral', 5.99, 2.50, 'N', 200, 2),
+('Pop Socket dise√±o floral', 5.99, 2.50, 'N', 200, 2),
 ('Pop Socket liso negro', 4.99, 1.90, 'N', 150, 2),
-('Auriculares inal·mbricos Bluetooth', 29.99, 20.00, 'N', 80, 3),
-('Auriculares con cable con micrÛfono', 9.99, 5.50, 'N', 120, 3),
+('Auriculares inal√°mbricos Bluetooth', 29.99, 20.00, 'N', 80, 3),
+('Auriculares con cable con micr√≥fono', 9.99, 5.50, 'N', 120, 3),
 ('Protector de pantalla de vidrio templado', 7.99, 3.00, 'N', 180, 4),
 ('Protector de pantalla curvado', 10.99, 6.00, 'N', 90, 4);
 
@@ -157,19 +153,19 @@ INSERT INTO Cliente(id_cliente)
 VALUES (4), (5), (6), (7), (8), (9), (10), (11), (12);
 
 INSERT INTO Venta (fecha_venta, total_venta, id_usuario, id_tipo, id_cliente) VALUES 
-('2023-09-01', 55.97, 1, 1, 4),  -- Venta por Juan, Contado, Cliente Ana GÛmez
-('2023-09-05', 86.95, 2, 2, 5),  -- Venta por Marta, CrÈdito, Cliente Carlos RodrÌguez
-('2023-09-10', 17.97, 3, 3, 6),   -- Venta por Luciana, DÈbito, Cliente MarÌa LÛpez
-('2023-09-12', 31.97, 3, 1, 7),  -- Venta por Luciana, Contado, Cliente Luis MartÌnez
-('2023-09-15', 44.96, 1, 3, 8),  -- Venta por Juan, DÈbito, Cliente SofÌa Ruiz
-('2023-09-20', 19.98, 3, 1, 9);   -- Venta por Luciana, Contado, Cliente Miguel S·nchez
+('2023-09-01', 55.97, 1, 1, 4),  -- Venta por Juan, Contado, Cliente Ana G√≥mez
+('2023-09-05', 86.95, 2, 2, 5),  -- Venta por Marta, Cr√©dito, Cliente Carlos Rodr√≠guez
+('2023-09-10', 17.97, 3, 3, 6),   -- Venta por Luciana, D√©bito, Cliente Mar√≠a L√≥pez
+('2023-09-12', 31.97, 3, 1, 7),  -- Venta por Luciana, Contado, Cliente Luis Mart√≠nez
+('2023-09-15', 44.96, 1, 3, 8),  -- Venta por Juan, D√©bito, Cliente Sof√≠a Ruiz
+('2023-09-20', 19.98, 3, 1, 9);   -- Venta por Luciana, Contado, Cliente Miguel S√°nchez
 
 INSERT INTO Detalle_Venta (cantidad, id_producto, subtotal, id_venta) VALUES 
 (2, 1, 25.98, 1),  -- 2 Fundas de silicona para iPhone 12 en la Venta 1
-(1, 5, 29.99, 1),  -- 1 Auricular inal·mbrico en la Venta 1
+(1, 5, 29.99, 1),  -- 1 Auricular inal√°mbrico en la Venta 1
 
 (3, 2, 74.97, 2),  -- 3 Fundas de cuero para Samsung Galaxy S21 en la Venta 2
-(2, 3, 11.98, 2),  -- 2 Pop Socket diseÒo floral en la Venta 2
+(2, 3, 11.98, 2),  -- 2 Pop Socket dise√±o floral en la Venta 2
 
 (1, 7, 7.99, 3),   -- 1 Protector de pantalla de vidrio templado en la Venta 3
 (2, 4, 9.98, 3),   -- 2 Pop Socket liso negro en la Venta 3
@@ -178,7 +174,7 @@ INSERT INTO Detalle_Venta (cantidad, id_producto, subtotal, id_venta) VALUES
 (2, 8, 21.98, 4),  -- 2 Protectores de pantalla curvados en la Venta 4
 
 (3, 1, 38.97, 5),  -- 3 Fundas de silicona para iPhone 12 en la Venta 5
-(1, 3, 5.99, 5),   -- 1 Pop Socket diseÒo floral en la Venta 5
+(1, 3, 5.99, 5),   -- 1 Pop Socket dise√±o floral en la Venta 5
 
 (2, 6, 19.98, 6);  -- 2 Auriculares con cable en la Venta 6
 
@@ -190,25 +186,6 @@ select * from Producto
 select * from Tipo_Venta
 select * from Usuario
 select * from Cliente
-
 select * from Venta
 select * from Detalle_Venta
 
-DELETE FROM Cliente
-WHERE id_cliente = 19;
-DELETE FROM Persona
-WHERE id_persona = 19;
-
-SELECT * 
-FROM Persona 
-WHERE dni <= 10000000;
-
-SELECT * 
-FROM Persona 
-WHERE estado = 'I';
-
-DELETE FROM Detalle_Venta 
-WHERE id_venta = 15;
-
-DELETE FROM Venta 
-WHERE id_venta = 14;
