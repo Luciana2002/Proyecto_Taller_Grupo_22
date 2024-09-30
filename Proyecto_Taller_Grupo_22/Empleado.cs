@@ -545,23 +545,42 @@ namespace Proyecto_Taller_Grupo_22
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verifica si el clic fue en la columna del botón
-            if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
+            try
             {
-                // Obtén el ID o cualquier identificador único de la persona desde la fila seleccionada
-                int idPersona = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value);
-                string currentState = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+                // Verifica si el clic fue en la columna del botón
+                if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
+                {
+                    // Verifica que el ID no sea nulo antes de intentar convertir
+                    if (dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value != DBNull.Value)
+                    {
+                        // Obtén el ID o cualquier identificador único de la persona desde la fila seleccionada
+                        int idPersona = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value);
 
-                // Cambiar el estado de "Activo" a "Inactivo" o viceversa
-                string newState = currentState == "A" ? "I" : "A";
+                        // Verifica que el estado actual no sea nulo
+                        string currentState = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value?.ToString();
 
-                // Actualiza el estado en la interfaz (DataGridView)
-                dataGridView1.Rows[e.RowIndex].Cells["estado"].Value = newState;
+                        // Cambiar el estado de "Activo" a "Inactivo" o viceversa
+                        string newState = currentState == "A" ? "I" : "A";
 
-                // Actualiza el estado en la base de datos
-                UpdateStatusInDatabase(idPersona, newState);
+                        // Actualiza el estado en la interfaz (DataGridView)
+                        dataGridView1.Rows[e.RowIndex].Cells["estado"].Value = newState;
+
+                        // Actualiza el estado en la base de datos
+                        UpdateStatusInDatabase(idPersona, newState);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Esta fila está vacía.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Muestra el error en caso de que ocurra una excepción
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
+
 
         private void UpdateStatusInDatabase(int idPersona, string newState)
         {
