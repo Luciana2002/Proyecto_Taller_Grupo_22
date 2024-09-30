@@ -8,7 +8,7 @@ namespace Proyecto_Taller_Grupo_22
     public partial class Form1 : Form
     {
 
-        // Obtener la cadena de conexiÛn desde el archivo App.config
+        // Obtener la cadena de conexi√≥n desde el archivo App.config
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public Form1()
@@ -25,7 +25,7 @@ namespace Proyecto_Taller_Grupo_22
 
             if (estadoUsuario == "A") // Usuario activo
             {
-                CargarInformacionUsuario(usuario); // Carga la informaciÛn del usuario
+                CargarInformacionUsuario(usuario); // Carga la informaci√≥n del usuario
                 this.Hide(); // Oculta el formulario de login actual.
                 var formPrincipal = new formPrincipal();
                 formPrincipal.Show();
@@ -34,9 +34,9 @@ namespace Proyecto_Taller_Grupo_22
             {
                 MessageBox.Show("Este usuario ha sido dado de baja.");
             }
-            else if (estadoUsuario == "NO_EXISTE") // Usuario o contraseÒa incorrectos
+            else if (estadoUsuario == "NO_EXISTE") // Usuario o contrase√±a incorrectos
             {
-                MessageBox.Show("Usuario o contraseÒa incorrectos.");
+                MessageBox.Show("Usuario o contrase√±a incorrectos.");
             }
             else
             {
@@ -46,7 +46,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private string VerificarUsuario(string usuario, string contrasena)
     {
-        using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+        using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
         {
             try
             {
@@ -57,35 +57,35 @@ namespace Proyecto_Taller_Grupo_22
                 FROM Usuario u 
                 INNER JOIN Persona p ON u.id_usuario = p.id_persona
                 WHERE u.nombre_usuario = @nombre_usuario 
-                AND u.contraseÒa = @contraseÒa";
+                AND u.contrase√±a = @contrase√±a";
 
                 SqlCommand cmd = new SqlCommand(query, conexion);
 
-                // Par·metro para nombre de usuario
+                // Par√°metro para nombre de usuario
                 cmd.Parameters.Add(new SqlParameter("@nombre_usuario", System.Data.SqlDbType.VarChar, 50));
                 cmd.Parameters["@nombre_usuario"].Value = usuario;
 
-                // Par·metro para contraseÒa
-                cmd.Parameters.Add(new SqlParameter("@contraseÒa", System.Data.SqlDbType.VarChar, 50));
-                cmd.Parameters["@contraseÒa"].Value = contrasena;
+                // Par√°metro para contrase√±a
+                cmd.Parameters.Add(new SqlParameter("@contrase√±a", System.Data.SqlDbType.VarChar, 50));
+                cmd.Parameters["@contrase√±a"].Value = contrasena;
 
                 // Ejecutar la consulta y obtener el estado del usuario
                 var estado = cmd.ExecuteScalar();
 
-                // Si estado no es nulo, significa que encontrÛ al usuario
+                // Si estado no es nulo, significa que encontr√≥ al usuario
                 if (estado != null)
                 {
                     return estado.ToString();
                 }
                 else
                 {
-                    return "NO_EXISTE"; // Si no encontrÛ al usuario
+                    return "NO_EXISTE"; // Si no encontr√≥ al usuario
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
-                return null; // Error en la conexiÛn o ejecuciÛn
+                return null; // Error en la conexi√≥n o ejecuci√≥n
             }
         }
     }
@@ -104,7 +104,7 @@ namespace Proyecto_Taller_Grupo_22
                 p.email,
                 p.dni,
                 p.telefono,
-                p.cumpleaÒos,
+                p.cumplea√±os,
                 pr.descripcion AS perfil
             FROM 
                 Usuario u
@@ -126,7 +126,7 @@ namespace Proyecto_Taller_Grupo_22
 
                     if (reader.Read())
                     {
-                        // Asignar los valores a la clase est·tica
+                        // Asignar los valores a la clase est√°tica
                         UsuarioInfo.SetNombreUsuario(nombreUsuario);
                         UsuarioInfo.IDUsuario = Convert.ToInt32(reader["id_usuario"]);  // ID del usuario
 
@@ -136,14 +136,14 @@ namespace Proyecto_Taller_Grupo_22
                         UsuarioInfo.Email = reader["email"].ToString();
                         UsuarioInfo.DNI = reader["dni"].ToString();
                         UsuarioInfo.Telefono = reader["telefono"].ToString();
-                        UsuarioInfo.CumpleaÒos = Convert.ToDateTime(reader["cumpleaÒos"]);
+                        UsuarioInfo.Cumplea√±os = Convert.ToDateTime(reader["cumplea√±os"]);
                         UsuarioInfo.Perfil = reader["perfil"].ToString(); // Guardamos el perfil
 
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cargar la informaciÛn: " + ex.Message);
+                    MessageBox.Show("Error al cargar la informaci√≥n: " + ex.Message);
                 }
             }
         }
