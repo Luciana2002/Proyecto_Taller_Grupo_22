@@ -34,14 +34,15 @@ namespace Proyecto_Taller_Grupo_22
             try
             {
                 // Consulta SQL 
-                string query = @"SELECT p.*, u.nombre_usuario, pf.descripcion AS perfil_descripcion, u.contraseña
+                string query = @"SELECT p.id_persona, p.nombre, p.apellido, p.email, p.sexo, p.telefono, p.cumpleaños, p.dni, 
+                         u.nombre_usuario, pf.descripcion AS perfil_descripcion, u.contraseña
                          FROM Persona p 
                          INNER JOIN Usuario u ON p.id_persona = u.id_usuario 
                          INNER JOIN Perfil pf ON u.id_perfil = pf.id_perfil
                          WHERE p.estado = @estado";
 
                 // Usamos SqlConnection para conectarnos a la base de datos
-                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
+                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
                 {
                     // Usamos SqlDataAdapter para ejecutar la consulta y llenar el DataTable
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conexion);
@@ -53,6 +54,19 @@ namespace Proyecto_Taller_Grupo_22
 
                     // Asignamos el DataTable al DataGridView
                     dataGridView1.DataSource = dataTable;
+
+                    //dataGridView1.Columns["estado"].HeaderText = "Estado";
+                    dataGridView1.Columns["id_persona"].HeaderText = "ID";
+                    dataGridView1.Columns["nombre"].HeaderText = "Nombre";
+                    dataGridView1.Columns["apellido"].HeaderText = "Apellido";
+                    dataGridView1.Columns["email"].HeaderText = "Email";
+                    dataGridView1.Columns["sexo"].HeaderText = "Sexo";
+                    dataGridView1.Columns["telefono"].HeaderText = "Teléfono";
+                    dataGridView1.Columns["cumpleaños"].HeaderText = "Cumpleaños";
+                    dataGridView1.Columns["dni"].HeaderText = "DNI";
+                    dataGridView1.Columns["nombre_usuario"].HeaderText = "Nombre de Usuario";
+                    dataGridView1.Columns["perfil_descripcion"].HeaderText = "Cargo";
+                    dataGridView1.Columns["contraseña"].HeaderText = "Contraseña";
                 }
             }
             catch (Exception ex)
@@ -65,18 +79,32 @@ namespace Proyecto_Taller_Grupo_22
         {
             try
             {
-                string query = @"SELECT p.*, u.nombre_usuario, pf.descripcion AS perfil_descripcion, u.contraseña
+                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                {
+                    string query = @"SELECT p.estado, p.id_persona, p.nombre, p.apellido, p.email, p.sexo, p.telefono, p.cumpleaños, p.dni, 
+                         u.nombre_usuario, pf.descripcion AS perfil_descripcion, u.contraseña
                          FROM Persona p 
                          INNER JOIN Usuario u ON p.id_persona = u.id_usuario 
                          INNER JOIN Perfil pf ON u.id_perfil = pf.id_perfil"; // No hay filtro
 
-                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
-                {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conexion);
                     DataTable dataTable = new DataTable();
 
                     dataAdapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
+
+                    dataGridView1.Columns["estado"].HeaderText = "Estado";
+                    dataGridView1.Columns["id_persona"].HeaderText = "ID";
+                    dataGridView1.Columns["nombre"].HeaderText = "Nombre";
+                    dataGridView1.Columns["apellido"].HeaderText = "Apellido";
+                    dataGridView1.Columns["email"].HeaderText = "Email";
+                    dataGridView1.Columns["sexo"].HeaderText = "Sexo";
+                    dataGridView1.Columns["telefono"].HeaderText = "Teléfono";
+                    dataGridView1.Columns["cumpleaños"].HeaderText = "Cumpleaños";
+                    dataGridView1.Columns["dni"].HeaderText = "DNI";
+                    dataGridView1.Columns["nombre_usuario"].HeaderText = "Nombre de Usuario";
+                    dataGridView1.Columns["perfil_descripcion"].HeaderText = "Cargo";
+                    dataGridView1.Columns["contraseña"].HeaderText = "Contraseña";
                 }
             }
             catch (Exception ex)
@@ -104,7 +132,7 @@ namespace Proyecto_Taller_Grupo_22
             CBPerfil.ValueMember = "id_perfil";        // Asociar el valor con id_tipo
 
             string query = "SELECT id_perfil, descripcion FROM Perfil";
-            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 SqlDataAdapter da = new SqlDataAdapter(query, conexion);
@@ -271,7 +299,7 @@ namespace Proyecto_Taller_Grupo_22
             CargarPerfiles();
         }
 
-        private void BEliminar_Click(object sender, EventArgs e)
+        private void BLimpiar_Click(object sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
             {
@@ -339,7 +367,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private int ObtenerIdPerfilPorDescripcion(string descripcion)
         {
-            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 string query = "SELECT id_perfil FROM Perfil WHERE descripcion = @descripcion";
@@ -376,7 +404,7 @@ namespace Proyecto_Taller_Grupo_22
             {
                 return; // Salir si hay un error de validación
             }
-
+            
             // Aquí ya puedes asumir que la validación fue exitosa
             // Obtener la fila seleccionada
             DataGridViewRow row = dataGridView1.SelectedRows[0];
@@ -409,7 +437,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private bool GuardarDatosEnBaseDeDatos(int? idPersona, string nombre, string apellido, string email, string telefono, DateTime cumple, int dni, string nombre_usuario, string contraseña, int idPerfil, string sexo)
         {
-            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 using (SqlTransaction transaction = conexion.BeginTransaction())
@@ -553,20 +581,34 @@ namespace Proyecto_Taller_Grupo_22
                     // Verifica que el ID no sea nulo antes de intentar convertir
                     if (dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value != DBNull.Value)
                     {
-                        // Obtén el ID o cualquier identificador único de la persona desde la fila seleccionada
+                        // Obtén el ID de la persona desde la fila seleccionada
                         int idPersona = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value);
 
-                        // Verifica que el estado actual no sea nulo
-                        string currentState = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value?.ToString();
+                        // Variable para almacenar el estado actual
+                        string estadoActual = "";
+
+                        // Conectar a la base de datos para verificar el estado actual
+                        using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                        {
+                            conexion.Open();
+                            // Consulta para obtener el estado actual desde la base de datos
+                            string queryEstado = "SELECT estado FROM Persona WHERE id_persona = @idPersona";
+                            using (SqlCommand comando = new SqlCommand(queryEstado, conexion))
+                            {
+                                comando.Parameters.AddWithValue("@idPersona", idPersona);
+                                SqlDataReader reader = comando.ExecuteReader();
+                                if (reader.Read())
+                                {
+                                    estadoActual = reader["estado"].ToString();
+                                }
+                            }
+                        }
 
                         // Cambiar el estado de "Activo" a "Inactivo" o viceversa
-                        string newState = currentState == "A" ? "I" : "A";
-
-                        // Actualiza el estado en la interfaz (DataGridView)
-                        dataGridView1.Rows[e.RowIndex].Cells["estado"].Value = newState;
+                        string nuevoEstado = estadoActual == "A" ? "I" : "A";
 
                         // Actualiza el estado en la base de datos
-                        UpdateStatusInDatabase(idPersona, newState);
+                        UpdateStatusInDatabase(idPersona, nuevoEstado);
                     }
                     else
                     {
@@ -582,9 +624,9 @@ namespace Proyecto_Taller_Grupo_22
         }
 
 
-        private void UpdateStatusInDatabase(int idPersona, string newState)
+        private void UpdateStatusInDatabase(int idPersona, string nuevoEstado)
         {
-            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 using (SqlTransaction transaction = conexion.BeginTransaction())
@@ -597,7 +639,7 @@ namespace Proyecto_Taller_Grupo_22
                         {
 
                             cmdUpdatePersona.Parameters.AddWithValue("@id_persona", idPersona);
-                            cmdUpdatePersona.Parameters.AddWithValue("@estado", newState);
+                            cmdUpdatePersona.Parameters.AddWithValue("@estado", nuevoEstado);
                             cmdUpdatePersona.ExecuteNonQuery();
                         }
 
@@ -614,25 +656,24 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        //private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        //{
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
             // Asegúrate de que estás en la columna correcta y de que la fila es válida
-            //if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
-            //{
-                // Obtén el valor de la columna 'estado' para la fila actual
-                //string estado = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+            if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
+            {
+            // Obtén el valor de la columna 'estado' para la fila actual
+            string estado = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value.ToString();
 
-                // Dependiendo del estado, cambia la imagen del botón
-                //if (estado == "A")
-                //{
-                //    e.Value = Properties.Resources.imagen_activo; // Imagen para estado "Activo"
-                //}
-                //else
-                //{
-                //    e.Value = Properties.Resources.imagen_inactivo; // Imagen para estado "Inactivo"
-                //}
-            //}
-        //}
-
+            // Dependiendo del estado, cambia la imagen del botón
+            if (estado == "A")
+            {
+                e.Value = Properties.Resources.imagen_activo; // Imagen para estado "Activo"
+            }
+            else
+            {
+                e.Value = Properties.Resources.imagen_inactivo; // Imagen para estado "Inactivo"
+            }
+            }
+        }
     }
 }
