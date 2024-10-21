@@ -42,7 +42,7 @@ namespace Proyecto_Taller_Grupo_22
                          WHERE p.estado = @estado";
 
                 // Usamos SqlConnection para conectarnos a la base de datos
-                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                 {
                     // Usamos SqlDataAdapter para ejecutar la consulta y llenar el DataTable
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conexion);
@@ -79,7 +79,7 @@ namespace Proyecto_Taller_Grupo_22
         {
             try
             {
-                using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                 {
                     string query = @"SELECT p.estado, p.id_persona, p.nombre, p.apellido, p.email, p.sexo, p.telefono, p.cumpleaños, p.dni, 
                          u.nombre_usuario, pf.descripcion AS perfil_descripcion, u.contraseña
@@ -132,7 +132,7 @@ namespace Proyecto_Taller_Grupo_22
             CBPerfil.ValueMember = "id_perfil";        // Asociar el valor con id_tipo
 
             string query = "SELECT id_perfil, descripcion FROM Perfil";
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 SqlDataAdapter da = new SqlDataAdapter(query, conexion);
@@ -367,7 +367,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private int ObtenerIdPerfilPorDescripcion(string descripcion)
         {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 string query = "SELECT id_perfil FROM Perfil WHERE descripcion = @descripcion";
@@ -437,7 +437,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private bool GuardarDatosEnBaseDeDatos(int? idPersona, string nombre, string apellido, string email, string telefono, DateTime cumple, int dni, string nombre_usuario, string contraseña, int idPerfil, string sexo)
         {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 using (SqlTransaction transaction = conexion.BeginTransaction())
@@ -588,7 +588,7 @@ namespace Proyecto_Taller_Grupo_22
                         string estadoActual = "";
 
                         // Conectar a la base de datos para verificar el estado actual
-                        using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+                        using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                         {
                             conexion.Open();
                             // Consulta para obtener el estado actual desde la base de datos
@@ -626,7 +626,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private void UpdateStatusInDatabase(int idPersona, string nuevoEstado)
         {
-            using (SqlConnection conexion = new SqlConnection("server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true"))
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
                 conexion.Open();
                 using (SqlTransaction transaction = conexion.BeginTransaction())
