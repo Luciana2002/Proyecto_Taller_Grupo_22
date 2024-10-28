@@ -6,7 +6,8 @@ namespace Proyecto_Taller_Grupo_22
 {
     public partial class Backup : Form
     {
-        private const string ServerConnectionString = "Server=.;Integrated Security=True;";
+        private const string NombreBaseDatos = "taller_db_1";
+        private const string ConnectionString = "Server=.;Database=" + NombreBaseDatos + ";Integrated Security=True;";
 
         public Backup()
         {
@@ -17,41 +18,19 @@ namespace Proyecto_Taller_Grupo_22
         // Evento de carga del formulario
         private void Backup_Load(object sender, EventArgs e)
         {
-            CargarBasesDeDatos();
+            txtBaseDatos.Text = NombreBaseDatos;
+            txtBaseDatos.ReadOnly = true; // Hacer el TextBox de solo lectura
         }
 
-        // Método para cargar todas las bases de datos en el ComboBox
-        private void CargarBasesDeDatos()
+        // Función para mostrar un mensaje y detener la ejecución si el valor es inválido
+        private bool ValidarRuta(string ruta)
         {
-            try
+            if (string.IsNullOrWhiteSpace(ruta))
             {
-                using (SqlConnection connection = new SqlConnection(ServerConnectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand cmd = new SqlCommand("SELECT name FROM sys.databases WHERE state_desc = 'ONLINE' AND name NOT IN ('master', 'tempdb', 'model', 'msdb')", connection))
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                cmbBasesDatos.Items.Add(reader["name"].ToString());
-                            }
-                        }
-                    }
-                }
-                if (cmbBasesDatos.Items.Count > 0)
-                {
-                    cmbBasesDatos.SelectedIndex = 0; // Seleccionar la primera base de datos por defecto
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron bases de datos.");
-                }
+                MessageBox.Show("Por favor, seleccione una ruta válida.");
+                return false;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar bases de datos: {ex.Message}");
-            }
+            return true;
         }
 
         // Función para seleccionar la ruta de guardado
@@ -66,33 +45,21 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        // Función para validar si la ruta es válida
-        private bool ValidarRuta(string ruta)
+        // Función para realizar el backup de la base de datos
+        private void RealizarBackup(string rutaBackup)
         {
-            if (string.IsNullOrWhiteSpace(ruta))
-            {
-                MessageBox.Show("Por favor, seleccione una ruta válida.");
-                return false;
-            }
-            return true;
+            string rutaCompleta = System.IO.Path.Combine(rutaBackup, $"{NombreBaseDatos}.bak");
+            string query = $"BACKUP DATABASE [{NombreBaseDatos}] TO DISK = '{rutaCompleta.Replace("'", "''")}'";
+
+            EjecutarConsulta(query, "Backup realizado con éxito!");
         }
 
-        // Función para realizar el backup de la base de datos seleccionada
-        private void RealizarBackup(string baseDatos, string rutaBackup)
+        // Función para conectar a la base de datos y ejecutar una consulta
+        private void EjecutarConsulta(string query, string mensajeExito)
         {
-            string rutaCompleta = System.IO.Path.Combine(rutaBackup, $"{baseDatos}.bak");
-            string query = $"BACKUP DATABASE [{baseDatos}] TO DISK = '{rutaCompleta.Replace("'", "''")}'";
-
-            EjecutarConsulta(baseDatos, query, "Backup realizado con éxito!");
-        }
-
-        // Función para conectar a la base de datos seleccionada y ejecutar una consulta
-        private void EjecutarConsulta(string baseDatos, string query, string mensajeExito)
-        {
-            string connectionString = $"Server=.;Database={baseDatos};Integrated Security=True;";
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -111,14 +78,7 @@ namespace Proyecto_Taller_Grupo_22
         // Eventos de botones
         private void btnConectar_Click(object sender, EventArgs e)
         {
-            if (cmbBasesDatos.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor, seleccione una base de datos.");
-                return;
-            }
-
-            string baseDatosSeleccionada = cmbBasesDatos.SelectedItem.ToString();
-            EjecutarConsulta(baseDatosSeleccionada, "SELECT 1", "Conexión exitosa!");
+            EjecutarConsulta("SELECT 1", "Conexión exitosa!"); // Verificación simple de conexión
         }
 
         private void btnSeleccionarRuta_Click(object sender, EventArgs e)
@@ -128,18 +88,11 @@ namespace Proyecto_Taller_Grupo_22
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            if (cmbBasesDatos.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor, seleccione una base de datos.");
-                return;
-            }
-
             string rutaBackup = txtRutaGuardar.Text;
-            string baseDatosSeleccionada = cmbBasesDatos.SelectedItem.ToString();
 
             if (ValidarRuta(rutaBackup))
             {
-                RealizarBackup(baseDatosSeleccionada, rutaBackup);
+                RealizarBackup(rutaBackup);
             }
         }
     }
