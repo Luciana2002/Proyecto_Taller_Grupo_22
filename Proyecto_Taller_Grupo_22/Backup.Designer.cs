@@ -35,7 +35,7 @@
             btnConectar = new Button();
             btnSeleccionarRuta = new Button();
             txtRutaGuardar = new TextBox();
-            cmbBasesDatos = new ComboBox();
+            txtBaseDatos = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -115,14 +115,13 @@
             txtRutaGuardar.Size = new Size(184, 30);
             txtRutaGuardar.TabIndex = 7;
             // 
-            // cmbBasesDatos
+            // txtBaseDatos
             // 
-            cmbBasesDatos.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbBasesDatos.FormattingEnabled = true;
-            cmbBasesDatos.Location = new Point(256, 131);
-            cmbBasesDatos.Name = "cmbBasesDatos";
-            cmbBasesDatos.Size = new Size(184, 33);
-            cmbBasesDatos.TabIndex = 8;
+            txtBaseDatos.Font = new Font("Microsoft Sans Serif", 12F);
+            txtBaseDatos.Location = new Point(256, 134);
+            txtBaseDatos.Name = "txtBaseDatos";
+            txtBaseDatos.Size = new Size(184, 30);
+            txtBaseDatos.TabIndex = 9;
             // 
             // Backup
             // 
@@ -130,7 +129,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
             ClientSize = new Size(693, 385);
-            Controls.Add(cmbBasesDatos);
+            Controls.Add(txtBaseDatos);
             Controls.Add(txtRutaGuardar);
             Controls.Add(btnSeleccionarRuta);
             Controls.Add(btnConectar);
@@ -143,6 +142,7 @@
             Name = "Backup";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Backup";
+            Load += Backup_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,6 +156,6 @@
         private Button btnConectar;
         private Button btnSeleccionarRuta;
         private TextBox txtRutaGuardar;
-        private ComboBox cmbBasesDatos;
+        private TextBox txtBaseDatos;
     }
 }
