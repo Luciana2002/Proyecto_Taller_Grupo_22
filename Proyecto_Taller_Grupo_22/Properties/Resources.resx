@@ -157,6 +157,9 @@
   <data name="5322156" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5322156.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Altas_y_bajas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Altas_y_bajas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="png-clipart-product-design-brand-font-button-back-rectangle-brand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\png-clipart-product-design-brand-font-button-back-rectangle-brand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,7 +169,10 @@
   <data name="profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Altas_y_bajas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Altas_y_bajas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlantillaR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlantillaR.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

@@ -201,6 +201,36 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Ventas&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///        }
+        ///
+        ///            table.border th, table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///                text-align: center;
+        ///            }
+        ///
+        ///        table.info-table td {
+        ///            padding: 5px;
+        ///            vertical-align: top;
+        ///        }
+        ///
+        ///         [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaR {
+            get {
+                return ResourceManager.GetString("PlantillaR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap png_clipart_product_design_brand_font_button_back_rectangle_brand {
@@ -216,6 +246,16 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         internal static System.Drawing.Bitmap profile {
             get {
                 object obj = ResourceManager.GetObject("profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shop {
+            get {
+                object obj = ResourceManager.GetObject("shop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
