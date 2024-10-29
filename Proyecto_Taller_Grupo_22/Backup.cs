@@ -7,7 +7,7 @@ namespace Proyecto_Taller_Grupo_22
     public partial class Backup : Form
     {
         private const string NombreBaseDatos = "taller_db_1";
-        private const string ConnectionString = "Server=.;Database=" + NombreBaseDatos + ";Integrated Security=True;";
+        private const string ConnectionString = "Server=LUCIANA\\SQLEXPRESS;Database=" + NombreBaseDatos + ";Integrated Security=True;";
 
         public Backup()
         {
