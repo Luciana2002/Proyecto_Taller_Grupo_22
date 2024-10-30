@@ -1,6 +1,14 @@
+-------------------------------------------
+---------- CREACIÓN BASE DEDATOS ----------
+-------------------------------------------
+
 CREATE DATABASE taller_db_1;
 
 USE taller_db_1;
+
+----------------------------------------
+---------- CREACIÓN DE TABLAS ----------
+----------------------------------------
 
 CREATE TABLE Persona
 (
@@ -98,7 +106,11 @@ CREATE TABLE Detalle_Venta
   CONSTRAINT FK_Detalle_Venta_id_venta FOREIGN KEY (id_venta) REFERENCES Venta(id_venta)
 );
 
--- RESTRICCIONES --
+
+-----------------------------------
+---------- RESTRICCIONES ----------
+-----------------------------------
+
 ALTER TABLE Persona ADD CONSTRAINT CK_sexo CHECK (sexo IN ('M', 'F'));
 ALTER TABLE Persona ADD CONSTRAINT CK_nombre CHECK (nombre NOT LIKE '%[^A-Za-z ]%');
 ALTER TABLE Persona ADD CONSTRAINT CK_apellido CHECK (apellido NOT LIKE '%[^A-Za-z ]%');
