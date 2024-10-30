@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_Grupo_22
 {
-    public partial class Reporte : Form
+    public partial class ReporteG : Form
     {
-        public Reporte()
+        public ReporteG()
         {
             InitializeComponent();
         }

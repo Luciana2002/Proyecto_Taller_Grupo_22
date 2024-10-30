@@ -20,13 +20,13 @@ namespace Proyecto_Taller_Grupo_22
 
         private void Venta_Load(object sender, EventArgs e)
         {
-            // Llenar el ComboBox con los nombres de las columnas de la tabla Persona
-            CBFiltro.Items.Add("id_venta");
-            CBFiltro.Items.Add("fecha_venta");
-            CBFiltro.Items.Add("total_venta");
-            CBFiltro.Items.Add("tipo_venta");
-            CBFiltro.Items.Add("cliente_nombre");
-            CBFiltro.Items.Add("cliente_apellido");
+            // Llenar el ComboBox con nombres más amigables para el usuario
+            CBFiltro.Items.Add("ID Venta");
+            CBFiltro.Items.Add("Fecha");
+            CBFiltro.Items.Add("Total Venta");
+            CBFiltro.Items.Add("Método Pago");
+            CBFiltro.Items.Add("Nombre Cliente");
+            CBFiltro.Items.Add("Apellido Cliente");
 
             // Seleccionar por defecto una opción
             CBFiltro.SelectedIndex = 0; // Selecciona el primer elemento 
@@ -58,6 +58,13 @@ namespace Proyecto_Taller_Grupo_22
                 dataGridView1.Columns["tipo_venta"].HeaderText = "Método Pago";
                 dataGridView1.Columns["cliente_nombre"].HeaderText = "Nombre Cliente";
                 dataGridView1.Columns["cliente_apellido"].HeaderText = "Apellido Cliente";
+
+                dataGridView1.Columns["id_venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["fecha_venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["total_venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["tipo_venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["cliente_nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["cliente_apellido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
 
@@ -87,38 +94,43 @@ namespace Proyecto_Taller_Grupo_22
 
             // Obtener la columna seleccionada en el ComboBox
             string columnaSeleccionada = CBFiltro.SelectedItem.ToString();
+            string columnaBD = "";
 
-            // Mapear el nombre de la columna alias a su nombre real en la base de datos
+            // Mapear el nombre del filtro a la columna de la base de datos
             switch (columnaSeleccionada)
             {
-                case "tipo_venta":
-                    columnaSeleccionada = "uv.descripcion"; // Nombre real para tipo_venta
+                case "ID Venta":
+                    columnaBD = "v.id_venta";
                     break;
-                case "cliente_nombre":
-                    columnaSeleccionada = "p.nombre"; // Nombre real para cliente_nombre
+                case "Fecha":
+                    columnaBD = "CAST(v.fecha_venta AS VARCHAR)";
                     break;
-                case "cliente_apellido":
-                    columnaSeleccionada = "p.apellido"; // Nombre real para cliente_apellido
+                case "Total Venta":
+                    columnaBD = "CAST(v.total_venta AS VARCHAR)";
+                    break;
+                case "Método Pago":
+                    columnaBD = "uv.descripcion COLLATE Latin1_General_CI_AI";
+                    break;
+                case "Nombre Cliente":
+                    columnaBD = "p.nombre COLLATE Latin1_General_CI_AI";
+                    break;
+                case "Apellido Cliente":
+                    columnaBD = "p.apellido COLLATE Latin1_General_CI_AI";
                     break;
             }
 
-            // Verificar si hay una columna seleccionada
-            if (string.IsNullOrEmpty(columnaSeleccionada))
-            {
-                MessageBox.Show("Por favor, seleccione un campo de búsqueda.");
-                return;
-            }
-
+            // Definir la consulta SQL basándose en la columna seleccionada
             int idVendedor = UsuarioInfo.IDUsuario;
             using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
-                // Definir la consulta con las mismas columnas y uniones que en CargarDatos
-                string query = $@"SELECT v.id_venta, v.fecha_venta, v.total_venta, uv.descripcion AS tipo_venta, p.nombre AS cliente_nombre, p.apellido AS cliente_apellido
-                          FROM Venta v
-                          JOIN Tipo_Venta uv ON v.id_tipo = uv.id_tipo
-                          JOIN Cliente c ON v.id_cliente = c.id_cliente
-                          JOIN Persona p ON c.id_cliente = p.id_persona
-                          WHERE {columnaSeleccionada} COLLATE Latin1_General_CI_AI LIKE @filtro AND v.id_usuario = @idVendedor";
+                string query = $@"
+                    SELECT v.id_venta, v.fecha_venta, v.total_venta, uv.descripcion AS tipo_venta, 
+                    p.nombre AS cliente_nombre, p.apellido AS cliente_apellido
+                    FROM Venta v
+                    JOIN Tipo_Venta uv ON v.id_tipo = uv.id_tipo
+                    JOIN Cliente c ON v.id_cliente = c.id_cliente
+                    JOIN Persona p ON c.id_cliente = p.id_persona
+                    WHERE v.id_usuario = @idVendedor AND {columnaBD} LIKE @filtro";
 
                 // Crear un adaptador de datos para ejecutar la consulta
                 SqlDataAdapter da = new SqlDataAdapter(query, conexion);
@@ -152,6 +164,7 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
+
         private void BLimpiar_Click(object sender, EventArgs e)
         {
             // Limpiar el TextBox de búsqueda y seleccionar la primera opción del ComboBox
@@ -164,16 +177,21 @@ namespace Proyecto_Taller_Grupo_22
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar que el clic haya sido en una fila válida
+            // Verificar que el clic fue en una fila válida
             if (e.RowIndex >= 0)
             {
-                // Obtener el id_venta de la fila seleccionada
-                int idVenta = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_venta"].Value);
+                // Verificar si el valor en la celda "id_venta" no es DBNull
+                if (dataGridView1.Rows[e.RowIndex].Cells["id_venta"].Value != DBNull.Value)
+                {
+                    // Convertir el valor a int solo si la celda tiene un valor válido
+                    int idVenta = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_venta"].Value);
 
-                // Abrir el formulario de detalles de la venta y pasar el idVenta
-                DetalleVentaForm detalleVentaForm = new DetalleVentaForm(idVenta);
-                detalleVentaForm.ShowDialog();
+                    // Abrir el formulario de detalles de la venta y pasar el idVenta
+                    DetalleVentaForm detalleVentaForm = new DetalleVentaForm(idVenta);
+                    detalleVentaForm.ShowDialog();
+                }
             }
         }
+
     }
 }

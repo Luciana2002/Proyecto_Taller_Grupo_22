@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            btnChangeStatus = new DataGridViewImageColumn();
             BLimpiar = new Button();
             BAgregar = new Button();
             DTPCumple = new DateTimePicker();
@@ -58,6 +57,7 @@
             label10 = new Label();
             CBPerfil = new ComboBox();
             label11 = new Label();
+            btnChangeStatus = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -73,19 +73,7 @@
             dataGridView1.Size = new Size(860, 371);
             dataGridView1.TabIndex = 76;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            //dataGridView1.CellFormatting += dataGridView1_CellFormatting;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
-            // 
-            // btnChangeStatus
-            // 
-            btnChangeStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            btnChangeStatus.HeaderText = "Acción";
-            btnChangeStatus.Image = Properties.Resources.Altas_y_bajas;
-            btnChangeStatus.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            btnChangeStatus.MinimumWidth = 6;
-            btnChangeStatus.Name = "btnChangeStatus";
-            btnChangeStatus.ReadOnly = true;
-            btnChangeStatus.Width = 60;
             // 
             // BLimpiar
             // 
@@ -359,6 +347,17 @@
             label11.Size = new Size(48, 20);
             label11.TabIndex = 88;
             label11.Text = "Perfil:";
+            // 
+            // btnChangeStatus
+            // 
+            btnChangeStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            btnChangeStatus.HeaderText = "Acción";
+            btnChangeStatus.Image = Properties.Resources.Altas_y_bajas;
+            btnChangeStatus.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            btnChangeStatus.MinimumWidth = 6;
+            btnChangeStatus.Name = "btnChangeStatus";
+            btnChangeStatus.ReadOnly = true;
+            btnChangeStatus.Width = 60;
             // 
             // Empleado
             // 

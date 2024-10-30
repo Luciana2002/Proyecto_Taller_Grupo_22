@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Proyecto_Taller_Grupo_22.BuscarClienteForm;
 
 namespace Proyecto_Taller_Grupo_22
 {
@@ -30,7 +31,7 @@ namespace Proyecto_Taller_Grupo_22
         {
             using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
-                string query = "SELECT p.id_producto, p.nombre_producto, p.precio_venta, p.precio_costo, p.eliminado, p.stock, c.descripcion AS categoria " +
+                string query = "SELECT p.id_producto, p.nombre_producto, p.precio_venta, p.stock, c.descripcion AS categoria " +
                     "FROM Producto p " +
                     "JOIN Categoria c ON p.id_categoria = c.id_categoria " +
                     "WHERE p.eliminado = 'N' AND p.stock > 0";
@@ -38,6 +39,18 @@ namespace Proyecto_Taller_Grupo_22
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
+
+                dataGridView1.Columns["id_producto"].HeaderText = "ID Producto";
+                dataGridView1.Columns["nombre_producto"].HeaderText = "Producto";
+                dataGridView1.Columns["precio_venta"].HeaderText = "Precio Venta";
+                dataGridView1.Columns["stock"].HeaderText = "Stock";
+                dataGridView1.Columns["categoria"].HeaderText = "Categoría";
+
+                dataGridView1.Columns["id_producto"].Width = 90;
+                dataGridView1.Columns["nombre_producto"].Width = 294;
+                dataGridView1.Columns["precio_venta"].Width = 120;
+                dataGridView1.Columns["stock"].Width = 90;
+                dataGridView1.Columns["categoria"].Width = 120;
             }
         }
 
@@ -53,7 +66,8 @@ namespace Proyecto_Taller_Grupo_22
             }
 
             // Obtener la columna seleccionada en el ComboBox
-            string columnaSeleccionada = CBFiltro.SelectedItem.ToString();
+            ComboBoxItem itemSeleccionado = (ComboBoxItem)CBFiltro.SelectedItem;
+            string columnaSeleccionada = itemSeleccionado?.Value;
 
             // Verificar si hay una columna seleccionada
             if (string.IsNullOrEmpty(columnaSeleccionada))
@@ -64,30 +78,33 @@ namespace Proyecto_Taller_Grupo_22
 
             using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
-                // Definir la consulta
+                // Definir la consulta en función del tipo de columna seleccionada
                 string query;
-
-                if (columnaSeleccionada == "categoria")
+                if (columnaSeleccionada == "categoria" || columnaSeleccionada == "nombre_producto")
                 {
-                    // Filtrar usando la tabla Categoria
-                    query = $@"SELECT p.id_producto, p.nombre_producto, p.precio_venta, p.precio_costo, p.eliminado, p.stock, c.descripcion AS categoria
-                        FROM Producto p 
-                        JOIN Categoria c ON p.id_categoria = c.id_categoria 
-                        WHERE c.descripcion COLLATE Latin1_General_CI_AI LIKE @filtro AND p.eliminado = 'N' AND p.stock > 0";
+                    // Usa COLLATE solo en columnas de texto
+                    query = $@"
+                SELECT p.id_producto, p.nombre_producto, p.precio_venta, p.stock, c.descripcion AS categoria
+                FROM Producto p
+                JOIN Categoria c ON p.id_categoria = c.id_categoria
+                WHERE {(columnaSeleccionada == "categoria" ? "c.descripcion" : "p.nombre_producto")} COLLATE Latin1_General_CI_AI LIKE @filtro
+                AND p.eliminado = 'N' AND p.stock > 0";
                 }
                 else
                 {
-                    // Filtrar usando la tabla Producto
-                    query = $@"SELECT p.id_producto, p.nombre_producto, p.precio_venta, p.precio_costo, p.eliminado, p.stock, c.descripcion AS categoria
-                        FROM Producto p 
-                        JOIN Categoria c ON p.id_categoria = c.id_categoria 
-                        WHERE p.{columnaSeleccionada} COLLATE Latin1_General_CI_AI LIKE @filtro AND p.eliminado = 'N' AND p.stock > 0";
+                    // No usa COLLATE para columnas numéricas
+                    query = $@"
+                SELECT p.id_producto, p.nombre_producto, p.precio_venta, p.stock, c.descripcion AS categoria
+                FROM Producto p
+                JOIN Categoria c ON p.id_categoria = c.id_categoria
+                WHERE p.{columnaSeleccionada} LIKE @filtro
+                AND p.eliminado = 'N' AND p.stock > 0";
                 }
 
                 // Crear un adaptador de datos para ejecutar la consulta
                 SqlDataAdapter da = new SqlDataAdapter(query, conexion);
 
-                // Agregar el parámetro del filtro con wildcard para buscar coincidencias parciales
+                // Agregar el parámetro del filtro con comodín para coincidencias parciales
                 da.SelectCommand.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
 
                 // Crear una tabla de datos para almacenar los resultados
@@ -99,6 +116,18 @@ namespace Proyecto_Taller_Grupo_22
                 // Asignar los resultados al DataGridView
                 dataGridView1.DataSource = dt;
 
+                dataGridView1.Columns["id_producto"].HeaderText = "ID Producto";
+                dataGridView1.Columns["nombre_producto"].HeaderText = "Producto";
+                dataGridView1.Columns["precio_venta"].HeaderText = "Precio Venta";
+                dataGridView1.Columns["stock"].HeaderText = "Stock";
+                dataGridView1.Columns["categoria"].HeaderText = "Categoría";
+
+                dataGridView1.Columns["id_producto"].Width = 90;
+                dataGridView1.Columns["nombre_producto"].Width = 294;
+                dataGridView1.Columns["precio_venta"].Width = 120;
+                dataGridView1.Columns["stock"].Width = 90;
+                dataGridView1.Columns["categoria"].Width = 120;
+
                 // Verificar si se encontraron resultados
                 if (dt.Rows.Count == 0)
                 {
@@ -107,8 +136,15 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Verificar que el clic fue en una fila válida
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return; 
+            }
+
             // Obtener los datos de la fila seleccionada
             IdProductoSeleccionado = dataGridView1.Rows[e.RowIndex].Cells["id_producto"].Value.ToString();
             NombreProductoSeleccionado = dataGridView1.Rows[e.RowIndex].Cells["nombre_producto"].Value.ToString();
@@ -122,20 +158,35 @@ namespace Proyecto_Taller_Grupo_22
 
         private void BuscarProductoForm_Load(object sender, EventArgs e)
         {
-            // Llenar el ComboBox con los nombres de las columnas de la tabla Producto
-            CBFiltro.Items.Add("id_producto");
-            CBFiltro.Items.Add("nombre_producto");
-            CBFiltro.Items.Add("precio_venta");
-            CBFiltro.Items.Add("precio_costo");
-            CBFiltro.Items.Add("eliminado");
-            CBFiltro.Items.Add("stock");
-            CBFiltro.Items.Add("categoria");
+            // Llenar el ComboBox con los nombres amigables para los filtros
+            CBFiltro.Items.Add(new ComboBoxItem("ID Producto", "id_producto"));
+            CBFiltro.Items.Add(new ComboBoxItem("Producto", "nombre_producto"));
+            CBFiltro.Items.Add(new ComboBoxItem("Precio Venta", "precio_venta"));
+            CBFiltro.Items.Add(new ComboBoxItem("Stock", "stock"));
+            CBFiltro.Items.Add(new ComboBoxItem("Categoría", "categoria"));
 
             // Seleccionar por defecto una opción
-            CBFiltro.SelectedIndex = 0; // Selecciona el primer elemento 
+            CBFiltro.SelectedIndex = 0; // Selecciona el primer elemento ("ID Producto")
 
             // Cargar todos los productos al iniciar el formulario
             CargarProductos();
+        }
+
+        public class ComboBoxItem
+        {
+            public string Display { get; set; }
+            public string Value { get; set; }
+
+            public ComboBoxItem(string display, string value)
+            {
+                Display = display;
+                Value = value;
+            }
+
+            public override string ToString()
+            {
+                return Display; // Esto es lo que se mostrará en el ComboBox
+            }
         }
 
         private void BLimpiar_Click(object sender, EventArgs e)

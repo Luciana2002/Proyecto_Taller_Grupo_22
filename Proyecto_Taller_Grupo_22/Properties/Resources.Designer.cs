@@ -163,6 +163,16 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_sign {
+            get {
+                object obj = ResourceManager.GetObject("delete-sign", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imagen_activo {
             get {
                 object obj = ResourceManager.GetObject("imagen_activo", resourceCulture);
@@ -209,24 +219,23 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         ///        table.border {
         ///            border-collapse: collapse;
         ///            width: 100%;
+        ///            font-size: 12px;
         ///        }
         ///
-        ///            table.border th, table.border td {
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///                text-align: center;
-        ///            }
+        ///        table.border th, table.border td {
+        ///            padding: 5px;
+        ///            border: 1px solid black;
+        ///            text-align: center;
+        ///            font-size: 12px;
+        ///        }
         ///
         ///        table.info-table td {
         ///            padding: 5px;
-        ///            vertical-align: top;
-        ///        }
-        ///
-        ///         [resto de la cadena truncado]&quot;;.
+        ///            ver [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string PlantillaR {
+        internal static string PlantillaRE {
             get {
-                return ResourceManager.GetString("PlantillaR", resourceCulture);
+                return ResourceManager.GetString("PlantillaRE", resourceCulture);
             }
         }
         
