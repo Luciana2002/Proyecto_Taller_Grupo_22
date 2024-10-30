@@ -106,7 +106,6 @@ CREATE TABLE Detalle_Venta
   CONSTRAINT FK_Detalle_Venta_id_venta FOREIGN KEY (id_venta) REFERENCES Venta(id_venta)
 );
 
-
 -----------------------------------
 ---------- RESTRICCIONES ----------
 -----------------------------------
