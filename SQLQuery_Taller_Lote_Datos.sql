@@ -70,7 +70,7 @@ INSERT INTO Persona (nombre, apellido, estado, email, sexo, telefono, cumpleaño
 -- select * from Persona
 
 INSERT INTO Usuario (nombre_usuario, contraseña, id_usuario, id_perfil)
-VALUES ('Luci', '12345678', 1, 1), ('Juan', '12345678', 2, 2), ('Marta', '12345678', 3, 3),
+VALUES ('Luci', '12345678', 1, 1), ('Juan', '12345678', 2, 2), ('Marta', '12345678', 3, 2),
 ('Ana', '12345678', 4, 3), ('Carlitos', '12345678', 5, 3), ('María', '12345678', 6, 3), ('Luis', '12345678', 7, 3);
 
 -- select * from Usuario
