@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reporte de Ventas</title>
+    <style>
+        table.border {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 12px;
+        }
+
+        table.border th, table.border td {
+            padding: 5px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        table.info-table td {
+            padding: 5px;
+            vertical-align: top;
+            font-size: 14px;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%"></td>
+            <td style="width:60%" align="center" valign="top">
+                <table>
+                    <tr><td align="center"><h4 style="margin:0px">Reporte de Ventas</h4></td></tr>
+                    <tr><td align="center">Dirección: Av. Principal 123</td></tr>
+                    <tr><td align="center">Teléfono: 123-456-789</td></tr>
+                </table>
+            </td>
+            <td style="width:20%">
+                <table class="border" style="width:100%">
+                    <tr><td align="center">RUC: 12345678901</td></tr>
+                    <tr><td align="center" style="background-color:#D8D8D8">REPORTE</td></tr>
+                    <tr><td align="center">Fecha: @FECHA</td></tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr><td colspan="3" height="20"></td></tr>
+
+        <tr>
+            <td colspan="3">
+                <table class="info-table" style="width:100%">
+                    <tr>
+                        <td style="width:20%">Desde la Fecha:</td>
+                        <td style="width:35%;border-bottom:1px">@FECHAINICIO</td>
+                        <td style="width:20%">Hasta la Fecha:</td>
+                        <td style="width:35%;border-bottom:1px">@FECHAFIN</td>
+                    </tr>
+                    <tr>
+                        <td style="width:15%">Vendedor:</td>
+                        <td colspan="3" style="border-bottom:1px">@VENDEDOR</td> <!-- Nueva fila para el vendedor -->
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr><td colspan="3" height="30"></td></tr>
+
+        <tr>
+            <td colspan="3">
+                <table class="border">
+                    <thead>
+                      <tr style="background-color:#D8D8D8">
+                      <th class="header-column">Fecha Venta</th>
+                      <th class="header-column">Cliente</th>
+                      <th class="header-column">Producto</th>
+                      <th class="header-column">Precio Unitario</th>
+                      <th class="header-column">Cantidad</th>
+                      <th class="header-column">Subtotal</th>
+                      <th class="header-column">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @FILAS
+                        <tr>
+                            <td colspan="5" style="border: 0px !important"></td>
+                            <td align="right">Total General:</td>
+                            <td>@TOTAL_GENERAL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+

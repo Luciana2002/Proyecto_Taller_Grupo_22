@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Taller_Grupo_22
 {
-    partial class Reporte
+    partial class ReporteG
     {
         /// <summary>
         /// Required designer variable.

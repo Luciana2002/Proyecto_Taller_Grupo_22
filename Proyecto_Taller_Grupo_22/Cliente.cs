@@ -33,7 +33,7 @@ namespace Proyecto_Taller_Grupo_22
             try
             {
                 // Consulta SQL 
-                string query = @"SELECT p.*
+                string query = @"SELECT p.id_persona, p.nombre, p.apellido, p.email, p.sexo, p.telefono, p.cumpleaños, p.dni
                          FROM Persona p
                          INNER JOIN Cliente c ON p.id_persona = c.id_cliente
                          WHERE p.estado = @estado";
@@ -51,6 +51,27 @@ namespace Proyecto_Taller_Grupo_22
 
                     // Asignamos el DataTable al DataGridView
                     dataGridView1.DataSource = dataTable;
+
+                    dataGridView1.Columns["id_persona"].HeaderText = "ID";
+                    dataGridView1.Columns["nombre"].HeaderText = "Nombre";
+                    dataGridView1.Columns["apellido"].HeaderText = "Apellido";
+                    dataGridView1.Columns["email"].HeaderText = "Email";
+                    dataGridView1.Columns["sexo"].HeaderText = "Sexo";
+                    dataGridView1.Columns["telefono"].HeaderText = "Teléfono";
+                    dataGridView1.Columns["cumpleaños"].HeaderText = "Cumpleaños";
+                    dataGridView1.Columns["dni"].HeaderText = "DNI";
+
+                    dataGridView1.Columns["id_persona"].Width = 80;
+                    //dataGridView1.Columns["id_persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["apellido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 140;
+                    //dataGridView1.Columns["email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 80;
+                    //dataGridView1.Columns["sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["telefono"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["cumpleaños"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["dni"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)
@@ -63,7 +84,7 @@ namespace Proyecto_Taller_Grupo_22
         {
             try
             {
-                string query = @"SELECT p.* 
+                string query = @"SELECT p.id_persona, p.nombre, p.apellido, p.email, p.sexo, p.telefono, p.cumpleaños, p.dni 
                          FROM Persona p
                          INNER JOIN Cliente c ON p.id_persona = c.id_cliente"; // No hay filtro
 
@@ -74,6 +95,27 @@ namespace Proyecto_Taller_Grupo_22
 
                     dataAdapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
+
+                    dataGridView1.Columns["id_persona"].HeaderText = "ID";
+                    dataGridView1.Columns["nombre"].HeaderText = "Nombre";
+                    dataGridView1.Columns["apellido"].HeaderText = "Apellido";
+                    dataGridView1.Columns["email"].HeaderText = "Email";
+                    dataGridView1.Columns["sexo"].HeaderText = "Sexo";
+                    dataGridView1.Columns["telefono"].HeaderText = "Teléfono";
+                    dataGridView1.Columns["cumpleaños"].HeaderText = "Cumpleaños";
+                    dataGridView1.Columns["dni"].HeaderText = "DNI";
+
+                    dataGridView1.Columns["id_persona"].Width = 80;
+                    //dataGridView1.Columns["id_persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["apellido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 140;
+                    //dataGridView1.Columns["email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 80;
+                    //dataGridView1.Columns["sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["telefono"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["cumpleaños"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["dni"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)

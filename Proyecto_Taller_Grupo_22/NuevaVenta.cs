@@ -137,6 +137,11 @@ namespace Proyecto_Taller_Grupo_22
                 dataGridView1.Columns.Add("cantidad", "Cantidad");
                 dataGridView1.Columns.Add("precioVenta", "Precio Venta");
                 dataGridView1.Columns.Add("subtotal", "Subtotal");
+
+                dataGridView1.Columns["nombreProducto"].Width = 237;
+
+                // Agregar columna de eliminación si no existe
+                ConfigurarDataGridView();
             }
 
             // Obtener los valores del formulario
@@ -281,5 +286,51 @@ namespace Proyecto_Taller_Grupo_22
                 }
             }
         }
+
+        private void ConfigurarDataGridView()
+        {
+            if (dataGridView1.Columns["eliminar"] == null)
+            {
+                // Crear la columna de imagen para eliminar productos
+                DataGridViewImageColumn colEliminar = new DataGridViewImageColumn();
+                colEliminar.Name = "eliminar";
+                colEliminar.HeaderText = "Eliminar";
+                colEliminar.Image = Properties.Resources.delete_sign;
+                colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ajuste de imagen
+                colEliminar.Width = 60;
+                colEliminar.DefaultCellStyle = null;
+                DataGridViewCellStyle style = new DataGridViewCellStyle();
+                style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                colEliminar.DefaultCellStyle = style;
+                dataGridView1.Columns.Add(colEliminar);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar si la columna presionada es la de eliminación
+            if (e.ColumnIndex == dataGridView1.Columns["eliminar"].Index && e.RowIndex >= 0)
+            {
+                var row = dataGridView1.Rows[e.RowIndex];
+
+                // Verificar si la fila no está vacía y no es una fila de nueva entrada
+                bool isRowEmpty = row.Cells.Cast<DataGridViewCell>().All(cell => cell.Value == null || string.IsNullOrWhiteSpace(cell.Value.ToString()));
+                if (isRowEmpty || row.IsNewRow)
+                {
+                    // Si la fila está vacía o es una nueva fila, salir del método sin hacer nada
+                    return;
+                }
+
+                // Confirmación antes de eliminar
+                var confirmResult = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", "Confirmar Eliminación", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.RemoveAt(e.RowIndex);  // Eliminar la fila seleccionada
+                    CalcularTotalVenta(); // Recalcular el total de la venta
+                }
+            }
+        }
+
+
     }
 }

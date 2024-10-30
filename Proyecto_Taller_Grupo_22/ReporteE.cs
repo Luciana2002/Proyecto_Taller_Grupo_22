@@ -6,6 +6,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace Proyecto_Taller_Grupo_22
 {
@@ -21,12 +22,20 @@ namespace Proyecto_Taller_Grupo_22
             // Configuración del DataGridView para las ventas
             dgvproductos.Columns.Add("FechaVenta", "Fecha Venta");
             dgvproductos.Columns.Add("Cliente", "Cliente");
-            dgvproductos.Columns.Add("Vendedor", "Vendedor");
+            //dgvproductos.Columns.Add("Vendedor", "Vendedor");
             dgvproductos.Columns.Add("Producto", "Producto");
             dgvproductos.Columns.Add("PrecioUnitario", "Precio Unitario");
             dgvproductos.Columns.Add("Cantidad", "Cantidad");
             dgvproductos.Columns.Add("Subtotal", "Subtotal");
             dgvproductos.Columns.Add("TotalVenta", "Total Venta");
+
+            dgvproductos.Columns["FechaVenta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproductos.Columns["Cliente"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproductos.Columns["Producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproductos.Columns["PrecioUnitario"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproductos.Columns["Cantidad"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproductos.Columns["Subtotal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvproductos.Columns["TotalVenta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void GenerarR_Click(object sender, EventArgs e)
@@ -39,7 +48,7 @@ namespace Proyecto_Taller_Grupo_22
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"SELECT v.fecha_venta, p.nombre + ' ' + p.apellido AS Cliente, 
-                                u.nombre_usuario AS Vendedor, pr.nombre_producto AS Producto, 
+                                pr.nombre_producto AS Producto, 
                                 pr.precio_venta AS PrecioUnitario, dv.cantidad, 
                                 dv.subtotal, v.total_venta AS TotalVenta
                                 FROM Venta v
@@ -64,7 +73,6 @@ namespace Proyecto_Taller_Grupo_22
                     dgvproductos.Rows.Add(
                         reader["fecha_venta"],
                         reader["Cliente"],
-                        reader["Vendedor"],
                         reader["Producto"],
                         reader["PrecioUnitario"],
                         reader["cantidad"],
@@ -82,20 +90,21 @@ namespace Proyecto_Taller_Grupo_22
             SaveFileDialog savefile = new SaveFileDialog();
             savefile.FileName = string.Format("ReporteVentas_{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
 
-            string PaginaHTML_Texto = Properties.Resources.PlantillaR.ToString();
+            string PaginaHTML_Texto = Properties.Resources.PlantillaRE.ToString();
             string filas = string.Empty;
             decimal totalGeneral = 0;
+
+            // Obtener el nombre y apellido del vendedor
+            string nombreVendedor = FormatearNombreCompleto(UsuarioInfo.Nombre, UsuarioInfo.Apellido); // Asegúrate de que esta propiedad exista y tenga el apellido del usuario
 
             // Construir las filas de productos para el HTML
             foreach (DataGridViewRow row in dgvproductos.Rows)
             {
-                // Asegurarse de que la fila no esté vacía
                 if (row.Cells["Producto"].Value != null)
                 {
                     filas += "<tr>";
                     filas += "<td>" + (row.Cells["FechaVenta"].Value != null ? Convert.ToDateTime(row.Cells["FechaVenta"].Value).ToString("dd/MM/yyyy") : "") + "</td>";
                     filas += "<td>" + (row.Cells["Cliente"].Value != null ? row.Cells["Cliente"].Value.ToString() : "") + "</td>";
-                    filas += "<td>" + (row.Cells["Vendedor"].Value != null ? row.Cells["Vendedor"].Value.ToString() : "") + "</td>";
                     filas += "<td>" + (row.Cells["Producto"].Value != null ? row.Cells["Producto"].Value.ToString() : "") + "</td>";
                     filas += "<td>" + (row.Cells["PrecioUnitario"].Value != null ? Convert.ToDecimal(row.Cells["PrecioUnitario"].Value).ToString("$#,##0.00") : "") + "</td>";
                     filas += "<td>" + (row.Cells["Cantidad"].Value != null ? row.Cells["Cantidad"].Value.ToString() : "") + "</td>";
@@ -103,7 +112,6 @@ namespace Proyecto_Taller_Grupo_22
                     filas += "<td>" + (row.Cells["TotalVenta"].Value != null ? Convert.ToDecimal(row.Cells["TotalVenta"].Value).ToString("$#,##0.00") : "") + "</td>";
                     filas += "</tr>";
 
-                    // Sumar el valor del TotalVenta al total general
                     if (row.Cells["TotalVenta"].Value != null)
                     {
                         totalGeneral += Convert.ToDecimal(row.Cells["TotalVenta"].Value);
@@ -117,6 +125,7 @@ namespace Proyecto_Taller_Grupo_22
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHAINICIO", dtpFechaInicio.Value.ToString("dd/MM/yyyy"));
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHAFIN", dtpFechaFin.Value.ToString("dd/MM/yyyy"));
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@VENDEDOR", nombreVendedor); // Agrega el nombre del vendedor formateado
 
             // Guardar el PDF
             if (savefile.ShowDialog() == DialogResult.OK)
@@ -148,6 +157,19 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
+        private string FormatearNombreCompleto(string nombre, string apellido)
+        {
+            // Asegurarse de que el nombre y el apellido no sean nulos o vacíos
+            if (string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(apellido))
+                return string.Empty;
+
+            // Combinar nombre y apellido
+            string nombreCompleto = $"{nombre} {apellido}";
+
+            // Capitalizar la primera letra de cada palabra
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+            return textInfo.ToTitleCase(nombreCompleto.ToLower());
+        }
 
     }
 }

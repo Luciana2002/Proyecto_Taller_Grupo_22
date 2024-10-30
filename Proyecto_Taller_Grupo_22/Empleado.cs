@@ -67,6 +67,21 @@ namespace Proyecto_Taller_Grupo_22
                     dataGridView1.Columns["nombre_usuario"].HeaderText = "Nombre de Usuario";
                     dataGridView1.Columns["perfil_descripcion"].HeaderText = "Cargo";
                     dataGridView1.Columns["contraseña"].HeaderText = "Contraseña";
+
+                    dataGridView1.Columns["id_persona"].Width = 80;
+                    //dataGridView1.Columns["id_persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["apellido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 100;
+                    //dataGridView1.Columns["email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 80;
+                    //dataGridView1.Columns["sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["telefono"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["cumpleaños"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["dni"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["nombre_usuario"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["perfil_descripcion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["contraseña"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)
@@ -81,7 +96,7 @@ namespace Proyecto_Taller_Grupo_22
             {
                 using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
                 {
-                    string query = @"SELECT p.estado, p.id_persona, p.nombre, p.apellido, p.email, p.sexo, p.telefono, p.cumpleaños, p.dni, 
+                    string query = @"SELECT p.id_persona, p.nombre, p.apellido, p.email, p.sexo, p.telefono, p.cumpleaños, p.dni, 
                          u.nombre_usuario, pf.descripcion AS perfil_descripcion, u.contraseña
                          FROM Persona p 
                          INNER JOIN Usuario u ON p.id_persona = u.id_usuario 
@@ -93,7 +108,7 @@ namespace Proyecto_Taller_Grupo_22
                     dataAdapter.Fill(dataTable);
                     dataGridView1.DataSource = dataTable;
 
-                    dataGridView1.Columns["estado"].HeaderText = "Estado";
+                    //dataGridView1.Columns["estado"].HeaderText = "Estado";
                     dataGridView1.Columns["id_persona"].HeaderText = "ID";
                     dataGridView1.Columns["nombre"].HeaderText = "Nombre";
                     dataGridView1.Columns["apellido"].HeaderText = "Apellido";
@@ -105,6 +120,21 @@ namespace Proyecto_Taller_Grupo_22
                     dataGridView1.Columns["nombre_usuario"].HeaderText = "Nombre de Usuario";
                     dataGridView1.Columns["perfil_descripcion"].HeaderText = "Cargo";
                     dataGridView1.Columns["contraseña"].HeaderText = "Contraseña";
+
+                    dataGridView1.Columns["id_persona"].Width = 80;
+                    //dataGridView1.Columns["id_persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["apellido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 100;
+                    //dataGridView1.Columns["email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["sexo"].Width = 80;
+                    //dataGridView1.Columns["sexo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["telefono"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["cumpleaños"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["dni"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["nombre_usuario"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["perfil_descripcion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView1.Columns["contraseña"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)
@@ -623,7 +653,6 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-
         private void UpdateStatusInDatabase(int idPersona, string nuevoEstado)
         {
             using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
@@ -653,26 +682,6 @@ namespace Proyecto_Taller_Grupo_22
                         MessageBox.Show("Error al actualizar el estado: " + ex.Message);
                     }
                 }
-            }
-        }
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // Asegúrate de que estás en la columna correcta y de que la fila es válida
-            if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
-            {
-            // Obtén el valor de la columna 'estado' para la fila actual
-            string estado = dataGridView1.Rows[e.RowIndex].Cells["estado"].Value.ToString();
-
-            // Dependiendo del estado, cambia la imagen del botón
-            if (estado == "A")
-            {
-                e.Value = Properties.Resources.imagen_activo; // Imagen para estado "Activo"
-            }
-            else
-            {
-                e.Value = Properties.Resources.imagen_inactivo; // Imagen para estado "Inactivo"
-            }
             }
         }
     }

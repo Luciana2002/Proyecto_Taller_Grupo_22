@@ -159,12 +159,36 @@ namespace Proyecto_Taller_Grupo_22
 
         private void BReportes_Click(object sender, EventArgs e)
         {
-            AbrirFormularioEnPanel(new Reporte());
+            Form reporteForm;
+
+            // Verificamos el perfil del usuario actual
+            string perfil = UsuarioInfo.Perfil;
+
+            switch (perfil)
+            {
+                case "Administrador":
+                    reporteForm = new ReporteA(); // Asegúrate de que esta clase exista
+                    break;
+
+                case "Gerente":
+                    reporteForm = new ReporteG(); // Asegúrate de que esta clase exista
+                    break;
+
+                case "Empleado":
+                    reporteForm = new ReporteE(); // Asegúrate de que esta clase exista
+                    break;
+
+                default:
+                    MessageBox.Show("Perfil no reconocido. Contacte al administrador.");
+                    return;
+            }
+
+            AbrirFormularioEnPanel(reporteForm);
         }
 
         private void PBReporte_Click(object sender, EventArgs e)
         {
-            AbrirFormularioEnPanel(new Reporte());
+            BReportes_Click(sender, e); // Llama al mismo método que el botón
         }
 
         private void BEmpleados_Click(object sender, EventArgs e)

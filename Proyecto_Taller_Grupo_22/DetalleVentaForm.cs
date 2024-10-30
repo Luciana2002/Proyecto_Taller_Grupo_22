@@ -51,6 +51,11 @@ namespace Proyecto_Taller_Grupo_22
                 dataGridView1.Columns["nombre_producto"].HeaderText = "Nombre Producto";
                 dataGridView1.Columns["precio_venta"].HeaderText = "Precio de Venta";
                 dataGridView1.Columns["subtotal"].HeaderText = "Subtotal";
+
+                dataGridView1.Columns["cantidad"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["nombre_producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["precio_venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["subtotal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
     }
