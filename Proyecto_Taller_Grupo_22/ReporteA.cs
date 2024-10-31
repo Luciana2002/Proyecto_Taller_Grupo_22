@@ -16,5 +16,10 @@ namespace Proyecto_Taller_Grupo_22
         {
             InitializeComponent();
         }
+
+        private void ReporteA_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
