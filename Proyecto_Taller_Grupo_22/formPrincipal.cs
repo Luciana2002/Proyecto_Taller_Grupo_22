@@ -170,7 +170,7 @@ namespace Proyecto_Taller_Grupo_22
                     break;
 
                 case "Gerente":
-                    reporteForm = new ReporteGerente(); // Asegúrate de que esta clase exista
+                    reporteForm = new ReporteG(); // Asegúrate de que esta clase exista
                     break;
 
                 case "Empleado":
