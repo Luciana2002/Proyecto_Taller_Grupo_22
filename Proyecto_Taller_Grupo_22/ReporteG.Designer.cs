@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Taller_Grupo_22
 {
-    partial class ReporteGerente
+    partial class ReporteG
     {
         /// <summary>
         /// Required designer variable.
@@ -223,7 +223,7 @@
             button1.Text = "Recaudación";
             button1.UseVisualStyleBackColor = true;
             // 
-            // ReporteGerente
+            // ReporteG
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -242,8 +242,8 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "ReporteGerente";
-            Text = "ReporteGerente";
+            Name = "ReporteG";
+            Text = "ReporteG";
             ((System.ComponentModel.ISupportInitialize)dgvproductos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
