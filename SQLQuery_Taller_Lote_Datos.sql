@@ -69,8 +69,8 @@ INSERT INTO Persona (nombre, apellido, estado, email, sexo, telefono, cumpleaño
 
 -- select * from Persona
 
-INSERT INTO Usuario (nombre_usuario, contraseña, id_usuario, id_perfil)
-VALUES ('Luci', '12345678', 1, 1), ('Juan', '12345678', 2, 2), ('Marta', '12345678', 3, 2),
+INSERT INTO Usuario (nombre_usuario, contraseña, id_usuario, id_perfil) VALUES 
+('Luci', '12345678', 1, 1), ('Juan', '12345678', 2, 2), ('Marta', '12345678', 3, 2),
 ('Ana', '12345678', 4, 3), ('Carlitos', '12345678', 5, 3), ('María', '12345678', 6, 3), ('Luis', '12345678', 7, 3);
 
 -- select * from Usuario
@@ -337,3 +337,17 @@ INSERT INTO Detalle_Venta (cantidad, id_producto, subtotal, id_venta) VALUES
 (1, 11, 18.99, 35);
 
 -- select * from Detalle_Venta
+
+INSERT INTO Backup_Registro (fecha_backup, id_usuario, ruta_backup) VALUES 
+('2023-04-12 14:25:35.384', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20230412_142535.bak'),
+('2023-08-07 10:12:48.572', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20230807_101248.bak'),
+('2023-12-01 09:03:12.195', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20231201_090312.bak'),
+('2024-01-15 17:30:25.112', 3, 'C:\Archivos\3er Año\Taller II\taller_db_1_20240115_173025.bak'),
+('2024-03-18 11:45:05.950', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20240318_114505.bak'),
+('2024-05-22 13:55:32.500', 3, 'C:\Archivos\3er Año\Taller II\taller_db_1_20240522_135532.bak'),
+('2024-07-10 08:15:43.294', 3, 'C:\Archivos\3er Año\Taller II\taller_db_1_20240710_081543.bak'),
+('2024-08-25 19:20:10.588', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20240825_192010.bak'),
+('2024-09-12 15:10:55.831', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20240912_151055.bak'),
+('2024-10-14 07:40:18.727', 3, 'C:\Archivos\3er Año\Taller II\taller_db_1_20241014_074018.bak');
+
+-- select * from Backup_Registro
