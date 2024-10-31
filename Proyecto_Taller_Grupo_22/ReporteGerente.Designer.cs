@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Taller_Grupo_22
 {
-    partial class ReporteA
+    partial class ReporteGerente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label3 = new Label();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            dgvproductos = new DataGridView();
             button5 = new Button();
             panel1 = new Panel();
             label5 = new Label();
@@ -40,60 +37,35 @@
             dtpFechaInicio = new DateTimePicker();
             label2 = new Label();
             label1 = new Label();
-            dgvproductos = new DataGridView();
-            panel1.SuspendLayout();
+            label3 = new Label();
+            button4 = new Button();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            label6 = new Label();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvproductos).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // label3
+            // dgvproductos
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label3.Location = new Point(414, 259);
-            label3.Margin = new Padding(6, 0, 6, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(189, 24);
-            label3.TabIndex = 88;
-            label3.Text = "Generar Reporte por:";
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button3.Location = new Point(505, 298);
-            button3.Name = "button3";
-            button3.Size = new Size(137, 74);
-            button3.TabIndex = 87;
-            button3.Text = "Productos";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button2.Location = new Point(648, 298);
-            button2.Name = "button2";
-            button2.Size = new Size(137, 74);
-            button2.TabIndex = 86;
-            button2.Text = "Registros Backup";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button1.Location = new Point(219, 298);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 74);
-            button1.TabIndex = 84;
-            button1.Text = "Usuarios";
-            button1.UseVisualStyleBackColor = true;
+            dgvproductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvproductos.Location = new Point(29, 460);
+            dgvproductos.Name = "dgvproductos";
+            dgvproductos.RowHeadersWidth = 51;
+            dgvproductos.Size = new Size(958, 458);
+            dgvproductos.TabIndex = 116;
             // 
             // button5
             // 
-            button5.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button5.Location = new Point(362, 298);
+            button5.Font = new Font("Microsoft Sans Serif", 12F);
+            button5.Location = new Point(626, 396);
             button5.Name = "button5";
-            button5.Size = new Size(137, 74);
-            button5.TabIndex = 94;
-            button5.Text = "Clientes";
+            button5.Size = new Size(164, 34);
+            button5.TabIndex = 115;
+            button5.Text = "Reporte Ventas";
             button5.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -103,11 +75,11 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(dtpFechaFin);
             panel1.Controls.Add(dtpFechaInicio);
-            panel1.Location = new Point(220, 113);
+            panel1.Location = new Point(223, 112);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(567, 133);
-            panel1.TabIndex = 97;
+            panel1.TabIndex = 114;
             // 
             // label5
             // 
@@ -155,64 +127,132 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(432, 76);
+            label2.Location = new Point(435, 75);
             label2.Margin = new Padding(7, 0, 7, 0);
             label2.Name = "label2";
             label2.Size = new Size(153, 29);
-            label2.TabIndex = 96;
+            label2.TabIndex = 113;
             label2.Text = "Elegir fechas";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(442, 21);
+            label1.Location = new Point(445, 20);
             label1.Margin = new Padding(7, 0, 7, 0);
             label1.Name = "label1";
             label1.Size = new Size(133, 31);
-            label1.TabIndex = 95;
+            label1.TabIndex = 112;
             label1.Text = "Reportes";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // dgvproductos
+            // label3
             // 
-            dgvproductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvproductos.Location = new Point(26, 400);
-            dgvproductos.Name = "dgvproductos";
-            dgvproductos.RowHeadersWidth = 51;
-            dgvproductos.Size = new Size(954, 518);
-            dgvproductos.TabIndex = 98;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label3.Location = new Point(417, 258);
+            label3.Margin = new Padding(6, 0, 6, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(189, 24);
+            label3.TabIndex = 111;
+            label3.Text = "Generar Reporte por:";
             // 
-            // ReporteA
+            // button4
+            // 
+            button4.Font = new Font("Microsoft Sans Serif", 12F);
+            button4.Location = new Point(522, 396);
+            button4.Name = "button4";
+            button4.Size = new Size(98, 34);
+            button4.TabIndex = 110;
+            button4.Text = "Buscar";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Microsoft Sans Serif", 12F);
+            textBox2.Location = new Point(296, 398);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(220, 30);
+            textBox2.TabIndex = 109;
+            // 
+            // textBox3
+            // 
+            textBox3.Font = new Font("Microsoft Sans Serif", 12F);
+            textBox3.Location = new Point(223, 398);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(67, 30);
+            textBox3.TabIndex = 108;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(223, 367);
+            label6.Name = "label6";
+            label6.Size = new Size(104, 25);
+            label6.TabIndex = 107;
+            label6.Text = "Vendedor:";
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Microsoft Sans Serif", 11.25F);
+            button3.Location = new Point(583, 297);
+            button3.Name = "button3";
+            button3.Size = new Size(137, 45);
+            button3.TabIndex = 106;
+            button3.Text = "Total ventas";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Microsoft Sans Serif", 11.25F);
+            button2.Location = new Point(440, 297);
+            button2.Name = "button2";
+            button2.Size = new Size(137, 45);
+            button2.TabIndex = 105;
+            button2.Text = "Más vendidos";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Microsoft Sans Serif", 11.25F);
+            button1.Location = new Point(297, 297);
+            button1.Name = "button1";
+            button1.Size = new Size(137, 45);
+            button1.TabIndex = 104;
+            button1.Text = "Recaudación";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // ReporteGerente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Plum;
-            ClientSize = new Size(1025, 971);
+            ClientSize = new Size(1018, 739);
             Controls.Add(dgvproductos);
+            Controls.Add(button5);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button5);
             Controls.Add(label3);
+            Controls.Add(button4);
+            Controls.Add(textBox2);
+            Controls.Add(textBox3);
+            Controls.Add(label6);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Name = "ReporteA";
-            Text = "Reporte Administrador";
-            Load += ReporteA_Load;
+            Name = "ReporteGerente";
+            Text = "ReporteGerente";
+            ((System.ComponentModel.ISupportInitialize)dgvproductos).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvproductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label label3;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+
+        private DataGridView dgvproductos;
         private Button button5;
         private Panel panel1;
         private Label label5;
@@ -221,6 +261,13 @@
         private DateTimePicker dtpFechaInicio;
         private Label label2;
         private Label label1;
-        private DataGridView dgvproductos;
+        private Label label3;
+        private Button button4;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private Label label6;
+        private Button button3;
+        private Button button2;
+        private Button button1;
     }
 }

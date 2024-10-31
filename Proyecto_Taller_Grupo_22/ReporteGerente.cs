@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Proyecto_Taller_Grupo_22
 {
-    public partial class ReporteA : Form
+    public partial class ReporteGerente : Form
     {
-        public ReporteA()
+        public ReporteGerente()
         {
             InitializeComponent();
-        }
-
-        private void ReporteA_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

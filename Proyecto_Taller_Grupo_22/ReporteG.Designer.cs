@@ -37,13 +37,14 @@
             panel1 = new Panel();
             label5 = new Label();
             label4 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            dtpFechaFin = new DateTimePicker();
+            dtpFechaInicio = new DateTimePicker();
             button4 = new Button();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             label6 = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvproductos).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -53,7 +54,7 @@
             label1.Location = new Point(372, 38);
             label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(107, 25);
+            label1.Size = new Size(133, 31);
             label1.TabIndex = 0;
             label1.Text = "Reportes";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -75,7 +76,7 @@
             label2.Location = new Point(356, 92);
             label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(137, 25);
+            label2.Size = new Size(171, 31);
             label2.TabIndex = 2;
             label2.Text = "Elegir fechas";
             // 
@@ -106,17 +107,43 @@
             label3.Location = new Point(336, 250);
             label3.Margin = new Padding(6, 0, 6, 0);
             label3.Name = "label3";
-            label3.Size = new Size(149, 18);
+            label3.Size = new Size(189, 24);
             label3.TabIndex = 5;
             label3.Text = "Generar Reporte por:";
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Microsoft Sans Serif", 12F);
+            textBox2.Location = new Point(292, 399);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(220, 30);
+            textBox2.TabIndex = 81;
+            // 
+            // textBox3
+            // 
+            textBox3.Font = new Font("Microsoft Sans Serif", 12F);
+            textBox3.Location = new Point(219, 399);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(67, 30);
+            textBox3.TabIndex = 80;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(219, 368);
+            label6.Name = "label6";
+            label6.Size = new Size(104, 25);
+            label6.TabIndex = 79;
+            label6.Text = "Vendedor:";
             // 
             // panel1
             // 
             panel1.BackColor = Color.Violet;
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(dateTimePicker2);
-            panel1.Controls.Add(dateTimePicker1);
+            panel1.Controls.Add(dtpFechaFin);
+            panel1.Controls.Add(dtpFechaInicio);
             panel1.Location = new Point(177, 138);
             panel1.Name = "panel1";
             panel1.Size = new Size(496, 100);
@@ -130,7 +157,7 @@
             label5.Location = new Point(353, 19);
             label5.Margin = new Padding(6, 0, 6, 0);
             label5.Name = "label5";
-            label5.Size = new Size(62, 24);
+            label5.Size = new Size(80, 29);
             label5.TabIndex = 4;
             label5.Text = "Hasta:";
             // 
@@ -141,34 +168,34 @@
             label4.Location = new Point(73, 19);
             label4.Margin = new Padding(6, 0, 6, 0);
             label4.Name = "label4";
-            label4.Size = new Size(70, 24);
+            label4.Size = new Size(90, 29);
             label4.TabIndex = 3;
             label4.Text = "Desde:";
             // 
-            // dateTimePicker2
+            // dtpFechaFin
             // 
-            dateTimePicker2.Font = new Font("Microsoft Sans Serif", 9.75F);
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(311, 46);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(144, 22);
-            dateTimePicker2.TabIndex = 1;
+            dtpFechaFin.Font = new Font("Microsoft Sans Serif", 9.75F);
+            dtpFechaFin.Format = DateTimePickerFormat.Short;
+            dtpFechaFin.Location = new Point(311, 46);
+            dtpFechaFin.Name = "dtpFechaFin";
+            dtpFechaFin.Size = new Size(144, 26);
+            dtpFechaFin.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpFechaInicio
             // 
-            dateTimePicker1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(37, 46);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(144, 22);
-            dateTimePicker1.TabIndex = 0;
+            dtpFechaInicio.Font = new Font("Microsoft Sans Serif", 9.75F);
+            dtpFechaInicio.Format = DateTimePickerFormat.Short;
+            dtpFechaInicio.Location = new Point(37, 46);
+            dtpFechaInicio.Name = "dtpFechaInicio";
+            dtpFechaInicio.Size = new Size(144, 26);
+            dtpFechaInicio.TabIndex = 0;
             // 
             // button4
             // 
             button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button4.Location = new Point(524, 392);
             button4.Name = "button4";
-            button4.Size = new Size(80, 26);
+            button4.Size = new Size(80, 30);
             button4.TabIndex = 82;
             button4.Text = "Buscar";
             button4.UseVisualStyleBackColor = true;
@@ -178,7 +205,7 @@
             textBox2.Font = new Font("Microsoft Sans Serif", 12F);
             textBox2.Location = new Point(313, 392);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(205, 26);
+            textBox2.Size = new Size(205, 30);
             textBox2.TabIndex = 81;
             // 
             // textBox3
@@ -186,7 +213,7 @@
             textBox3.Font = new Font("Microsoft Sans Serif", 12F);
             textBox3.Location = new Point(240, 392);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(67, 26);
+            textBox3.Size = new Size(67, 30);
             textBox3.TabIndex = 80;
             // 
             // label6
@@ -195,13 +222,13 @@
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.Location = new Point(240, 360);
             label6.Name = "label6";
-            label6.Size = new Size(83, 20);
+            label6.Size = new Size(104, 25);
             label6.TabIndex = 79;
             label6.Text = "Vendedor:";
             // 
-            // Reporte
+            // ReporteG
             // 
-            AutoScaleDimensions = new SizeF(14F, 29F);
+            AutoScaleDimensions = new SizeF(17F, 36F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
             ClientSize = new Size(887, 498);
@@ -218,12 +245,13 @@
             Controls.Add(label1);
             Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(6);
-            Name = "Reporte";
+            Name = "ReporteG";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Reportes";
             Load += Reporte_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvproductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,13 +265,23 @@
         private Button button3;
         private Label label3;
         private Panel panel1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpFechaFin;
+        private DateTimePicker dtpFechaInicio;
         private Label label5;
         private Label label4;
         private Button button4;
         private TextBox textBox2;
         private TextBox textBox3;
         private Label label6;
+        private Panel panel1;
+        private Label label5;
+        private Label label4;
+        private DateTimePicker dtpFechaFin;
+        private DateTimePicker dtpFechaInicio;
+        private Label label2;
+        private Label label1;
+        private Label label3;
+        private Button button5;
+        private DataGridView dgvproductos;
     }
 }

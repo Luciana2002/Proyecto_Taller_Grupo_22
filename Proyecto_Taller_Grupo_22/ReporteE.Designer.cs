@@ -99,7 +99,7 @@
             // 
             // GenerarR
             // 
-            GenerarR.Font = new Font("Microsoft Sans Serif", 11.25F);
+            GenerarR.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             GenerarR.Location = new Point(302, 272);
             GenerarR.Margin = new Padding(3, 4, 3, 4);
             GenerarR.Name = "GenerarR";
@@ -138,12 +138,12 @@
             dgvproductos.Location = new Point(26, 347);
             dgvproductos.Name = "dgvproductos";
             dgvproductos.RowHeadersWidth = 51;
-            dgvproductos.Size = new Size(954, 510);
+            dgvproductos.Size = new Size(954, 571);
             dgvproductos.TabIndex = 90;
             // 
             // btndescargar
             // 
-            btndescargar.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btndescargar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btndescargar.Location = new Point(503, 272);
             btndescargar.Margin = new Padding(3, 4, 3, 4);
             btndescargar.Name = "btndescargar";
@@ -158,7 +158,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
-            ClientSize = new Size(1015, 875);
+            ClientSize = new Size(1015, 953);
             Controls.Add(btndescargar);
             Controls.Add(dgvproductos);
             Controls.Add(panel1);
