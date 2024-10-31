@@ -121,7 +121,7 @@ namespace Proyecto_Taller_Grupo_22
 
             // Asegurarse de que el formulario esté al frente
             formularioHijo.BringToFront();
-            this.panelContenedor.BringToFront(); // Asegurar que el panel esté por delante de otros controles
+            this.panelContenedor.BringToFront(); 
 
             formularioHijo.Show();
         }
@@ -166,15 +166,15 @@ namespace Proyecto_Taller_Grupo_22
             switch (perfil)
             {
                 case "Administrador":
-                    reporteForm = new ReporteA(); // Asegúrate de que esta clase exista
+                    reporteForm = new ReporteA(); 
                     break;
 
                 case "Gerente":
-                    reporteForm = new ReporteG(); // Asegúrate de que esta clase exista
+                    reporteForm = new ReporteG(); 
                     break;
 
                 case "Empleado":
-                    reporteForm = new ReporteE(); // Asegúrate de que esta clase exista
+                    reporteForm = new ReporteE(); 
                     break;
 
                 default:
@@ -187,7 +187,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private void PBReporte_Click(object sender, EventArgs e)
         {
-            BReportes_Click(sender, e); // Llama al mismo método que el botón
+            BReportes_Click(sender, e); 
         }
 
         private void BEmpleados_Click(object sender, EventArgs e)
