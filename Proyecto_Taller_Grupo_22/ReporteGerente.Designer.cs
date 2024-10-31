@@ -227,6 +227,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Plum;
             ClientSize = new Size(1018, 739);
             Controls.Add(dgvproductos);
             Controls.Add(button5);
