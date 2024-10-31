@@ -1,6 +1,6 @@
 ﻿namespace Proyecto_Taller_Grupo_22
 {
-    partial class ReporteGerente
+    partial class ReporteG
     {
         /// <summary>
         /// Required designer variable.
@@ -227,6 +227,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Plum;
             ClientSize = new Size(1018, 739);
             Controls.Add(dgvproductos);
             Controls.Add(button5);
