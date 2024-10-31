@@ -34,7 +34,6 @@ namespace Proyecto_Taller_Grupo_22
                 case "Gerente":
                     DeshabilitarBoton(BVentas, PBVenta);
                     DeshabilitarBoton(BEmpleados, PBEmpleado);
-                    DeshabilitarBoton(BBackUp, PBBackUp);
                     break;
 
                 case "Empleado":

@@ -15,14 +15,12 @@ namespace Proyecto_Taller_Grupo_22
             this.Load += Backup_Load;
         }
 
-        // Evento de carga del formulario
         private void Backup_Load(object sender, EventArgs e)
         {
             txtBaseDatos.Text = NombreBaseDatos;
-            txtBaseDatos.ReadOnly = true; // Hacer el TextBox de solo lectura
+            txtBaseDatos.ReadOnly = true;
         }
 
-        // Función para mostrar un mensaje y detener la ejecución si el valor es inválido
         private bool ValidarRuta(string ruta)
         {
             if (string.IsNullOrWhiteSpace(ruta))
@@ -33,7 +31,6 @@ namespace Proyecto_Taller_Grupo_22
             return true;
         }
 
-        // Función para seleccionar la ruta de guardado
         private void SeleccionarRutaGuardado()
         {
             using (FolderBrowserDialog dialog = new FolderBrowserDialog())
@@ -45,16 +42,82 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        // Función para realizar el backup de la base de datos
-        private void RealizarBackup(string rutaBackup)
+        private void SeleccionarArchivoRespaldo()
         {
-            string rutaCompleta = System.IO.Path.Combine(rutaBackup, $"{NombreBaseDatos}.bak");
-            string query = $"BACKUP DATABASE [{NombreBaseDatos}] TO DISK = '{rutaCompleta.Replace("'", "''")}'";
-
-            EjecutarConsulta(query, "Backup realizado con éxito!");
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Archivos de respaldo (*.bak)|*.bak";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtRutaRestaurar.Text = dialog.FileName;
+                }
+            }
         }
 
-        // Función para conectar a la base de datos y ejecutar una consulta
+        private void RealizarBackup(string rutaBackup)
+        {
+            string fechaActual = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            string rutaCompleta = System.IO.Path.Combine(rutaBackup, $"{NombreBaseDatos}_{fechaActual}.bak");
+            string queryBackup = $"BACKUP DATABASE [{NombreBaseDatos}] TO DISK = '{rutaCompleta.Replace("'", "''")}'";
+
+            EjecutarConsulta(queryBackup, "Backup realizado con éxito!");
+            RegistrarBackup(rutaCompleta);
+        }
+
+        private void RegistrarBackup(string rutaBackup)
+        {
+            int idUsuario = UsuarioInfo.IDUsuario;
+
+            string queryRegistro = "INSERT INTO Backup_Registro (fecha_backup, id_usuario, ruta_backup) " +
+                                   "VALUES (GETDATE(), @IdUsuario, @RutaBackup)";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(queryRegistro, connection))
+                    {
+                        command.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        command.Parameters.AddWithValue("@RutaBackup", rutaBackup);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al registrar el backup: {ex.Message}");
+            }
+        }
+
+        private void RestaurarBackup(string rutaBackup)
+        {
+            // Cambia la cadena de conexión para que se conecte a la base de datos "master"
+            string masterConnectionString = "Server=.;Database=master;Integrated Security=True;";
+
+            string queryRestaurar = $@"
+                ALTER DATABASE [{NombreBaseDatos}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+                RESTORE DATABASE [{NombreBaseDatos}] FROM DISK = '{rutaBackup.Replace("'", "''")}' WITH REPLACE;
+                ALTER DATABASE [{NombreBaseDatos}] SET MULTI_USER;";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(masterConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(queryRestaurar, connection))
+                    {
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Restauración realizada con éxito!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error durante la restauración: {ex.Message}");
+            }
+        }
+
         private void EjecutarConsulta(string query, string mensajeExito)
         {
             try
@@ -75,15 +138,19 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        // Eventos de botones
         private void btnConectar_Click(object sender, EventArgs e)
         {
-            EjecutarConsulta("SELECT 1", "Conexión exitosa!"); // Verificación simple de conexión
+            EjecutarConsulta("SELECT 1", "Conexión exitosa!");
         }
 
         private void btnSeleccionarRuta_Click(object sender, EventArgs e)
         {
             SeleccionarRutaGuardado();
+        }
+
+        private void btnSeleccionarArchivo_Click(object sender, EventArgs e)
+        {
+            SeleccionarArchivoRespaldo();
         }
 
         private void btnBackup_Click(object sender, EventArgs e)
@@ -93,6 +160,16 @@ namespace Proyecto_Taller_Grupo_22
             if (ValidarRuta(rutaBackup))
             {
                 RealizarBackup(rutaBackup);
+            }
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            string rutaRespaldo = txtRutaRestaurar.Text;
+
+            if (ValidarRuta(rutaRespaldo))
+            {
+                RestaurarBackup(rutaRespaldo);
             }
         }
     }
