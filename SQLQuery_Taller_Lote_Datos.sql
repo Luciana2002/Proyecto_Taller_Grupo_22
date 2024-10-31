@@ -338,6 +338,8 @@ INSERT INTO Detalle_Venta (cantidad, id_producto, subtotal, id_venta) VALUES
 
 -- select * from Detalle_Venta
 
+-- Establece el formato de entrada de fechas para que no haya errores al insertar
+-- SET DATEFORMAT ymd; 
 INSERT INTO Backup_Registro (fecha_backup, id_usuario, ruta_backup) VALUES 
 ('2023-04-12 14:25:35.384', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20230412_142535.bak'),
 ('2023-08-07 10:12:48.572', 2, 'C:\Archivos\3er Año\Taller II\taller_db_1_20230807_101248.bak'),
