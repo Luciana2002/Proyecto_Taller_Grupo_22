@@ -297,7 +297,8 @@ namespace Proyecto_Taller_Grupo_22
                 colEliminar.HeaderText = "Eliminar";
                 colEliminar.Image = Properties.Resources.delete_sign;
                 colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom; // Ajuste de imagen
-                colEliminar.Width = 60;
+                colEliminar.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                //colEliminar.Width = 60;
                 colEliminar.DefaultCellStyle = null;
                 DataGridViewCellStyle style = new DataGridViewCellStyle();
                 style.Alignment = DataGridViewContentAlignment.MiddleCenter;
