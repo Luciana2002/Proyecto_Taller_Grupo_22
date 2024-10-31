@@ -170,7 +170,7 @@ namespace Proyecto_Taller_Grupo_22
                     break;
 
                 case "Gerente":
-                    reporteForm = new ReporteGerente(); 
+                    reporteForm = new ReporteG(); 
                     break;
 
                 case "Empleado":
