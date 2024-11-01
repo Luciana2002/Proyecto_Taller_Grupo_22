@@ -98,7 +98,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private void EjecutarConsultaYMostrar(string query, string[] columnNames, string titulo)
         {
-            string connectionString = "server=LUCIANA\\SQLEXPRESS; database=taller_db_1; integrated security=true";
+            string connectionString = "server=.; database=taller_db_1; integrated security=true";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
