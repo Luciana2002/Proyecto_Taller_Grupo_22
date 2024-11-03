@@ -178,4 +178,16 @@
   <data name="PlantillaRE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PlantillaRE.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="PlantillaAB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlantillaAB.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PlantillaAC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlantillaAC.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PlantillaAP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlantillaAP.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="PlantillaAU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlantillaAU.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
