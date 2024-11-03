@@ -155,7 +155,7 @@ CREATE TABLE Backup_Registro
   id_usuario INT NOT NULL,
   ruta_backup VARCHAR(255) NOT NULL,
   CONSTRAINT FK_Backup_Registro_id_usuario FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
-);
+)
 go
 
 -----------------------------------
