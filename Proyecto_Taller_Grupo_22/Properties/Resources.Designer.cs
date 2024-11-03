@@ -214,6 +214,120 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
         ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Backups&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.border th, table.border td {
+        ///            padding: 5px;
+        ///            border: 1px solid black;
+        ///            text-align: center;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.info-table td {
+        ///            padding: 5px;
+        ///            ve [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaAB {
+            get {
+                return ResourceManager.GetString("PlantillaAB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Clientes&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///            table.border th, table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///                text-align: center;
+        ///                font-size: 12px;
+        ///            }
+        ///
+        ///        table.info-table td {
+        ///            padd [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaAC {
+            get {
+                return ResourceManager.GetString("PlantillaAC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Productos&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///            table.border th, table.border td {
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///                text-align: center;
+        ///                font-size: 12px;
+        ///            }
+        ///
+        ///        table.info-table td {
+        ///            pad [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaAP {
+            get {
+                return ResourceManager.GetString("PlantillaAP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Usuarios&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.border th, table.border td {
+        ///            padding: 5px;
+        ///            border: 1px solid black;
+        ///            text-align: center;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.info-table td {
+        ///            padding: 5px;
+        ///            v [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaAU {
+            get {
+                return ResourceManager.GetString("PlantillaAU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
         ///    &lt;title&gt;Reporte de Ventas&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
