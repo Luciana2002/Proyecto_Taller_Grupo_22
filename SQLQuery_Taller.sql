@@ -171,6 +171,9 @@ ALTER TABLE Persona ADD CONSTRAINT CK_estado CHECK (estado IN ('A', 'I'));
 ALTER TABLE Persona ADD CONSTRAINT DF_estado DEFAULT 'A' for estado;
 
 ALTER TABLE Producto ADD CONSTRAINT CK_eliminado CHECK (eliminado IN ('N', 'S'));
+ALTER TABLE Producto ADD CONSTRAINT DF_eliminado DEFAULT 'N' for eliminado;
+
 ALTER TABLE Venta ADD CONSTRAINT DF_fecha_venta DEFAULT getdate() for fecha_venta;
+
 ALTER TABLE Usuario ADD CONSTRAINT CK_contraseña CHECK (LEN(contraseña) >= 8);
 ALTER TABLE Usuario ADD CONSTRAINT CK_nombre_usuario CHECK (nombre_usuario NOT LIKE '%[^A-Za-z ]%');
