@@ -51,42 +51,39 @@
         <tr><td colspan="3" height="20"></td></tr>
 
         <tr>
-            <td colspan="3">
-                <table class="info-table" style="width:100%">
-                    <tr>
-                        <td style="width:20%">Desde la Fecha:</td>
-                        <td style="width:35%;border-bottom:1px">@FECHAINICIO</td>
-                        <td style="width:20%">Hasta la Fecha:</td>
-                        <td style="width:35%;border-bottom:1px">@FECHAFIN</td>
-                    </tr>
-                    <tr>
-                        <td style="width:15%">Vendedor:</td>
-                        <td colspan="3" style="border-bottom:1px">@VENDEDOR</td> 
-                    </tr>
-                </table>
-            </td>
+          <td colspan="3">
+            <table class="info-table" style="width:100%">
+              <tr>
+                <td style="width:20%">Desde la Fecha:</td>
+                <td style="width:35%;border-bottom:1px">@FECHAINICIO</td>
+                <td style="width:20%">Hasta la Fecha:</td>
+                <td style="width:35%;border-bottom:1px">@FECHAFIN</td>
+              </tr>
+            </table>
+          </td>
         </tr>
 
         <tr><td colspan="3" height="30"></td></tr>
 
         <tr>
             <td colspan="3">
-                <table class="border">
+                <table class="border" style="width:100%">
                     <thead>
                       <tr style="background-color:#D8D8D8">
-                      <th class="header-column">Fecha Venta</th>
-                      <th class="header-column">Cliente</th>
-                      <th class="header-column">Producto</th>
-                      <th class="header-column">Precio Unitario</th>
-                      <th class="header-column">Cantidad</th>
-                      <th class="header-column">Subtotal</th>
-                      <th class="header-column">Total</th>
+                      	  <th class="header-column">Fecha de Venta</th>
+			  <th class="header-column">Cliente</th>
+                          <th class="header-column">Vendedor</th>
+                          <th class="header-column">Producto</th>
+			  <th class="header-column">Precio Unitario</th>
+                          <th class="header-column">Cantidad</th>
+                          <th class="header-column">Subtotal</th>
+                          <th class="header-column">Total</th>
                       </tr>
                     </thead>
                     <tbody>
                         @FILAS
-                        <tr>
-                            <td colspan="5" style="border: 0px !important"></td>
+			<tr>
+                            <td colspan="6" style="border: 0px !important"></td>
                             <td align="right">Total General:</td>
                             <td>@TOTAL_GENERAL</td>
                         </tr>
@@ -97,6 +94,4 @@
     </table>
 </body>
 </html>
-
-
 

@@ -216,9 +216,9 @@ namespace Proyecto_Taller_Grupo_22
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
-            SELECT B.fecha_backup AS Fecha, U.nombre_usuario AS Empleado, B.ruta_backup AS Ruta
-            FROM Backup_Registro B
-            INNER JOIN Usuario U ON B.id_usuario = U.id_usuario";
+                    SELECT B.fecha_backup AS Fecha, U.nombre_usuario AS Empleado, B.ruta_backup AS Ruta
+                    FROM Backup_Registro B
+                    INNER JOIN Usuario U ON B.id_usuario = U.id_usuario";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();

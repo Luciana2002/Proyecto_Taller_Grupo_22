@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvproductos = new DataGridView();
-            button5 = new Button();
+            dgvReporte = new DataGridView();
+            btnTodasVentasVendedor = new Button();
             panel1 = new Panel();
             label5 = new Label();
             label4 = new Label();
@@ -38,35 +38,37 @@
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
-            button4 = new Button();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            BBuscar = new Button();
+            TEmpleadoNombre = new TextBox();
+            TEmpleadoID = new TextBox();
             label6 = new Label();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvproductos).BeginInit();
+            btnTodasVentas = new Button();
+            btnProductosMasVendidos = new Button();
+            btnMayorRecaudacion = new Button();
+            btndescargar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvReporte).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // dgvproductos
+            // dgvReporte
             // 
-            dgvproductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvproductos.Location = new Point(29, 460);
-            dgvproductos.Name = "dgvproductos";
-            dgvproductos.RowHeadersWidth = 51;
-            dgvproductos.Size = new Size(958, 458);
-            dgvproductos.TabIndex = 116;
+            dgvReporte.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReporte.Location = new Point(29, 526);
+            dgvReporte.Name = "dgvReporte";
+            dgvReporte.RowHeadersWidth = 51;
+            dgvReporte.Size = new Size(958, 392);
+            dgvReporte.TabIndex = 116;
             // 
-            // button5
+            // btnTodasVentasVendedor
             // 
-            button5.Font = new Font("Microsoft Sans Serif", 12F);
-            button5.Location = new Point(626, 396);
-            button5.Name = "button5";
-            button5.Size = new Size(164, 34);
-            button5.TabIndex = 115;
-            button5.Text = "Reporte Ventas";
-            button5.UseVisualStyleBackColor = true;
+            btnTodasVentasVendedor.Font = new Font("Microsoft Sans Serif", 12F);
+            btnTodasVentasVendedor.Location = new Point(626, 396);
+            btnTodasVentasVendedor.Name = "btnTodasVentasVendedor";
+            btnTodasVentasVendedor.Size = new Size(164, 34);
+            btnTodasVentasVendedor.TabIndex = 115;
+            btnTodasVentasVendedor.Text = "Reporte Ventas";
+            btnTodasVentasVendedor.UseVisualStyleBackColor = true;
+            btnTodasVentasVendedor.Click += btnTodasVentasVendedor_Click;
             // 
             // panel1
             // 
@@ -157,31 +159,32 @@
             label3.TabIndex = 111;
             label3.Text = "Generar Reporte por:";
             // 
-            // button4
+            // BBuscar
             // 
-            button4.Font = new Font("Microsoft Sans Serif", 12F);
-            button4.Location = new Point(522, 396);
-            button4.Name = "button4";
-            button4.Size = new Size(98, 34);
-            button4.TabIndex = 110;
-            button4.Text = "Buscar";
-            button4.UseVisualStyleBackColor = true;
+            BBuscar.Font = new Font("Microsoft Sans Serif", 12F);
+            BBuscar.Location = new Point(522, 396);
+            BBuscar.Name = "BBuscar";
+            BBuscar.Size = new Size(98, 34);
+            BBuscar.TabIndex = 110;
+            BBuscar.Text = "Buscar";
+            BBuscar.UseVisualStyleBackColor = true;
+            BBuscar.Click += BBuscarE_Click;
             // 
-            // textBox2
+            // TEmpleadoNombre
             // 
-            textBox2.Font = new Font("Microsoft Sans Serif", 12F);
-            textBox2.Location = new Point(296, 398);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(220, 30);
-            textBox2.TabIndex = 109;
+            TEmpleadoNombre.Font = new Font("Microsoft Sans Serif", 12F);
+            TEmpleadoNombre.Location = new Point(296, 398);
+            TEmpleadoNombre.Name = "TEmpleadoNombre";
+            TEmpleadoNombre.Size = new Size(220, 30);
+            TEmpleadoNombre.TabIndex = 109;
             // 
-            // textBox3
+            // TEmpleadoID
             // 
-            textBox3.Font = new Font("Microsoft Sans Serif", 12F);
-            textBox3.Location = new Point(223, 398);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(67, 30);
-            textBox3.TabIndex = 108;
+            TEmpleadoID.Font = new Font("Microsoft Sans Serif", 12F);
+            TEmpleadoID.Location = new Point(223, 398);
+            TEmpleadoID.Name = "TEmpleadoID";
+            TEmpleadoID.Size = new Size(67, 30);
+            TEmpleadoID.TabIndex = 108;
             // 
             // label6
             // 
@@ -193,35 +196,49 @@
             label6.TabIndex = 107;
             label6.Text = "Vendedor:";
             // 
-            // button3
+            // btnTodasVentas
             // 
-            button3.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button3.Location = new Point(583, 297);
-            button3.Name = "button3";
-            button3.Size = new Size(137, 45);
-            button3.TabIndex = 106;
-            button3.Text = "Total ventas";
-            button3.UseVisualStyleBackColor = true;
+            btnTodasVentas.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnTodasVentas.Location = new Point(583, 297);
+            btnTodasVentas.Name = "btnTodasVentas";
+            btnTodasVentas.Size = new Size(137, 45);
+            btnTodasVentas.TabIndex = 106;
+            btnTodasVentas.Text = "Total ventas";
+            btnTodasVentas.UseVisualStyleBackColor = true;
+            btnTodasVentas.Click += btnTodasVentas_Click;
             // 
-            // button2
+            // btnProductosMasVendidos
             // 
-            button2.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button2.Location = new Point(440, 297);
-            button2.Name = "button2";
-            button2.Size = new Size(137, 45);
-            button2.TabIndex = 105;
-            button2.Text = "Más vendidos";
-            button2.UseVisualStyleBackColor = true;
+            btnProductosMasVendidos.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnProductosMasVendidos.Location = new Point(440, 297);
+            btnProductosMasVendidos.Name = "btnProductosMasVendidos";
+            btnProductosMasVendidos.Size = new Size(137, 45);
+            btnProductosMasVendidos.TabIndex = 105;
+            btnProductosMasVendidos.Text = "Más vendidos";
+            btnProductosMasVendidos.UseVisualStyleBackColor = true;
+            btnProductosMasVendidos.Click += btnProductosMasVendidos_Click;
             // 
-            // button1
+            // btnMayorRecaudacion
             // 
-            button1.Font = new Font("Microsoft Sans Serif", 11.25F);
-            button1.Location = new Point(297, 297);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 45);
-            button1.TabIndex = 104;
-            button1.Text = "Recaudación";
-            button1.UseVisualStyleBackColor = true;
+            btnMayorRecaudacion.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btnMayorRecaudacion.Location = new Point(297, 297);
+            btnMayorRecaudacion.Name = "btnMayorRecaudacion";
+            btnMayorRecaudacion.Size = new Size(137, 45);
+            btnMayorRecaudacion.TabIndex = 104;
+            btnMayorRecaudacion.Text = "Recaudación";
+            btnMayorRecaudacion.UseVisualStyleBackColor = true;
+            btnMayorRecaudacion.Click += btnMayorRecaudacion_Click;
+            // 
+            // btndescargar
+            // 
+            btndescargar.Font = new Font("Microsoft Sans Serif", 11.25F);
+            btndescargar.Location = new Point(417, 464);
+            btndescargar.Name = "btndescargar";
+            btndescargar.Size = new Size(189, 41);
+            btndescargar.TabIndex = 117;
+            btndescargar.Text = "Imprimir";
+            btndescargar.UseVisualStyleBackColor = true;
+            btndescargar.Click += btndescargar_Click;
             // 
             // ReporteG
             // 
@@ -229,22 +246,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
             ClientSize = new Size(1018, 739);
-            Controls.Add(dgvproductos);
-            Controls.Add(button5);
+            Controls.Add(btndescargar);
+            Controls.Add(dgvReporte);
+            Controls.Add(btnTodasVentasVendedor);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(label3);
-            Controls.Add(button4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox3);
+            Controls.Add(BBuscar);
+            Controls.Add(TEmpleadoNombre);
+            Controls.Add(TEmpleadoID);
             Controls.Add(label6);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnTodasVentas);
+            Controls.Add(btnProductosMasVendidos);
+            Controls.Add(btnMayorRecaudacion);
             Name = "ReporteG";
             Text = "ReporteG";
-            ((System.ComponentModel.ISupportInitialize)dgvproductos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReporte).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -253,8 +271,8 @@
 
         #endregion
 
-        private DataGridView dgvproductos;
-        private Button button5;
+        private DataGridView dgvReporte;
+        private Button btnTodasVentasVendedor;
         private Panel panel1;
         private Label label5;
         private Label label4;
@@ -263,12 +281,13 @@
         private Label label2;
         private Label label1;
         private Label label3;
-        private Button button4;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private Button BBuscar;
+        private TextBox TEmpleadoNombre;
+        private TextBox TEmpleadoID;
         private Label label6;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnTodasVentas;
+        private Button btnProductosMasVendidos;
+        private Button btnMayorRecaudacion;
+        private Button btndescargar;
     }
 }

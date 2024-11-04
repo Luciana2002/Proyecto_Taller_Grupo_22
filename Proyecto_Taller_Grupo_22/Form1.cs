@@ -1,6 +1,8 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Proyecto_Taller_Grupo_22
@@ -45,76 +47,75 @@ namespace Proyecto_Taller_Grupo_22
         }
 
         private string VerificarUsuario(string usuario, string contrasena)
-    {
-        using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
         {
-            try
+            using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
-                conexion.Open();
-                // Modificar la consulta para obtener el estado del usuario
-                string query = @"
-                SELECT p.estado
-                FROM Usuario u 
-                INNER JOIN Persona p ON u.id_usuario = p.id_persona
-                WHERE u.nombre_usuario = @nombre_usuario 
-                AND u.contraseña = @contraseña";
-
-                SqlCommand cmd = new SqlCommand(query, conexion);
-
-                // Parámetro para nombre de usuario
-                cmd.Parameters.Add(new SqlParameter("@nombre_usuario", System.Data.SqlDbType.VarChar, 50));
-                cmd.Parameters["@nombre_usuario"].Value = usuario;
-
-                // Parámetro para contraseña
-                cmd.Parameters.Add(new SqlParameter("@contraseña", System.Data.SqlDbType.VarChar, 50));
-                cmd.Parameters["@contraseña"].Value = contrasena;
-
-                // Ejecutar la consulta y obtener el estado del usuario
-                var estado = cmd.ExecuteScalar();
-
-                // Si estado no es nulo, significa que encontró al usuario
-                if (estado != null)
+                try
                 {
-                    return estado.ToString();
+                    conexion.Open();
+                    // Modificar la consulta para obtener el estado del usuario
+                    string query = @"
+                        SELECT p.estado
+                        FROM Usuario u 
+                        INNER JOIN Persona p ON u.id_usuario = p.id_persona
+                        WHERE u.nombre_usuario COLLATE SQL_Latin1_General_CP1_CI_AI = @nombre_usuario  
+                        AND u.contraseña = @contraseña";
+
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+
+                    // Parámetro para nombre de usuario
+                    cmd.Parameters.Add(new SqlParameter("@nombre_usuario", System.Data.SqlDbType.VarChar, 50));
+                    cmd.Parameters["@nombre_usuario"].Value = usuario;
+
+                    // Parámetro para contraseña
+                    cmd.Parameters.Add(new SqlParameter("@contraseña", System.Data.SqlDbType.VarChar, 50));
+                    cmd.Parameters["@contraseña"].Value = contrasena;
+
+                    // Ejecutar la consulta y obtener el estado del usuario
+                    var estado = cmd.ExecuteScalar();
+
+                    // Si estado no es nulo, significa que encontró al usuario
+                    if (estado != null)
+                    {
+                        return estado.ToString();
+                    }
+                    else
+                    {
+                        return "NO_EXISTE"; // Si no encontró al usuario
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    return "NO_EXISTE"; // Si no encontró al usuario
+                    MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
+                    return null; // Error en la conexión o ejecución
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al conectarse a la base de datos: " + ex.Message);
-                return null; // Error en la conexión o ejecución
             }
         }
-    }
 
-    private void CargarInformacionUsuario(string nombreUsuario)
+        private void CargarInformacionUsuario(string nombreUsuario)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
-            SELECT 
-            u.id_usuario, 
-
-                p.nombre,
-                p.apellido,
-                p.sexo,
-                p.email,
-                p.dni,
-                p.telefono,
-                p.cumpleaños,
-                pr.descripcion AS perfil
-            FROM 
-                Usuario u
-            JOIN 
-                Persona p ON u.id_usuario = p.id_persona
-            JOIN 
-                 Perfil pr ON u.id_perfil = pr.id_perfil
+                    SELECT 
+                        u.id_usuario, 
+                        p.nombre,
+                        p.apellido,
+                        p.sexo,
+                        p.email,
+                        p.dni,
+                        p.telefono,
+                        p.cumpleaños,
+                        pr.descripcion AS perfil
+                    FROM 
+                        Usuario u
+                    JOIN 
+                        Persona p ON u.id_usuario = p.id_persona
+                    JOIN 
+                        Perfil pr ON u.id_perfil = pr.id_perfil
             
-            WHERE 
-                u.nombre_usuario = @nombre_usuario";
+                    WHERE 
+                        u.nombre_usuario COLLATE SQL_Latin1_General_CP1_CI_AI = @nombre_usuario";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@nombre_usuario", nombreUsuario);
@@ -159,7 +160,4 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
     }
-
-
-
 }

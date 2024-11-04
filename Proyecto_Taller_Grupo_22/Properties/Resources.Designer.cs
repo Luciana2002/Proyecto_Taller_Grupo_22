@@ -328,6 +328,64 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
         ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Recaudación&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.border th, table.border td {
+        ///            padding: 5px;
+        ///            border: 1px solid black;
+        ///            text-align: center;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.info-table td {
+        ///            padding: 5px;
+        ///           [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaMR {
+            get {
+                return ResourceManager.GetString("PlantillaMR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Productos Vendidos&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.border th, table.border td {
+        ///            padding: 5px;
+        ///            border: 1px solid black;
+        ///            text-align: center;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.info-table td {
+        ///            padding: 5px;
+        ///    [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaPMV {
+            get {
+                return ResourceManager.GetString("PlantillaPMV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
         ///    &lt;title&gt;Reporte de Ventas&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
@@ -350,6 +408,35 @@ namespace Proyecto_Taller_Grupo_22.Properties {
         internal static string PlantillaRE {
             get {
                 return ResourceManager.GetString("PlantillaRE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Ventas&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.border th, table.border td {
+        ///            padding: 5px;
+        ///            border: 1px solid black;
+        ///            text-align: center;
+        ///            font-size: 12px;
+        ///        }
+        ///
+        ///        table.info-table td {
+        ///            padding: 5px;
+        ///            ver [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaTV {
+            get {
+                return ResourceManager.GetString("PlantillaTV", resourceCulture);
             }
         }
         
