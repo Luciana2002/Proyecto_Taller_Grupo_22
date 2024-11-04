@@ -224,7 +224,7 @@ namespace Proyecto_Taller_Grupo_22
             int dni;
             if (!int.TryParse(dniStr, out dni) || dni < 1000000 || dni > 99999999) // Según restricción CK_dni
             {
-                MessageBox.Show("El DNI debe ser un número entre 1.000.000 y 99.999.999.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El DNI debe ser un número entre 1.000.000 y 99.999.999", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -236,7 +236,7 @@ namespace Proyecto_Taller_Grupo_22
             }
 
             // Validar el formato del nombre_usuario (solo letras y espacios)
-            if (!System.Text.RegularExpressions.Regex.IsMatch(nombre_usuario, @"^[A-Za-z ]+$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(nombre_usuario, @"^[A-Za-záéíóúÁÉÍÓÚüÜñÑ ]+$"))
             {
                 MessageBox.Show("El nombre de usuario solo puede contener letras y espacios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -259,7 +259,7 @@ namespace Proyecto_Taller_Grupo_22
             // Validar el formato del teléfono (números, espacios, +, -, %)
             if (!System.Text.RegularExpressions.Regex.IsMatch(telefono, @"^[0-9 +\-]*$"))
             {
-                MessageBox.Show("El teléfono solo puede contener números, espacios y los símbolos +, - y %.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El teléfono solo puede contener números, espacios y los símbolos + y -.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
