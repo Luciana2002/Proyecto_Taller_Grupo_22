@@ -1,42 +1,41 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
-using System.Configuration;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Windows.Forms;
 
 namespace Proyecto_Taller_Grupo_22
 {
-    public partial class BuscarClienteForm : Form
+    public partial class BuscarEmpleadoForm : Form
     {
         // Variables para almacenar los datos seleccionados
-        public string IdClienteSeleccionado { get; private set; }
-        public string NombreClienteSeleccionado { get; private set; }
-        //public string ApellidoClienteSeleccionado { get; private set; }
+        public string IdEmpleadoSeleccionado { get; private set; }
+        public string NombreEmpleadoSeleccionado { get; private set; }
 
-        public BuscarClienteForm()
+        public BuscarEmpleadoForm()
         {
             InitializeComponent();
         }
 
-        private void CargarClientes()
+        private void CargarEmpleados()
         {
             using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
-                string query = "SELECT p.id_persona, p.nombre, p.apellido, p.email, p.dni " +
-                    "FROM Persona p " +
-                    "JOIN Cliente c ON p.id_persona = c.id_cliente " +
-                    "WHERE p.estado = 'A'";
+                string query = @"
+                    SELECT p.id_persona AS id_empleado, p.nombre, p.apellido, p.email, p.dni 
+                    FROM Usuario u 
+                    JOIN Persona p ON u.id_usuario = p.id_persona 
+                    WHERE p.estado = 'A'";
                 SqlDataAdapter da = new SqlDataAdapter(query, conexion);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
 
-                dataGridView1.Columns["id_persona"].HeaderText = "ID Cliente";
+                dataGridView1.Columns["id_empleado"].HeaderText = "ID Empleado";
                 dataGridView1.Columns["nombre"].HeaderText = "Nombre";
                 dataGridView1.Columns["apellido"].HeaderText = "Apellido";
                 dataGridView1.Columns["email"].HeaderText = "Email";
                 dataGridView1.Columns["dni"].HeaderText = "DNI";
 
-                dataGridView1.Columns["id_persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["id_empleado"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridView1.Columns["nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridView1.Columns["apellido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridView1.Columns["email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -46,7 +45,7 @@ namespace Proyecto_Taller_Grupo_22
 
         private void BBuscar_Click(object sender, EventArgs e)
         {
-            string filtro = TBuscarCliente.Text;
+            string filtro = TBuscarEmpleado.Text;
 
             // Verificar si hay algún filtro ingresado
             if (string.IsNullOrWhiteSpace(filtro))
@@ -71,9 +70,9 @@ namespace Proyecto_Taller_Grupo_22
 
             // Construir la consulta con o sin COLLATE según el tipo de columna
             string query = $@"
-                SELECT p.id_persona, p.nombre, p.apellido, p.email, p.dni
-                FROM Persona p
-                JOIN Cliente c ON p.id_persona = c.id_cliente
+                SELECT p.id_persona AS id_empleado, p.nombre, p.apellido, p.email, p.dni
+                FROM Usuario u
+                JOIN Persona p ON u.id_usuario = p.id_persona
                 WHERE {(isTextColumn ? $"p.{columnaSeleccionada} COLLATE Latin1_General_CI_AI LIKE @filtro" : $"CAST(p.{columnaSeleccionada} AS VARCHAR) LIKE @filtro")}
                 AND p.estado = 'A'";
 
@@ -88,24 +87,23 @@ namespace Proyecto_Taller_Grupo_22
                 da.Fill(dt);
                 dataGridView1.DataSource = dt;
 
-                dataGridView1.Columns["id_persona"].HeaderText = "ID Cliente";
+                dataGridView1.Columns["id_empleado"].HeaderText = "ID Empleado";
                 dataGridView1.Columns["nombre"].HeaderText = "Nombre";
                 dataGridView1.Columns["apellido"].HeaderText = "Apellido";
                 dataGridView1.Columns["email"].HeaderText = "Email";
                 dataGridView1.Columns["dni"].HeaderText = "DNI";
 
-                dataGridView1.Columns["id_persona"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dataGridView1.Columns["nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dataGridView1.Columns["apellido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dataGridView1.Columns["email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dataGridView1.Columns["dni"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["id_empleado"].Width = 97;
+                dataGridView1.Columns["nombre"].Width = 130;
+                dataGridView1.Columns["apellido"].Width = 130;
+                dataGridView1.Columns["email"].Width = 210;
+                dataGridView1.Columns["dni"].Width = 130;
 
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("No se encontraron clientes que coincidan con el criterio de búsqueda.");
+                    MessageBox.Show("No se encontraron empleados que coincidan con el criterio de búsqueda.");
                 }
             }
-
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -113,33 +111,32 @@ namespace Proyecto_Taller_Grupo_22
             // Verificar que el clic fue en una fila válida
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
-                return; 
+                return;
             }
 
             // Obtener los datos de la fila seleccionada
-            IdClienteSeleccionado = dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value.ToString();
-            NombreClienteSeleccionado = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            //ApellidoClienteSeleccionado = dataGridView1.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
+            IdEmpleadoSeleccionado = dataGridView1.Rows[e.RowIndex].Cells["id_empleado"].Value.ToString();
+            NombreEmpleadoSeleccionado = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
 
             // Cerrar el formulario de búsqueda y regresar al formulario de ventas
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void BuscarClienteForm_Load(object sender, EventArgs e)
+        private void BuscarEmpleadoForm_Load(object sender, EventArgs e)
         {
             // Llenar el ComboBox con los nombres amigables para los filtros
-            CBFiltro.Items.Add(new ComboBoxItem("ID Cliente", "id_persona"));
+            CBFiltro.Items.Add(new ComboBoxItem("ID Empleado", "id_persona"));
             CBFiltro.Items.Add(new ComboBoxItem("Nombre", "nombre"));
             CBFiltro.Items.Add(new ComboBoxItem("Apellido", "apellido"));
             CBFiltro.Items.Add(new ComboBoxItem("Email", "email"));
             CBFiltro.Items.Add(new ComboBoxItem("DNI", "dni"));
 
             // Seleccionar por defecto una opción, por ejemplo "Nombre"
-            CBFiltro.SelectedIndex = 0; // Selecciona el primer elemento ("ID Cliente")
+            CBFiltro.SelectedIndex = 0; // Selecciona el primer elemento ("ID Empleado")
 
-            // Cargar todos los clientes al iniciar el formulario
-            CargarClientes();
+            // Cargar todos los empleados al iniciar el formulario
+            CargarEmpleados();
         }
 
         public class ComboBoxItem
@@ -162,11 +159,11 @@ namespace Proyecto_Taller_Grupo_22
         private void BLimpiar_Click(object sender, EventArgs e)
         {
             // Limpiar el TextBox de búsqueda y seleccionar la primera opción del ComboBox
-            TBuscarCliente.Clear();
+            TBuscarEmpleado.Clear();
             CBFiltro.SelectedIndex = 0;
 
-            // Cargar todos los clientes sin aplicar ningún filtro
-            CargarClientes();
+            // Cargar todos los empleados sin aplicar ningún filtro
+            CargarEmpleados();
         }
     }
 }

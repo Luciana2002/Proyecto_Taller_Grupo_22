@@ -46,11 +46,11 @@ namespace Proyecto_Taller_Grupo_22
                 dataGridView1.Columns["stock"].HeaderText = "Stock";
                 dataGridView1.Columns["categoria"].HeaderText = "Categoría";
 
-                dataGridView1.Columns["id_producto"].Width = 90;
-                dataGridView1.Columns["nombre_producto"].Width = 294;
-                dataGridView1.Columns["precio_venta"].Width = 120;
-                dataGridView1.Columns["stock"].Width = 90;
-                dataGridView1.Columns["categoria"].Width = 120;
+                dataGridView1.Columns["id_producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["nombre_producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["precio_venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["stock"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["categoria"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
 
@@ -122,11 +122,11 @@ namespace Proyecto_Taller_Grupo_22
                 dataGridView1.Columns["stock"].HeaderText = "Stock";
                 dataGridView1.Columns["categoria"].HeaderText = "Categoría";
 
-                dataGridView1.Columns["id_producto"].Width = 90;
-                dataGridView1.Columns["nombre_producto"].Width = 294;
-                dataGridView1.Columns["precio_venta"].Width = 120;
-                dataGridView1.Columns["stock"].Width = 90;
-                dataGridView1.Columns["categoria"].Width = 120;
+                dataGridView1.Columns["id_producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["nombre_producto"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["precio_venta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["stock"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dataGridView1.Columns["categoria"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 // Verificar si se encontraron resultados
                 if (dt.Rows.Count == 0)

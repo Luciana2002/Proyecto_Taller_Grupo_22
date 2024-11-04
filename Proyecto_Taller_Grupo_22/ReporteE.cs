@@ -112,9 +112,9 @@ namespace Proyecto_Taller_Grupo_22
                     filas += "<td>" + (row.Cells["TotalVenta"].Value != null ? Convert.ToDecimal(row.Cells["TotalVenta"].Value).ToString("$#,##0.00") : "") + "</td>";
                     filas += "</tr>";
 
-                    if (row.Cells["TotalVenta"].Value != null)
+                    if (row.Cells["Subtotal"].Value != null)
                     {
-                        totalGeneral += Convert.ToDecimal(row.Cells["TotalVenta"].Value);
+                        totalGeneral += Convert.ToDecimal(row.Cells["Subtotal"].Value);
                     }
                 }
             }
@@ -125,7 +125,7 @@ namespace Proyecto_Taller_Grupo_22
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHAINICIO", dtpFechaInicio.Value.ToString("dd/MM/yyyy"));
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHAFIN", dtpFechaFin.Value.ToString("dd/MM/yyyy"));
             PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
-            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@VENDEDOR", nombreVendedor); // Agrega el nombre del vendedor formateado
+            PaginaHTML_Texto = PaginaHTML_Texto.Replace("@VENDEDOR", nombreVendedor); 
 
             // Guardar el PDF
             if (savefile.ShowDialog() == DialogResult.OK)
