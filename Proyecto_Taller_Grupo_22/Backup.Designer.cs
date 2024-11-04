@@ -36,10 +36,6 @@
             btnSeleccionarRuta = new Button();
             txtRutaGuardar = new TextBox();
             txtBaseDatos = new TextBox();
-            txtRutaRestaurar = new TextBox();
-            label4 = new Label();
-            button1 = new Button();
-            button3 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -127,59 +123,12 @@
             txtBaseDatos.Size = new Size(184, 30);
             txtBaseDatos.TabIndex = 9;
             // 
-            // txtRutaRestaurar
-            // 
-            txtRutaRestaurar.Font = new Font("Microsoft Sans Serif", 12F);
-            txtRutaRestaurar.Location = new Point(254, 278);
-            txtRutaRestaurar.Name = "txtRutaRestaurar";
-            txtRutaRestaurar.Size = new Size(184, 30);
-            txtRutaRestaurar.TabIndex = 10;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 12F);
-            label4.Location = new Point(106, 281);
-            label4.Margin = new Padding(6, 0, 6, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(139, 25);
-            label4.TabIndex = 11;
-            label4.Text = "Ruta Respaldo";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Gainsboro;
-            button1.Font = new Font("Microsoft Sans Serif", 12F);
-            button1.Location = new Point(448, 278);
-            button1.Name = "button1";
-            button1.Size = new Size(96, 31);
-            button1.TabIndex = 12;
-            button1.Text = "Ruta";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btnSeleccionarArchivo_Click;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.Gainsboro;
-            button3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(378, 378);
-            button3.Name = "button3";
-            button3.Size = new Size(154, 52);
-            button3.TabIndex = 14;
-            button3.Text = "Restaurar";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += btnRestaurar_Click;
-            // 
             // Backup
             // 
             AutoScaleDimensions = new SizeF(17F, 36F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
             ClientSize = new Size(693, 479);
-            Controls.Add(button3);
-            Controls.Add(button1);
-            Controls.Add(label4);
-            Controls.Add(txtRutaRestaurar);
             Controls.Add(txtBaseDatos);
             Controls.Add(txtRutaGuardar);
             Controls.Add(btnSeleccionarRuta);
@@ -208,9 +157,5 @@
         private Button btnSeleccionarRuta;
         private TextBox txtRutaGuardar;
         private TextBox txtBaseDatos;
-        private TextBox txtRutaRestaurar;
-        private Label label4;
-        private Button button1;
-        private Button button3;
     }
 }
