@@ -42,17 +42,17 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        private void SeleccionarArchivoRespaldo()
-        {
-            using (OpenFileDialog dialog = new OpenFileDialog())
-            {
-                dialog.Filter = "Archivos de respaldo (*.bak)|*.bak";
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    txtRutaRestaurar.Text = dialog.FileName;
-                }
-            }
-        }
+        //private void SeleccionarArchivoRespaldo()
+        //{
+        //    using (OpenFileDialog dialog = new OpenFileDialog())
+        //    {
+        //        dialog.Filter = "Archivos de respaldo (*.bak)|*.bak";
+        //        if (dialog.ShowDialog() == DialogResult.OK)
+        //        {
+        //            txtRutaRestaurar.Text = dialog.FileName;
+        //        }
+        //    }
+        //}
 
         private void RealizarBackup(string rutaBackup)
         {
@@ -90,33 +90,33 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        private void RestaurarBackup(string rutaBackup)
-        {
+        //private void RestaurarBackup(string rutaBackup)
+        //{
             // Cambia la cadena de conexión para que se conecte a la base de datos "master"
-            string masterConnectionString = "Server=.;Database=master;Integrated Security=True;";
-
-            string queryRestaurar = $@"
-                ALTER DATABASE [{NombreBaseDatos}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-                RESTORE DATABASE [{NombreBaseDatos}] FROM DISK = '{rutaBackup.Replace("'", "''")}' WITH REPLACE;
-                ALTER DATABASE [{NombreBaseDatos}] SET MULTI_USER;";
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(masterConnectionString))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(queryRestaurar, connection))
-                    {
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("Restauración realizada con éxito!");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error durante la restauración: {ex.Message}");
-            }
-        }
+        //    string masterConnectionString = "Server=.;Database=master;Integrated Security=True;";
+        //
+        //    string queryRestaurar = $@"
+        //        ALTER DATABASE [{NombreBaseDatos}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+        //        RESTORE DATABASE [{NombreBaseDatos}] FROM DISK = '{rutaBackup.Replace("'", "''")}' WITH REPLACE;
+        //        ALTER DATABASE [{NombreBaseDatos}] SET MULTI_USER;";
+        //
+        //    try
+        //    {
+        //        using (SqlConnection connection = new SqlConnection(masterConnectionString))
+        //        {
+        //            connection.Open();
+        //            using (SqlCommand command = new SqlCommand(queryRestaurar, connection))
+        //            {
+        //                command.ExecuteNonQuery();
+        //                MessageBox.Show("Restauración realizada con éxito!");
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Error durante la restauración: {ex.Message}");
+        //    }
+        //}
 
         private void EjecutarConsulta(string query, string mensajeExito)
         {
@@ -148,10 +148,10 @@ namespace Proyecto_Taller_Grupo_22
             SeleccionarRutaGuardado();
         }
 
-        private void btnSeleccionarArchivo_Click(object sender, EventArgs e)
-        {
-            SeleccionarArchivoRespaldo();
-        }
+        //private void btnSeleccionarArchivo_Click(object sender, EventArgs e)
+        //{
+        //    SeleccionarArchivoRespaldo();
+        //}
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
@@ -163,14 +163,14 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
-            string rutaRespaldo = txtRutaRestaurar.Text;
-
-            if (ValidarRuta(rutaRespaldo))
-            {
-                RestaurarBackup(rutaRespaldo);
-            }
-        }
+        //private void btnRestaurar_Click(object sender, EventArgs e)
+        //{
+        //    string rutaRespaldo = txtRutaRestaurar.Text;
+        //
+        //    if (ValidarRuta(rutaRespaldo))
+        //    {
+        //        RestaurarBackup(rutaRespaldo);
+        //    }
+        //}
     }
 }
