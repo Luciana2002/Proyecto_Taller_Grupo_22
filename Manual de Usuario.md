@@ -102,7 +102,7 @@ La interfaz permite:
 https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Venta.png
 
 La interfaz permite:
-*Registrar las ventas realizadas.
+* Registrar las ventas realizadas.
 * Debe ingresarse: 
 	- Los datos del vendedor (ID y Nombre),
 	 -Cantidad de productos.	
@@ -164,7 +164,7 @@ Es posible visualizar los datos en un datagrid o bien imprimirse.
  https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png
  
 Permite:
-	*registrar un nuevo empleado ingresando sus datos personales y el perfil al cual pertenece,
+	* registrar un nuevo empleado ingresando sus datos personales y el perfil al cual pertenece,
 	* limpiar formularios, 
 	* guardar cambios, y visualizar los datos de los mismos una vez ingresados en un datagrid.
 En el mismo, se podrá editar y cambiar de estado a cada empleado, de Activo a Inactivo y viceversa. 
@@ -207,14 +207,14 @@ Tablas Principales
 * Restauración de Datos
    Para restaurar datos, contacte al administrador para cargar la copia .bak y restaurar la base de datos.
 
-8. Solución de Problemas Comunes
+9. Solución de Problemas Comunes
 
 * Error de Conexión a la Base de Datos: 
    Verifique la cadena de conexión en AppConfig.
 * Problemas de Ingreso al Sistema:
    Asegúrese de que las credenciales sean correctas. Contactar al administrador si es necesario.
 
-9. Mejores Prácticas de Uso
+10. Mejores Prácticas de Uso
     
  *  Actualización Regular de Datos:
     Mantenga los datos de clientes y productos actualizados.
@@ -222,6 +222,6 @@ Tablas Principales
     Realice backups al menos semanalmente.
 
     
-10. Licencia
+11. Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT. Para más detalles, revisa el archivo [LICENSE](LICENSE).
