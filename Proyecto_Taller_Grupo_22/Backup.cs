@@ -7,7 +7,7 @@ namespace Proyecto_Taller_Grupo_22
     public partial class Backup : Form
     {
         private const string NombreBaseDatos = "taller_db_1";
-        private const string ConnectionString = "Server=.;Database=" + NombreBaseDatos + ";Integrated Security=True;";
+        private const string ConnectionString = "server=.;Database=" + NombreBaseDatos + ";Integrated Security=True;";
 
         public Backup()
         {
@@ -93,7 +93,7 @@ namespace Proyecto_Taller_Grupo_22
         //private void RestaurarBackup(string rutaBackup)
         //{
             // Cambia la cadena de conexión para que se conecte a la base de datos "master"
-        //    string masterConnectionString = "Server=.;Database=master;Integrated Security=True;";
+        //    string masterConnectionString = "server=.;Database=master;Integrated Security=True;";
         //
         //    string queryRestaurar = $@"
         //        ALTER DATABASE [{NombreBaseDatos}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;

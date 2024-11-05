@@ -45,7 +45,7 @@
             label1.Location = new Point(306, 58);
             label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(135, 36);
+            label1.Size = new Size(110, 29);
             label1.TabIndex = 0;
             label1.Text = "Back Up";
             // 
@@ -56,7 +56,7 @@
             label2.Location = new Point(117, 209);
             label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(128, 25);
+            label2.Size = new Size(107, 20);
             label2.TabIndex = 1;
             label2.Text = "Ruta Guardar";
             // 
@@ -67,7 +67,7 @@
             label3.Location = new Point(107, 137);
             label3.Margin = new Padding(6, 0, 6, 0);
             label3.Name = "label3";
-            label3.Size = new Size(140, 25);
+            label3.Size = new Size(115, 20);
             label3.TabIndex = 2;
             label3.Text = "Base de Datos";
             // 
@@ -75,7 +75,7 @@
             // 
             btnBackup.BackColor = Color.Gainsboro;
             btnBackup.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBackup.Location = new Point(190, 378);
+            btnBackup.Location = new Point(284, 304);
             btnBackup.Name = "btnBackup";
             btnBackup.Size = new Size(154, 52);
             btnBackup.TabIndex = 3;
@@ -112,7 +112,7 @@
             txtRutaGuardar.Font = new Font("Microsoft Sans Serif", 12F);
             txtRutaGuardar.Location = new Point(254, 206);
             txtRutaGuardar.Name = "txtRutaGuardar";
-            txtRutaGuardar.Size = new Size(184, 30);
+            txtRutaGuardar.Size = new Size(184, 26);
             txtRutaGuardar.TabIndex = 7;
             // 
             // txtBaseDatos
@@ -120,12 +120,12 @@
             txtBaseDatos.Font = new Font("Microsoft Sans Serif", 12F);
             txtBaseDatos.Location = new Point(256, 134);
             txtBaseDatos.Name = "txtBaseDatos";
-            txtBaseDatos.Size = new Size(184, 30);
+            txtBaseDatos.Size = new Size(184, 26);
             txtBaseDatos.TabIndex = 9;
             // 
             // Backup
             // 
-            AutoScaleDimensions = new SizeF(17F, 36F);
+            AutoScaleDimensions = new SizeF(14F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
             ClientSize = new Size(693, 479);
