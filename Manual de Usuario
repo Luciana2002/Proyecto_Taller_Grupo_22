@@ -1,1 +1,21 @@
 
+Manual de Usuario : Aplicación "MAGIC SHOP".
+1. Introducción
+Esta aplicación permite gestionar productos a partir de una base de datos, en un contexto de ventas presenciales. 
+Está orientado a usuarios pertenecientes a una empresa de comercialización de accesorios de celulares, siendo estos: 
+Administradores, Gerentes, y Empleados.
+
+2. Requisitos del Sistema
+
+Visual Studio 2022 o superior.
+.NET Framework (especifica la versión).
+Base de datos compatible (ej., SQL Server).
+
+3. Instalación
+Clonar el repositorio y abrirlo en Visual Studio:
+bash
+Copiar código
+git clone https://github.com/Luciana2002/Proyecto_Taller_Grupo_22.git
+
+Abrir el proyecto en Visual Studio.
+Configurar la cadena de conexión a la base de datos previamente creada en el archivo de configuración AppConfig (si es necesario).
