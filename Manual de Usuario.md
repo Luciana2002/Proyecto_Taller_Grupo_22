@@ -117,39 +117,40 @@ Se calculará el total a pagar.
 
 5.6 Reportes
     
-    Dependiendo del tipo de usuario existirán tres diferentes formularios:
+Dependiendo del tipo de usuario existirán tres diferentes formularios:
    
-   5.6.1. Reporte Administrador
+5.6.1. Reporte Administrador
           
-	  https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png
+https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png
           Permite generar reportes a través de nuevas ventanas, utilizando los botones correspondientes:
           *Reporte de Usuarios
           *Reporte de Clientes
           *Reporte de Productos
           *Registros de Backup realizados.
           Estos pueden visualizarse o bien imprimirse / guardarse como PDF.
-  
-   5.6.2. Reporte Empleado
+
+5.6.2. Reporte Empleado
 	  
-   	  https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png
+   https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png
           Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado.
           Se pueden visualizar los datos en un datagrid o bien imprimirse. 
   
-  5.6.3. Reporte Gerentes
+5.6.3. Reporte Gerentes
   
-	  https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png
+https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png
           Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado
           *Recaudación
           *Productos más vendidos
 	  *Total de ventas realizadas
           Es posible visualizar los datos en un datagrid o bien imprimirse.
-          5.6.3.1. Buscar Empleado
+          
+5.6.3.1. Buscar Empleado
 	  https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarEmpleado.png
 		Los reportes pueden filtrarse según vendedor y se visualiza un listado de las mismas en una nueva ventana.
 
 5.7 Empleados
 	
- 	https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png
+ https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png
      Permite:
 	*registrar un nuevo empleado ingresando sus datos personales y el perfil al cual pertenece,
 	* limpiar formularios, 
@@ -159,7 +160,7 @@ Además, los botones permiten visualizar listados de todos los empleados, los ac
 
 5.8 Productos
 	
- 	https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png
+ https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png
      Permite:		
 	* Registrar un nuevo producto y seleccionar su categoría correspondiente,
  	*limpiar campos, 
@@ -169,8 +170,8 @@ Además, los botones permiten visualizar listados de todos los productos, los di
 
 5.9 Backup
 	
- 	https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png
-	Permite realizar un respaldo de la información de la base de datos en un archivo .bak.
-        Se debe seleccionar la base de datos y verificar su conexión, así como la ruta donde se guardará.
+https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png
+Permite realizar un respaldo de la información de la base de datos en un archivo .bak.
+Se debe seleccionar la base de datos y verificar su conexión, así como la ruta donde se guardará.
 
 
