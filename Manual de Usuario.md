@@ -175,3 +175,38 @@ Permite realizar un respaldo de la información de la base de datos en un archiv
 Se debe seleccionar la base de datos y verificar su conexión, así como la ruta donde se guardará.
 
 
+6. Estructura de Datos
+
+Tablas Principales
+Producto: Almacena la información de cada producto.
+Categoria: Clasifica los productos.
+Cliente: Contiene los datos de contacto del cliente.
+Venta: Registra cada transacción.
+Empleado: Almacena la información de los empleados.
+
+8. Mantenimiento del Sistema
+
+Copia de Seguridad Manual:
+   Se recomienda realizar un backup en la sección Backup semanalmente.
+
+Restauración de Datos
+   Para restaurar datos, contacte al administrador para cargar la copia .bak y restaurar la base de datos.
+
+8. Solución de Problemas Comunes
+
+* Error de Conexión a la Base de Datos: 
+   Verifique la cadena de conexión en AppConfig.
+* Problemas de Ingreso al Sistema:
+   Asegúrese de que las credenciales sean correctas. Contactar al administrador si es necesario.
+
+9. Mejores Prácticas de Uso
+    
+ *  Actualización Regular de Datos:
+    Mantenga los datos de clientes y productos actualizados.
+ *  Frecuencia de Backups:
+    Realice backups al menos semanalmente.
+
+    
+10. Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Para más detalles, revisa el archivo [LICENSE](LICENSE).
