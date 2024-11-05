@@ -52,7 +52,7 @@ Para que la aplicación MAGIC SHOP funcione correctamente, es necesario configur
    
 5.1 Formulario de Inicio de Sesión / Login
 
-(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Form1.png)
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Form1.png)
 
 Al abrir la aplicación MAGIC SHOP, se muestra la pantalla de inicio de sesión, que incluye:
 
@@ -63,7 +63,7 @@ Al abrir la aplicación MAGIC SHOP, se muestra la pantalla de inicio de sesión,
 
 5.2 Interfaz de Menú Principal
 
-(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/FormPrincipal.png)
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/FormPrincipal.png)
 
 La interfaz (que es un formulario primario MDI) cuenta con los siguientes botones:
 * Perfil
@@ -80,14 +80,14 @@ Dependiendo del perfil del usuario que haya iniciado sesión, se mostrarán habi
 
 5.3 Usuario
 
-(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/UsuarioInfo.png)
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/UsuarioInfo.png)
 
 La ventana muestra información del usuario que ha iniciado sesión, por medio de Textbox de sólo lectura. 
 Nombre, Apellido, Sexo, E-mail, DNI, Teléfono y Cumpleaños.
 
 5.4 Clientes
 
-https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Clientes.png
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Clientes.png)
 
 La interfaz permite:
 *Registrar clientes nuevos ingresando sus datos en el formulario (Nombre, Apellido, E-mail, Teléfono, Sexo, Cumpleaños, DNI).
@@ -99,7 +99,7 @@ La interfaz permite:
 
 5.5 Ventas
 
-https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Venta.png
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Venta.png)
 
 La interfaz permite:
 * Registrar las ventas realizadas.
@@ -113,13 +113,13 @@ Se calculará el total a pagar.
 
 	5.5.1. Buscar CLiente
 
-	https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarCliente.png
+	!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarCliente.png)
 
   Buscar al cliente que realizará la compra, los cuales deben encontrarse previamente registrados en la base de datos de la aplicación, estos resultados se visualizan en una ventana emergente. 
 
   	5.5.2 Buscar Producto
 
-	https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarProducto.png
+	!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarProducto.png)
 
   Permite buscar los productos según diferentes filtros, por ejemplo el ID de producto y visualizar los datos.
 
@@ -129,7 +129,7 @@ Dependiendo del tipo de usuario existirán tres diferentes formularios:
    
 5.6.1. Reporte Administrador
           
-https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png)
           
 Permite generar reportes a través de nuevas ventanas, utilizando los botones correspondientes:
           *Reporte de Usuarios
@@ -140,13 +140,13 @@ Permite generar reportes a través de nuevas ventanas, utilizando los botones co
 
 5.6.2. Reporte Empleado
 	  
-   https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png
+   !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png)
           
 Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado. Se pueden visualizar los datos en un datagrid o bien imprimirse. 
   
 5.6.3. Reporte Gerentes
   
-https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png)
 
 Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado
           *Recaudación
@@ -155,13 +155,13 @@ Permite generar reportes de las ventas dentro de un periodo de tiempo selecciona
 Es posible visualizar los datos en un datagrid o bien imprimirse.
           
 5.6.3.1. Buscar Empleado
-	  https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarEmpleado.png
+	  !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarEmpleado.png)
 	
  Los reportes pueden filtrarse según vendedor y se visualiza un listado de las mismas en una nueva ventana.
 
 5.7 Empleados
 	
- https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png
+ !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png)
  
 Permite:
 	* registrar un nuevo empleado ingresando sus datos personales y el perfil al cual pertenece,
@@ -172,7 +172,7 @@ Además, los botones permiten visualizar listados de todos los empleados, los ac
 
 5.8 Productos
 	
- https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png
+ !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png)
      
 Permite:		
 	* Registrar un nuevo producto y seleccionar su categoría correspondiente,
@@ -183,7 +183,7 @@ Además, los botones permiten visualizar listados de todos los productos, los di
 
 5.9 Backup
 	
-https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png
+!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png)
 
 Permite realizar un respaldo de la información de la base de datos en un archivo .bak.
 Se debe seleccionar la base de datos y verificar su conexión, así como la ruta donde se guardará.
