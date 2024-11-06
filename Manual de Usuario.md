@@ -52,7 +52,7 @@ Para que la aplicación MAGIC SHOP funcione correctamente, es necesario configur
    
 5.1 Formulario de Inicio de Sesión / Login
 
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Form1.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/66cbd37746626fae8c75e9e0cdbe2b867b5128ab/Im%C3%A1genesManual/Form1.png))
 
 Al abrir la aplicación MAGIC SHOP, se muestra la pantalla de inicio de sesión, que incluye:
 
@@ -63,7 +63,7 @@ Al abrir la aplicación MAGIC SHOP, se muestra la pantalla de inicio de sesión,
 
 5.2 Interfaz de Menú Principal
 
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/FormPrincipal.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/FormPrincipal.png)
 
 La interfaz (que es un formulario primario MDI) cuenta con los siguientes botones:
 * Perfil
