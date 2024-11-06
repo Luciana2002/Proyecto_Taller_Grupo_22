@@ -1,19 +1,19 @@
 
-Manual de Usuario : Aplicación "MAGIC SHOP".
+# Manual de Usuario : Aplicación "MAGIC SHOP".
 
-1. Introducción
+## 1. Introducción
 
 Esta aplicación permite gestionar productos a partir de una base de datos, en un contexto de ventas presenciales. 
 Está orientado a usuarios pertenecientes a una empresa de comercialización de accesorios de celulares, siendo estos: 
 Administradores, Gerentes, y Empleados.
 
-2. Requisitos del Sistema
+## 2. Requisitos del Sistema
 
 Visual Studio 2022 o superior.
-.NET Framework (especifica la versión).
-Base de datos compatible (ej., SQL Server).
+.NET Framework (v4.0.30319).
+Base de datos compatible (SQL Server Management Studio 20).
 
-3. Instalación
+## 3. Instalación
 
 * Clonar el repositorio y abrirlo en Visual Studio:
 
@@ -23,7 +23,7 @@ Base de datos compatible (ej., SQL Server).
 * Configurar la cadena de conexión a la base de datos previamente creada en el archivo de configuración AppConfig (si es necesario).
 
 
-4. Configuración
+## 4. Configuración
 
 * Conexión a la Base de Datos
 Para que la aplicación MAGIC SHOP funcione correctamente, es necesario configurar la conexión a la base de datos en Visual Studio. Seguir estos pasos para ajustar la configuración:
@@ -48,9 +48,9 @@ Para que la aplicación MAGIC SHOP funcione correctamente, es necesario configur
     Guardar el archivo AppConfig después de configurar la cadena de conexión.  
     Luego, ejecutar la aplicación desde Visual Studio. La aplicación debería conectarse a la base de datos configurada y estar lista para gestionar productos.
 
-5. Guía de Uso
+## 5. Guía de Uso
    
-5.1 Formulario de Inicio de Sesión / Login
+## 5.1 Formulario de Inicio de Sesión / Login
 
 ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/66cbd37746626fae8c75e9e0cdbe2b867b5128ab/Im%C3%A1genesManual/Form1.png))
 
@@ -61,7 +61,7 @@ Al abrir la aplicación MAGIC SHOP, se muestra la pantalla de inicio de sesión,
 * Botón Ingresar: Verifica las credenciales y permite acceder a la aplicación si son correctas.
 * Botón Limpiar: Borra el contenido de ambos campos para facilitar un nuevo intento de ingreso.
 
-5.2 Interfaz de Menú Principal
+## 5.2 Interfaz de Menú Principal
 
 ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/FormPrincipal.png)
 
@@ -78,16 +78,16 @@ La interfaz (que es un formulario primario MDI) cuenta con los siguientes botone
 Estos redirigen a ventanas (formularios secundarios MDI) que se abrirán dentro de esta interfaz, permitiendo visuaizar los botones en el costado izquierdo.
 Dependiendo del perfil del usuario que haya iniciado sesión, se mostrarán habilitados los botones correspondientes a sus permisos para realizar funciones específicas.
 
-5.3 Usuario
+## 5.3 Usuario
 
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/UsuarioInfo.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/UsuarioInfo.png)
 
 La ventana muestra información del usuario que ha iniciado sesión, por medio de Textbox de sólo lectura. 
 Nombre, Apellido, Sexo, E-mail, DNI, Teléfono y Cumpleaños.
 
-5.4 Clientes
+## 5.4 Clientes
 
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Clientes.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Clientes.png)
 
 La interfaz permite:
 *Registrar clientes nuevos ingresando sus datos en el formulario (Nombre, Apellido, E-mail, Teléfono, Sexo, Cumpleaños, DNI).
@@ -97,9 +97,9 @@ La interfaz permite:
 *En el mismo Datagrid, es posible cambiar el estado de un cliente de Activo a Inactivo mediante una columna de botón.
 *Existen tres botones que permiten generar una lista de todos los clientes, aquellos que se encuentran activos y los inactivos, respectivamente.
 
-5.5 Ventas
+## 5.5 Ventas
 
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Venta.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Venta.png)
 
 La interfaz permite:
 * Registrar las ventas realizadas.
@@ -111,25 +111,25 @@ Se calculará el total a pagar.
 *Visualizar un listado con el detalle de las ventas realizadas. Este puede filtrarse por diferentes criterios, como ser el ID de venta, o fecha.
 *Se puede confirmar la venta mediante un botón.
 
-	5.5.1. Buscar CLiente
+   ## 5.5.1. Buscar CLiente
 
-	!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarCliente.png)
+  ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarCliente.png)
 
   Buscar al cliente que realizará la compra, los cuales deben encontrarse previamente registrados en la base de datos de la aplicación, estos resultados se visualizan en una ventana emergente. 
 
-  	5.5.2 Buscar Producto
+  ## 5.5.2 Buscar Producto
 
-	!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarProducto.png)
+  ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarProducto.png)
 
   Permite buscar los productos según diferentes filtros, por ejemplo el ID de producto y visualizar los datos.
 
-5.6 Reportes
+## 5.6 Reportes
     
 Dependiendo del tipo de usuario existirán tres diferentes formularios:
    
-5.6.1. Reporte Administrador
+## 5.6.1. Reporte Administrador
           
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png)
           
 Permite generar reportes a través de nuevas ventanas, utilizando los botones correspondientes:
           *Reporte de Usuarios
@@ -138,15 +138,15 @@ Permite generar reportes a través de nuevas ventanas, utilizando los botones co
           *Registros de Backup realizados.
           Estos pueden visualizarse o bien imprimirse / guardarse como PDF.
 
-5.6.2. Reporte Empleado
+## 5.6.2. Reporte Empleado
 	  
-   !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png)
+   ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png)
           
 Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado. Se pueden visualizar los datos en un datagrid o bien imprimirse. 
   
-5.6.3. Reporte Gerentes
+## 5.6.3. Reporte Gerentes
   
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png)
 
 Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado
           *Recaudación
@@ -154,14 +154,14 @@ Permite generar reportes de las ventas dentro de un periodo de tiempo selecciona
 	  *Total de ventas realizadas
 Es posible visualizar los datos en un datagrid o bien imprimirse.
           
-5.6.3.1. Buscar Empleado
-	  !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarEmpleado.png)
+## 5.6.3.1. Buscar Empleado
+ ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarEmpleado.png)
 	
  Los reportes pueden filtrarse según vendedor y se visualiza un listado de las mismas en una nueva ventana.
 
-5.7 Empleados
+## 5.7 Empleados
 	
- !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png)
+ ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png)
  
 Permite:
 	* registrar un nuevo empleado ingresando sus datos personales y el perfil al cual pertenece,
@@ -170,9 +170,9 @@ Permite:
 En el mismo, se podrá editar y cambiar de estado a cada empleado, de Activo a Inactivo y viceversa. 
 Además, los botones permiten visualizar listados de todos los empleados, los activos e inactivos respectivamente.
 
-5.8 Productos
+## 5.8 Productos
 	
- !(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png)
+ ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png)
      
 Permite:		
 	* Registrar un nuevo producto y seleccionar su categoría correspondiente,
@@ -181,15 +181,15 @@ Permite:
 En el mismo, se podrá editar y cambiar de estado a cada producto, de Disponible a Eliminado y viceversa.
 Además, los botones permiten visualizar listados de todos los productos, los disponibles y aquellos eliminados, respoctivamente.
 
-5.9 Backup
+## 5.9 Backup
 	
-!(https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png)
 
 Permite realizar un respaldo de la información de la base de datos en un archivo .bak.
 Se debe seleccionar la base de datos y verificar su conexión, así como la ruta donde se guardará.
 
 
-6. Estructura de Datos
+## 6. Estructura de Datos
 
 Tablas Principales
 
@@ -199,7 +199,7 @@ Tablas Principales
 * Venta: Registra cada transacción.
 * Empleado: Almacena la información de los empleados.
 
-8. Mantenimiento del Sistema
+## 7. Mantenimiento del Sistema
 
 * Copia de Seguridad Manual:
    Se recomienda realizar un backup en la sección Backup semanalmente.
@@ -207,14 +207,14 @@ Tablas Principales
 * Restauración de Datos
    Para restaurar datos, contacte al administrador para cargar la copia .bak y restaurar la base de datos.
 
-9. Solución de Problemas Comunes
+## 8. Solución de Problemas Comunes
 
 * Error de Conexión a la Base de Datos: 
    Verifique la cadena de conexión en AppConfig.
 * Problemas de Ingreso al Sistema:
    Asegúrese de que las credenciales sean correctas. Contactar al administrador si es necesario.
 
-10. Mejores Prácticas de Uso
+## 9. Mejores Prácticas de Uso
     
  *  Actualización Regular de Datos:
     Mantenga los datos de clientes y productos actualizados.
@@ -222,6 +222,6 @@ Tablas Principales
     Realice backups al menos semanalmente.
 
     
-11. Licencia
+## 10. Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT. Para más detalles, revisa el archivo [LICENSE](LICENSE).
+Este proyecto está licenciado bajo la Licencia MIT. Para más detalles, revise el archivo [LICENSE](LICENSE).
