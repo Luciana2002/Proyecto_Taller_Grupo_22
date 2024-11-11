@@ -1,3 +1,6 @@
+## Manual de Usuario: ##
+[Abrir Manual](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/5541a6f652b878430fd41fe9f8f66a0a42a7e26f/Manual%20de%20Usuario.md)
+
 ## Extensiones Utilizadas: ##
 - iTextSharp
 - itextsharp.xmlworker
