@@ -51,150 +51,151 @@ Para que la aplicación MAGIC SHOP funcione correctamente, es necesario configur
    
 ## 5.1 Formulario de Inicio de Sesión / Login
 
-![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/66cbd37746626fae8c75e9e0cdbe2b867b5128ab/Im%C3%A1genesManual/Form1.png))
-
 Al abrir la aplicación MAGIC SHOP, se muestra la pantalla de inicio de sesión, que incluye:
 
-* Usuario: Caja de texto para ingresar el nombre de usuario.
-* Contraseña: Caja de texto para ingresar la contraseña (oculta por seguridad).
-* Botón Ingresar: Verifica las credenciales y permite acceder a la aplicación si son correctas.
-* Botón Limpiar: Borra el contenido de ambos campos para facilitar un nuevo intento de ingreso.
+- Usuario: Caja de texto para ingresar el nombre de usuario.
+- Contraseña: Caja de texto para ingresar la contraseña (oculta por seguridad).
+- Botón Ingresar: Verifica las credenciales y permite acceder a la aplicación si son correctas.
+- Botón Limpiar: Borra el contenido de ambos campos para facilitar un nuevo intento de ingreso.
+
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/66cbd37746626fae8c75e9e0cdbe2b867b5128ab/Im%C3%A1genesManual/Form1.png)
 
 ## 5.2 Interfaz de Menú Principal
 
-![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/FormPrincipal.png)
-
 La interfaz (que es un formulario primario MDI) cuenta con los siguientes botones:
-* Perfil
-* Clientes
-* Ventas
-* Reportes
-* Empleados
-* Productos
-* Backup
-* Flecha para regresar al formulario Login
+- Perfil
+- Clientes
+- Ventas
+- Reportes
+- Empleados
+- Productos
+- Backup
+- Flecha para regresar al formulario Login
 
 Estos redirigen a ventanas (formularios secundarios MDI) que se abrirán dentro de esta interfaz, permitiendo visuaizar los botones en el costado izquierdo.
 Dependiendo del perfil del usuario que haya iniciado sesión, se mostrarán habilitados los botones correspondientes a sus permisos para realizar funciones específicas.
 
-## 5.3 Usuario
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/FormPrincipal.png)
 
-![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/UsuarioInfo.png)
+## 5.3 Usuario
 
 La ventana muestra información del usuario que ha iniciado sesión, por medio de Textbox de sólo lectura. 
 Nombre, Apellido, Sexo, E-mail, DNI, Teléfono y Cumpleaños.
 
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/UsuarioInfo.png)
+
 ## 5.4 Clientes
+
+La interfaz permite:
+- Registrar clientes nuevos ingresando sus datos en el formulario (Nombre, Apellido, E-mail, Teléfono, Sexo, Cumpleaños, DNI).
+- Limpiar campos de ser necesario.
+- Visualizar y editar los datos de cualquier cliente a través de un Datagrid. Si se quiere modificar algún dato se debe presionar sobre la primera columna en la fila que desea modificar y esto hará que los datos de ese Cliente se carguen en los Textbox de arriba, así podrá editarlos más fácilmente.
+- Guardar cambios.
+- En el mismo Datagrid, es posible cambiar el estado de un cliente de Activo a Inactivo mediante una columna de botón (Acción).
+- Existen tres botones que permiten generar una lista de todos los clientes, aquellos que se encuentran activos y los inactivos, respectivamente.
 
 ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Clientes.png)
 
-La interfaz permite:
-*Registrar clientes nuevos ingresando sus datos en el formulario (Nombre, Apellido, E-mail, Teléfono, Sexo, Cumpleaños, DNI).
-*Limpiar campos de ser necesario.
-*Visualizar y editar los datos de cualquier cliente a través de un Datagrid. Si se quiere modificar algún dato se debe presionar sobre la primera columna en la fila que desea modificar y esto hará que los datos de ese Cliente se carguen en los Textbox de arriba, así podrá editarlos más fácilmente.
-*Guardar cambios.
-*En el mismo Datagrid, es posible cambiar el estado de un cliente de Activo a Inactivo mediante una columna de botón.
-*Existen tres botones que permiten generar una lista de todos los clientes, aquellos que se encuentran activos y los inactivos, respectivamente.
-
 ## 5.5 Ventas
+
+La interfaz permite registrar las ventas realizadas, pero antes se necesita proporcionar ciertos datos:
+- Para poder obtener el ID del cliente o del producto se debe presionar el botón Buscar junto al Textbox correspondiente, este hará que se abra un nuevo formulario qué mostrará una lista de clientes o de productos según cual se presione.
 
 ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Venta.png)
 
-*La interfaz permite registrar las ventas realizadas, pero antes se necesita proporcionar ciertos datos:
-- Para poder obtener el ID del cliente o del producto se debe presionar el botón Buscar junto al Textbox correspondiente, este hará que se abra un nuevo formulario qué mostrará una lista de clientes o de productos según cual se presione.
+Interfaz para Buscar el cliente y los productos:
+
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/9d3237dc23ac2557b64fa5e49486cceeab434072/Im%C3%A1genesManual/BuscarCliente.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/9d3237dc23ac2557b64fa5e49486cceeab434072/Im%C3%A1genesManual/BuscarProducto.png)
+
 - El ID del vendedor se obtiene automáticamente, esto porque se registra cual es el usuario que inició sesión.
 - Debe ingresarse la cantidad de productos que se va a comprar el cliente, el subtotal se calcula automáticamente.
 
-*Si ya se proporcionaron estos datos se debe presionar el botón de agregar, esto hace que la información del producto justo con la cantidad que se desea adquirir se carguen al datagrid1.
+Si ya se proporcionaron estos datos se debe presionar el botón de agregar, esto hace que la información del producto junto con la cantidad que se desea adquirir se carguen al datagrid. Si se quiere eliminar un producto de la lista puede presionar la X en la columna eliminar.
 
-*Si se quiere eliminar un producto de la lista puede presionar la X en la columna eliminar.
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/9d3237dc23ac2557b64fa5e49486cceeab434072/Im%C3%A1genesManual/AgregarProducto.png)
 
-*Una vez cargados los todos los productos debe elegir el método de pago y presionar el botón confirmar para registrar la venta, este a su vez actualiza el stock de el/los productos que se vendieron y limpia el datagrid1 para la próxima venta.
+Una vez cargados los todos los productos debe elegir el método de pago y presionar el botón confirmar para registrar la venta, este a su vez actualiza el stock de el/los productos que se vendieron y limpia el datagrid para la próxima venta.
 
-*Debajo se visualiza un listado con el detalle de las ventas realizadas, en este se puede:
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/9d3237dc23ac2557b64fa5e49486cceeab434072/Im%C3%A1genesManual/ConfirmarVenta.png)
+
+Debajo se visualiza un segundo datagrid con un listado de las ventas realizadas, en este se puede:
 - Buscar una venta específica filtrando los resultados por diferentes criterios, como ser el ID de venta, o fecha.
 - Al hacer doble Click sobre la fila este abrirá un nuevo formulario que muestra todos los detalles de esa venta.
 También al momento de registrarse una nueva venta este se actualiza mostrando la nueva venta realizada.
 
-   ## 5.5.1. Buscar CLiente
-
-  ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarCliente.png)
-
-  Buscar al cliente que realizará la compra, los cuales deben encontrarse previamente registrados en la base de datos de la aplicación, estos resultados se visualizan en una ventana emergente. 
-
-  ## 5.5.2 Buscar Producto
-
-  ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarProducto.png)
-
-  Permite buscar los productos según diferentes filtros, por ejemplo el ID de producto y visualizar los datos.
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/9d3237dc23ac2557b64fa5e49486cceeab434072/Im%C3%A1genesManual/DetalleVenta.png)
 
 ## 5.6 Reportes
     
-Dependiendo del tipo de usuario existirán tres diferentes formularios:
+Dependiendo del tipo de usuario existirán tres diferentes formularios
    
-## 5.6.1. Reporte Administrador
-          
-![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png)
+### 5.6.1. Reporte Administrador
           
 Permite generar reportes a través de nuevas ventanas, utilizando los botones correspondientes:
-          *Reporte de Usuarios
-          *Reporte de Clientes
-          *Reporte de Productos
-          *Registros de Backup realizados.
-          Estos pueden visualizarse o bien imprimirse / guardarse como PDF.
+- Reporte de Usuarios
+- Reporte de Clientes
+- Reporte de Productos
+- Registros de Backup realizados.
+- Estos pueden visualizarse o bien imprimirse / guardarse como PDF.
 
-## 5.6.2. Reporte Empleado
-	  
-   ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteAdministrador.png)
+
+### 5.6.2. Reporte Empleado
           
 Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado. Se pueden visualizar los datos en un datagrid o bien imprimirse. 
+
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteEmpleado.png)
   
-## 5.6.3. Reporte Gerentes
-  
-![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png)
+### 5.6.3. Reporte Gerentes
 
 Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado y por uno de estos criterios:
 
-*Recaudación
-*Productos más vendidos
-*Total de ventas realizadas
+- Recaudación
+- Productos más vendidos
+- Total de ventas realizadas
+    
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png)
 
-Es posible visualizar los datos en un datagrid o bien imprimirse.
-          
-## 5.6.3.1. Buscar Empleado
- ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarEmpleado.png)
-	
- Los reportes pueden filtrarse según vendedor y se visualiza un listado de las mismas en una nueva ventana.
+Los reportes también pueden filtrarse por un vendedor y generar un listado de las ventas que realizó.
 
-## 5.7 Empleados
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/BuscarEmpleado.png)
 	
- ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png)
- 
-Permite:
-	* registrar un nuevo empleado ingresando sus datos personales y el perfil al cual pertenece,
-	* limpiar formularios, 
-	* guardar cambios, y visualizar los datos de los mismos una vez ingresados en un datagrid.
+Es posible visualizar los datos en el datagrid o bien imprimirse.
+
+### 5.7 Empleados
+
+Al igual que el formulario de Clientes este permite:
+- Registrar un nuevo empleado ingresando sus datos personales y el perfil al cual pertenece.
+- Limpiar formularios.
+- Guardar cambios, y visualizar los datos de los mismos una vez ingresados en un datagrid.
 En el mismo, se podrá editar y cambiar de estado a cada empleado, de Activo a Inactivo y viceversa. 
 Además, los botones permiten visualizar listados de todos los empleados, los activos e inactivos respectivamente.
-
-## 5.8 Productos
 	
- ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Empleados.png)
+
+Ejemplo de como al seleccionar una fila se traen los datos a los Textboxs:
+
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/9d3237dc23ac2557b64fa5e49486cceeab434072/Im%C3%A1genesManual/ModificarDatos.png)
+
+### 5.8 Productos
      
-Permite:		
-	* Registrar un nuevo producto y seleccionar su categoría correspondiente,
- 	*limpiar campos, 
-	*Guardar cambios y visualizar los datos de los productos en un Datagrid.
+Al igual que el formulario de Empleados y Clientes este permite:		
+- Registrar un nuevo producto y seleccionar su categoría correspondiente.
+- Limpiar campos.
+- Guardar cambios y visualizar los datos de los productos en un Datagrid.
 En el mismo, se podrá editar y cambiar de estado a cada producto, de Disponible a Eliminado y viceversa.
 Además, los botones permiten visualizar listados de todos los productos, los disponibles y aquellos eliminados, respoctivamente.
 
-## 5.9 Backup
-	
-![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png)
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Productos.png)
+
+### 5.9 Backup
 
 Permite realizar un respaldo de la información de la base de datos en un archivo .bak.
-Se debe seleccionar la base de datos y verificar su conexión, así como la ruta donde se guardará.
+- La base de datos es selecionada por defecto y se puede verificar su conexión (esto para saber si funciona).
+- Se debe seleccionar la Ruta donde se va a guardar el archivo, al presionar el botón Ruta se abrirá el explorador de archivos y se podrá seleccionar la carpeta donde nos gustaría guardar.
 
+![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Backup.png)
 
 ## 6. Estructura de Datos
 
