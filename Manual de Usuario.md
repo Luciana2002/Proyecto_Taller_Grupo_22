@@ -3,9 +3,8 @@
 
 ## 1. Introducción
 
-Esta aplicación permite gestionar productos a partir de una base de datos, en un contexto de ventas presenciales. 
-Está orientado a usuarios pertenecientes a una empresa de comercialización de accesorios de celulares, siendo estos: 
-Administradores, Gerentes, y Empleados.
+Esta aplicación permite gestionar las ventas de un negocio a partir de una base de datos. 
+Está orientado los empleados pertenecientes de una empresa de comercialización de accesorios para celulares.
 
 ## 2. Requisitos del Sistema
 
@@ -46,7 +45,7 @@ Para que la aplicación MAGIC SHOP funcione correctamente, es necesario configur
  * Guardar y ejecutar la aplicación:
 
     Guardar el archivo AppConfig después de configurar la cadena de conexión.  
-    Luego, ejecutar la aplicación desde Visual Studio. La aplicación debería conectarse a la base de datos configurada y estar lista para gestionar productos.
+    Luego, ejecutar la aplicación desde Visual Studio. La aplicación debería conectarse a la base de datos configurada y estar lista para funcionar.
 
 ## 5. Guía de Uso
    
@@ -92,8 +91,8 @@ Nombre, Apellido, Sexo, E-mail, DNI, Teléfono y Cumpleaños.
 La interfaz permite:
 *Registrar clientes nuevos ingresando sus datos en el formulario (Nombre, Apellido, E-mail, Teléfono, Sexo, Cumpleaños, DNI).
 *Limpiar campos de ser necesario.
+*Visualizar y editar los datos de cualquier cliente a través de un Datagrid. Si se quiere modificar algún dato se debe presionar sobre la primera columna en la fila que desea modificar y esto hará que los datos de ese Cliente se carguen en los Textbox de arriba, así podrá editarlos más fácilmente.
 *Guardar cambios.
-*Visualizar y editar los datos de cualquier cliente a través de un Datagrid.
 *En el mismo Datagrid, es posible cambiar el estado de un cliente de Activo a Inactivo mediante una columna de botón.
 *Existen tres botones que permiten generar una lista de todos los clientes, aquellos que se encuentran activos y los inactivos, respectivamente.
 
@@ -101,15 +100,21 @@ La interfaz permite:
 
 ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/Venta.png)
 
-La interfaz permite:
-* Registrar las ventas realizadas.
-* Debe ingresarse: 
-	- Los datos del vendedor (ID y Nombre),
-	 -Cantidad de productos.	
-	- El método de pago a utilizar (por medio de un combo box).
-Se calculará el total a pagar.
-*Visualizar un listado con el detalle de las ventas realizadas. Este puede filtrarse por diferentes criterios, como ser el ID de venta, o fecha.
-*Se puede confirmar la venta mediante un botón.
+*La interfaz permite registrar las ventas realizadas, pero antes se necesita proporcionar ciertos datos:
+- Para poder obtener el ID del cliente o del producto se debe presionar el botón Buscar junto al Textbox correspondiente, este hará que se abra un nuevo formulario qué mostrará una lista de clientes o de productos según cual se presione.
+- El ID del vendedor se obtiene automáticamente, esto porque se registra cual es el usuario que inició sesión.
+- Debe ingresarse la cantidad de productos que se va a comprar el cliente, el subtotal se calcula automáticamente.
+
+*Si ya se proporcionaron estos datos se debe presionar el botón de agregar, esto hace que la información del producto justo con la cantidad que se desea adquirir se carguen al datagrid1.
+
+*Si se quiere eliminar un producto de la lista puede presionar la X en la columna eliminar.
+
+*Una vez cargados los todos los productos debe elegir el método de pago y presionar el botón confirmar para registrar la venta, este a su vez actualiza el stock de el/los productos que se vendieron y limpia el datagrid1 para la próxima venta.
+
+*Debajo se visualiza un listado con el detalle de las ventas realizadas, en este se puede:
+- Buscar una venta específica filtrando los resultados por diferentes criterios, como ser el ID de venta, o fecha.
+- Al hacer doble Click sobre la fila este abrirá un nuevo formulario que muestra todos los detalles de esa venta.
+También al momento de registrarse una nueva venta este se actualiza mostrando la nueva venta realizada.
 
    ## 5.5.1. Buscar CLiente
 
@@ -148,10 +153,12 @@ Permite generar reportes de las ventas dentro de un periodo de tiempo selecciona
   
 ![](https://github.com/Luciana2002/Proyecto_Taller_Grupo_22/blob/master/Im%C3%A1genesManual/ReporteGerente.png)
 
-Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado
-          *Recaudación
-          *Productos más vendidos
-	  *Total de ventas realizadas
+Permite generar reportes de las ventas dentro de un periodo de tiempo seleccionado y por uno de estos criterios:
+
+*Recaudación
+*Productos más vendidos
+*Total de ventas realizadas
+
 Es posible visualizar los datos en un datagrid o bien imprimirse.
           
 ## 5.6.3.1. Buscar Empleado
