@@ -609,10 +609,10 @@ namespace Proyecto_Taller_Grupo_22
                 if (e.ColumnIndex == dataGridView1.Columns["btnChangeStatus"].Index && e.RowIndex >= 0)
                 {
                     // Verifica que el ID no sea nulo antes de intentar convertir
-                    if (dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value != DBNull.Value)
+                    if (dataGridView1.Rows[e.RowIndex].Cells[1].Value != DBNull.Value)
                     {
                         // Obtén el ID de la persona desde la fila seleccionada
-                        int idPersona = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_persona"].Value);
+                        int idUsuario = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value);
 
                         // Variable para almacenar el estado actual
                         string estadoActual = "";
@@ -622,10 +622,10 @@ namespace Proyecto_Taller_Grupo_22
                         {
                             conexion.Open();
                             // Consulta para obtener el estado actual desde la base de datos
-                            string queryEstado = "SELECT estado FROM Persona WHERE id_persona = @idPersona";
+                            string queryEstado = "SELECT estado FROM Persona WHERE id_persona = @idUsuario";
                             using (SqlCommand comando = new SqlCommand(queryEstado, conexion))
                             {
-                                comando.Parameters.AddWithValue("@idPersona", idPersona);
+                                comando.Parameters.AddWithValue("@idUsuario", idUsuario);
                                 SqlDataReader reader = comando.ExecuteReader();
                                 if (reader.Read())
                                 {
@@ -634,11 +634,10 @@ namespace Proyecto_Taller_Grupo_22
                             }
                         }
 
-                        // Cambiar el estado de "Activo" a "Inactivo" o viceversa
                         string nuevoEstado = estadoActual == "A" ? "I" : "A";
 
                         // Actualiza el estado en la base de datos
-                        UpdateStatusInDatabase(idPersona, nuevoEstado);
+                        UpdateStatusInDatabase(idUsuario, nuevoEstado);
                     }
                     else
                     {
@@ -653,7 +652,7 @@ namespace Proyecto_Taller_Grupo_22
             }
         }
 
-        private void UpdateStatusInDatabase(int idPersona, string nuevoEstado)
+        private void UpdateStatusInDatabase(int idUsuario, string nuevoEstado)
         {
             using (SqlConnection conexion = new SqlConnection("server=.; database=taller_db_1; integrated security=true"))
             {
@@ -662,14 +661,14 @@ namespace Proyecto_Taller_Grupo_22
                 {
                     try
                     {
-                        string query = "UPDATE Persona SET estado = @estado WHERE id_persona = @id_persona";
+                        string query = "UPDATE Persona SET estado = @estado WHERE id_persona = @id_producto";
 
-                        using (SqlCommand cmdUpdatePersona = new SqlCommand(query, conexion, transaction))
+                        using (SqlCommand cmdUpdateUsuario = new SqlCommand(query, conexion, transaction))
                         {
 
-                            cmdUpdatePersona.Parameters.AddWithValue("@id_persona", idPersona);
-                            cmdUpdatePersona.Parameters.AddWithValue("@estado", nuevoEstado);
-                            cmdUpdatePersona.ExecuteNonQuery();
+                            cmdUpdateUsuario.Parameters.AddWithValue("@id_producto", idUsuario);
+                            cmdUpdateUsuario.Parameters.AddWithValue("@estado", nuevoEstado);
+                            cmdUpdateUsuario.ExecuteNonQuery();
                         }
 
                         transaction.Commit();
