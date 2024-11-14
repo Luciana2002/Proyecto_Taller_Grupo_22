@@ -441,7 +441,7 @@ namespace Proyecto_Taller_Grupo_22
                     // Verifica que el ID no sea nulo antes de intentar convertir
                     if (dataGridView1.Rows[e.RowIndex].Cells["id_producto"].Value != DBNull.Value)
                     {
-                        // Obtén el ID de la producto desde la fila seleccionada
+                        // Obtén el ID del producto desde la fila seleccionada
                         int idProducto = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_producto"].Value);
 
                         // Variable para almacenar el estado actual
